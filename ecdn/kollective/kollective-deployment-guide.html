@@ -1,0 +1,1083 @@
+﻿<!doctype html>
+<html lang="es-es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="En este tema, aprenderá cómo integrar el eCDN Kollective con Brightcove Player.">
+  
+  <title>Guía de implementación de eCDN de Kollective</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="logotipo del producto" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">Seleccionar idioma</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+      <option value="">Otros documentos de Brightcove</option>
+      
+        
+          <option value="https://support.brightcove.com">Documentación Inicio</option>
+        
+      
+        
+          <option value="https://audience.support.brightcove.com">Audiencia de Brightcove</option>
+        
+      
+        
+          <option value="https://beacon.support.brightcove.com">Baliza Brightcove</option>
+        
+      
+        
+          <option value="https://campaign.support.brightcove.com">Campaña de Brightcove</option>
+        
+      
+        
+          <option value="https://engage.support.brightcove.com">Brightcove Engage</option>
+        
+      
+        
+          <option value="https://live.support.brightcove.com">Brightcove Live</option>
+        
+      
+        
+          <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
+        
+      
+        
+          <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
+        
+      
+        
+          <option value="https://social.support.brightcove.com">Brightcove Social</option>
+        
+      
+        
+          <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
+        
+      
+        
+          <option value="https://player.support.brightcove.com">Desarrollo de jugadores de Brightcove</option>
+        
+      
+        
+          <option value="https://apis.support.brightcove.com">API para la plataforma de Video Cloud</option>
+        
+      
+        
+          <option value="https://sdks.support.brightcove.com">SDK de dispositivos de Video Cloud</option>
+        
+      
+        
+          <option value="https://integrations.support.brightcove.com">Integraciones y conectores CMS</option>
+        
+      
+        
+          <option value="https://general.support.brightcove.com">Información general de Video Cloud</option>
+        
+      
+        
+          <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+        
+      
+    </select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="soporte"/> Contactar con Soporte</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/">Estado<img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="estado del sistema"/> del sistema</a></span> <br/>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+      
+      
+      
+      <li class="breadcrumb-item">Kollectivo<a href="/ecdn/kollective/"></a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Guía de implementación de eCDN de Kollective</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav" id="side_nav">
+          
+            
+            <h5><a href="/index.html">Inicio</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/general/index.html">Información general <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/general/cms-integration-training-videos.html">Vídeos de capacitación sobre integración de CMS</a></li>
+                  
+                
+                  
+                    <li><a href="/general/integrating-your-cms-video-cloud.html">Integración de su CMS con Video Cloud</a></li>
+                  
+                
+                  
+                    <li><a href="/general/embedding-brightcove-players-cms.html">Incorporación de reproductores de Brightcove en un CMS</a></li>
+                  
+                
+                  
+                    <li><a href="/general/embedding-brightcove-page-experiences-cms.html">Incorporación de experiencias en página en un CMS</a></li>
+                  
+                
+                  
+                    <li><a href="/general/debugging-network-and-api-connection-issues-cms-and-dam-integrations.html">Depuración de problemas de conexión de red y API</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header">WordPress +<a href="/wordpress/index.html"><strong></strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/wordpress/getting-started-brightcove-video-connect-wordpress-cms.html">Introducción a Brightcove Video Connect</a></li>
+                  
+                
+                  
+                    <li><a href="/wordpress/wordpress-brightcove-connector-configuration.html">Configuración</a></li>
+                  
+                
+                  
+                    <li><a href="/wordpress/wordpress-brightcove-connector-frequently-asked-questions.html">Preguntas Frecuentes</a></li>
+                  
+                
+                  
+                    <li><a href="/wordpress/wordpress-brightcove-connector-installation.html">Instalación</a></li>
+                  
+                
+                  
+                    <li>Uso del conector<a href="/wordpress/wordpress-brightcove-connector-using-connector.html"></a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/drupal/index.html">Drupal <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/drupal/getting-started-brightcove-video-connect-drupal-cms.html">Introducción al conector para Drupal</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-8-brightcove-connector-configuration.html">Drupal 8 - Configuración</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-8-brightcove-connector-content-management.html">Drupal 8 - Gestión de Contenido</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-8-brightcove-connector-embedding-content.html">Drupal 8 - Incrustar contenido</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-8-brightcove-connector-installation.html">Drupal 8 - Instalación del conector</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-7-brightcove-connector-configuration-and-usage.html">Drupal 7 - Configuración y uso</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-7-brightcove-connector-installation.html">Drupal 7 - Instalación</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/adobe/index.html">Adobe <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/adobe/getting-started-brightcove-video-connect-adobe-experience-manager.html">Introducción al conector para AEM</a></li>
+                  
+                
+                  
+                    <li><a href="/adobe/adobe-aem-brightcove-connector-configuration.html">Configuración</a></li>
+                  
+                
+                  
+                    <li><a href="/adobe/adobe-aem-brightcove-connector-installation.html">Instalación</a></li>
+                  
+                
+                  
+                    <li>Resumen<a href="/adobe/adobe-aem-brightcove-connector-overview.html"></a></li>
+                  
+                
+                  
+                    <li>Uso del conector<a href="/adobe/adobe-aem-brightcove-connector-using-connector.html"></a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header">Sitecore +<a href="/sitecore/index.html"><strong></strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/sitecore/getting-started-brightcove-video-connect-sitecore-experience-platform.html">Introducción al conector para Sitecore</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header">SharePoint +<a href="/sharepoint/index.html"><strong></strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/sharepoint/getting-started-brightcove-video-connect-sharepoint.html">Introducción a Connector para Sharepoint</a></li>
+                  
+                
+                  
+                    <li>Uso del conector<a href="/sharepoint/sharepoint-brightcove-connector-4041-using-connector.html"></a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/ecommerce/index.html">Comercio electrónico <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      Salesforce Commerce Cloud +<a href="/ecommerce/salesforce/index.html"><strong></strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li>Salesforce Commerce Cloud:<a href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-installation.html"> Instalación</a></li>
+                        
+                        <li>Salesforce Commerce Cloud:<a href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-user-guide.html"> Guía del usuario</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecommerce/adobe-magento-commerce/index.html">Adobe Magento Commerce <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecommerce/adobe-magento-commerce/installation-guide.html">Guía de instalación</a></li>
+                        
+                        <li>Guía del usuario<a href="/ecommerce/adobe-magento-commerce/user-guide.html"></a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/ecdn/index.html">eCDN <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      Kollective +<a href="/ecdn/kollective/index.html"><strong></strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li>Guía de implementación de eCDN de Kollective<a href="/ecdn/kollective/kollective-deployment-guide.html"></a></li>
+                        
+                        <li>Guía del usuario de Kollective eCDN<a href="/ecdn/kollective/kollective-user-guide.html"></a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      Peer5 +<a href="/ecdn/peer5/index.html"><strong></strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecdn/peer5/brightcove-with-peer5-integration.html">Brightcove con integración Peer5</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      Rampa +<a href="/ecdn/ramp/index.html"><strong></strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecdn/ramp/getting-started-ramp-omnicache-and-video-cloud.html">Introducción a Ramp Omnicache y Video Cloud</a></li>
+                        
+                        <li><a href="/ecdn/ramp/getting-started-ramp-multicast-and-video-cloud.html">Introducción a Ramp Multicast+ y Video Cloud</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header">Conferencias Web +<a href="/web-conferencing/index.html"><strong></strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li>Conferencia Zoom en Brightcove Live<a href="/web-conferencing/host-zoom-conference-brightcove-live.html"></a></li>
+                  
+                
+                  
+                    <li><a href="/web-conferencing/host-cisco-webex-conference-brightcove-live.html">Conferencia de Cisco Webex a Brightcove Live</a></li>
+                  
+                
+                  
+                    <li><a href="/web-conferencing/host-avaya-conference-brightcove-live.html">Conferencia de Avaya en Brightcove Live</a></li>
+                  
+                
+                  
+                    <li><a href="/web-conferencing/host-inxpo-live.html">Evento INXPO en Brightcove Live</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header">Soporte +<a href="/support/index.html"><strong></strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/brightcove-answer.html">Respuestas de Brightcove</a></li>
+                  
+                
+                  
+                    <li>Visualización de la página Estado del Sistema de Brightcove<a href="/support/viewing-brightcove-system-status-page.html"></a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">Contacto con Ventas</a></li>
+                  
+                
+                  
+                    <li>Apertura de un caso de soporte<a href="/support/opening-case-with-brightcove-support.html"></a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menú de navegación"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">Contenido de la página</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="abrir en una nueva pestaña" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+  
+    
+
+
+<h1>Guía de implementación de eCDN de Kollective</h1>
+<article class="bcls-article">
+  <summary>En este tema, aprenderá cómo integrar el eCDN Kollective con Brightcove Player.</summary>
+
+<section class="bcls-section">
+<h2 id="Overview">Resumen</h2>
+
+<p>
+  Brightcove ha creado una integración para entregar eventos Video On Demand (VOD) y Brightcove Live a los reproductores de Brightcove mediante el <a href="https://kollective.com/ECDN-solutions/">eCDN Kollective</a>.
+</p>
+
+<p>Una solución eCDN ayuda con la entrega de contenido a las redes corporativas. Alivian los cuellos de botella de la red cuando tiene un gran número de visores simultáneos que ven el mismo contenido, como en las oficinas corporativas. Con eCDN, puede descargar contenido de vídeo del servidor de origen una vez para cada instancia del servidor eCDN. Los visores de la red corporativa reciben el contenido del servidor eCDN a través de la LAN. </p>
+<p>Algunas de las ventajas de utilizar un eCDN incluyen las siguientes:</p>
+<ul>
+  <li>
+    Reducción del tráfico WAN para ubicaciones corporativas
+  </li>
+  <li>
+    Experiencia de visualización mejorada a escala
+  </li>
+  <li>
+    Reducción de los costos de red
+  </li>
+  <li>
+    Mayor seguridad ya que el eCDN está detrás del cortafuegos corporativo
+  </li>
+  <li>
+    Supervisión del rendimiento
+  </li>
+</ul>
+</section>
+
+<section class="bcls-section">
+<h2 id="Requirements">Requisitos</h2>
+<p>
+  Los siguientes requisitos se aplican al complemento eCDN:
+</p>
+<ul>
+  <li>
+    Debe utilizar una versión 6.42.2+ de Brightcove Player
+  </li>
+  <li>
+    Los vídeos deben ser ingeridos para la entrega dinámica
+  </li>
+</ul>
+</section>
+
+<section class="bcls-section">
+<h2 id="Getting_started">Introducción</h2>
+<p>
+  Para usar el plugin kollective, necesitará alguna configuración inicial:
+</p>
+<ol class="bcls-tasklist">
+  <li>
+    <a href="#Deploying_server_side_application">Implementación de la aplicación del lado del servidor</a>
+  </li>
+  <li>
+    <a href="#Installing_the_player_plugin">Instalación del plugin del reproductor</a>
+  </li>
+  <li>
+    <a href="#Whitelisting_domain_names">Incluir nombres de dominio en listas blancas</a>
+  </li>
+  <li>
+    <p>
+      Ahora que ha completado los pasos de implementación, está listo para sincronizar el contenido e incrustar el código del reproductor. Para obtener más información, consulte lo siguiente:
+    </p>
+    <ul>
+      <li>
+          Guía del usuario de Kollective eCDN<a href="/ecdn/kollective/kollective-user-guide.html"></a>
+      </li>
+    </ul>
+
+  </li>
+</ol>
+</section>
+
+<section class="bcls-section">
+<h2 id="Deploying_server_side_application">Implementación de la aplicación del lado del servidor</h2>
+<p>La aplicación ECDN backend debe implementarse en el servidor.</p>
+
+<h3>Requisitos del servidor</h3>
+<p>
+  Los siguientes requisitos se aplican al servidor de alojamiento para la aplicación back-end.
+</p>
+<ul>
+  <li>
+    NodeJS versión 13+
+  </li>
+  <li>
+    Servidor de alojamiento: Servidor Linux o Windows (la aplicación backend también se puede implementar en Heroku)
+  </li>
+  <li>
+    Base de datos MongoDB
+  </li>
+</ul>
+<p>
+  El MongoDB puede estar en el mismo servidor que el servidor de alojamiento, en otro servidor o usando una <a href="https://www.mongodb.com/cloud">base de datos en la nube MongoDB Atlas</a>.
+</p>
+
+<h3>Configuración de configuraciones</h3>
+<p>
+  Realizará algunos cambios de configuración para la aplicación back-end. Siga estos pasos:
+</p>
+<ol class="bcls-tasklist-restart">
+  <li>
+    En el directorio raíz del paquete de implementación de aplicaciones back-end, abra el archivo <strong>config.env</strong> .
+  </li>
+  <li>
+    <p>
+      <strong>Modo de producción</strong> - Establezca el modo para ejecutar la aplicación en producción o desarrollo.
+    </p>
+    <p>
+      Tampoco
+    </p>
+    <pre>
+<code class="language-bash" translate="No">NODE_ENV=production</code></pre>
+<p>
+  o bien
+</p>
+<pre>
+<code class="language-bash" translate="No">NODE_ENV=development</code></pre>
+  </li>
+  <li>
+    <p>
+      <strong>Puerto de aplicación</strong> - Establezca el puerto en el que se ejecutará la aplicación.
+    </p>
+    <p>
+      Ejemplo:
+    </p>
+    <pre>
+<code class="language-bash" translate="No">PORT=3000</code></pre>
+  </li>
+   <li>
+    <p>
+      <strong>Base de datos</strong> - La aplicación back-end requiere una base de datos MongoDB.
+    </p>
+    <p>
+      Puede especificar la conexión de base de datos con el siguiente formato:
+    </p>
+     <pre>
+<code class="language-bash" translate="No">DATABASE=mongodb://{host}:{port}/{databaseName}</code></pre>
+    <p>
+      Ejemplo:
+    </p>
+    <pre>
+<code class="language-bash" translate="No">DATABASE=mongodb://localhost:27017/Brightcove</code></pre>
+    <p>
+      Si desea utilizar una base de datos en la nube MongoDB Atlas, puede configurarla de la siguiente manera:
+    </p>
+    <pre>
+<code class="language-bash" translate="No">DATABASE=mongodb+srv://{user}:{password}@{cluster}/{databaseName}?retryWrites=true&amp;w=majority</code></pre>
+<p>
+      Ejemplo:
+    </p>
+    <pre>
+<code class="language-bash" translate="No">DATABASE=mongodb+srv://myuser:mypassword@cluster0-xafsz.mongodb.net/MyDatabase?retryWrites=true&amp;w=majority</code></pre>
+  </li>
+  <li>
+    <p>
+      <strong>Servicio de correo electrónico</strong> : la aplicación back-end requiere una configuración de servicio de correo electrónico para enviar correos electrónicos de notificación.
+    </p>
+    <h5>SendGrid</h5>
+    <p>
+      Para enviar correos electrónicos mediante el servicio de correo electrónico SendGrid, utilice lo siguiente junto con su nombre de usuario y contraseña de SendGrid:
+    </p>
+    <pre>
+<code class="language-bash" translate="No"># Send email using Sendgrid email service.
+EMAIL_SERVICE=SendGrid
+
+# Send email using Sendgrid email service.
+SENDGRID_USERNAME=<span class="bcls-input">your SendGrid username</span>
+SENDGRID_PASSWORD=<span class="bcls-input">your SendGrid password</span>
+</code></pre>
+    <h5>Otro</h5>
+    <p>
+      Para enviar correos electrónicos mediante otros servicios de correo electrónico, utilice lo siguiente con el host del servidor de correo electrónico, puerto y nombre de usuario, contraseña:
+    </p>
+    <pre>
+<code class="language-bash" translate="No"># Set EMAIL_SERVICE=Other to send email using normal email service using host and port
+EMAIL_SERVICE=Other
+
+# Send email using host and port
+EMAIL_HOST=<span class="bcls-input">your email host</span>
+EMAIL_PORT=<span class="bcls-input">your email port</span>
+EMAIL_USERNAME=<span class="bcls-input">your email username</span>
+EMAIL_PASSWORD=<span class="bcls-input">your email password</span>
+EMAIL_FROM=<span class="bcls-input">your email from address</span>
+</code></pre>
+  </li>
+  <li>
+    <p>
+      <strong>URL base de la API de publicación de Kollective</strong> : la aplicación del lado del servidor llama a la API de publicación de Kollective para publicar un vídeo desde Brightcove con fuentes de vídeo en Kollective y obtener un token de contenido. Aquí, especifique la URL base de la API de publicación de Kollective:
+    </p>
+    <pre>
+<code class="language-bash" translate="No"># Kollective publish API base url
+KOLLECTIVE_PUBLISH_API_BASE_URL=https://content.stage.kollective.app/api
+</code></pre>
+  </li>
+  <li>
+    <p>
+      <strong>URL base de la API de Brightcove</strong> : la aplicación del lado del servidor necesita las siguientes direcciones URL base de la API de Brightcove:
+    </p>
+    <pre>
+<code class="language-bash" translate="No"># Brightcove API base URLs
+BRIGHTCOVE_ACCESS_TOKEN_BASE_URL=https://oauth.brightcove.com/v4/access_token
+BRIGHTCOVE_CMS_API_BASE_URL=https://cms.api.brightcove.com/v1
+BRIGHTCOVE_LIVE_API_BASE_URL=https://api.bcovlive.io/v1
+</code></pre>
+  </li>
+  <li>
+    <p>
+      <strong>Nombres de campo personalizados</strong> : no se pueden cambiar los siguientes parámetros de nombre de campos personalizados:
+    </p>
+    <pre>
+<code class="language-bash" translate="No"># Required custom field names for each Brightcove Account ID
+CUSTOM_FIELD_KOLLECTIVE_CONTENT_TOKEN=kollective_content_token
+CUSTOM_FIELD_KOLLECTIVE_IS_SYNCHRONIZED=kollective_is_synchronized
+CUSTOM_FIELD_KOLLECTIVE_SYNCHRONIZED_TIME=kollective_synchronized_time
+CUSTOM_FIELD_KOLLECTIVE_LAST_SYNC_STATUS=kollective_last_sync_status
+</code></pre>
+  </li>
+</ol>
+
+<h3>Agregar campos personalizados</h3>
+<p>
+  A continuación, está listo para definir los campos personalizados necesarios en Video Cloud Studio.
+</p>
+<ol class="bcls-tasklist">
+  <li>
+    <p>
+      En Video Cloud Studio, expanda el menú desplegable <strong>Administrador</strong> y seleccione <strong>Campos de vídeo</strong>.
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Campos del vídeo" src="/assets/images/kollective/video-fields.png"/>
+      <figcaption class="bcls-caption--image">Campos del vídeo</figcaption>
+    </figure>
+  </li>
+  <li>
+    <p>
+      En la página Campos de vídeo, seleccione el botón <strong>Agregar campo personalizado</strong> .
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Agregar campo personalizado" src="/assets/images/kollective/add-custom-field.png"/>
+      <figcaption class="bcls-caption--image">Agregar campo personalizado</figcaption>
+    </figure>
+  </li>
+  <li>
+    <p>
+      Aquí, agregará campos personalizados requeridos para Kollective.
+    </p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Valores de campo personalizados" src="/assets/images/kollective/custom-field-values.png"/>
+      <figcaption class="bcls-caption--image">Valores de campo personalizados</figcaption>
+    </figure>
+    <p>
+      Cada ID de cuenta de Brightcove que se va a utilizar para una cuenta de sindicador necesita los siguientes nombres de campo personalizados definidos para que funcione la sincronización:
+    </p>
+    <table class="bcls-table">
+      <caption class="bcls-caption--table">Resumen de la función de balizas de Brightcove</caption>
+      <thead class="bcls-table__head">
+        <tr>
+          <th style="text-align: center;width:70%;">Nombre del campo personalizado</th>
+          <th style="text-align: center;width:30%;">Tipo</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>kollective_content_token</td>
+          <td style="text-align: center;">text</td>
+        </tr>
+        <tr>
+          <td>kollective_is_synchronized</td>
+          <td style="text-align: center;">text</td>
+        </tr>
+        <tr>
+          <td>kollective_synized_time</td>
+          <td style="text-align: center;">text</td>
+        </tr>
+        <tr>
+          <td>kollective_last_sync_status</td>
+          <td style="text-align: center;">text</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      En la página Detalles del campo de vídeo, introduzca lo siguiente:
+    </p>
+    <ul>
+      <li>
+        Nombre para mostrar: introduzca los nombres de campo personalizados de la tabla anterior. Guarde cada campo por separado.
+      </li>
+      <li>
+        Nombre interno: se genera a partir del nombre para mostrar.
+      </li>
+      <li>
+        Deje el <strong>tipo</strong> como <strong>texto</strong>
+      </li>
+      <li>
+        Introducir una <strong>descripción</strong>
+      </li>
+      <li>
+        Deje la opción <strong>Hacer que este campo sea obligatorio</strong> NO seleccionada
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h3>Implementación de la aplicación</h3>
+<p>
+  Después de realizar todos los cambios de configuración necesarios y agregar los campos personalizados requeridos, estará listo para implementar la aplicación back-end en el servidor.
+</p>
+<ol class="bcls-tasklist">
+  <li>
+    Copie el paquete de aplicación del lado del servidor en la carpeta de implementación de destino del servidor de alojamiento.
+  </li>
+  <li>
+    <p>
+      Abra una aplicación de consola y vaya a la carpeta raíz del paquete de aplicación en el paso anterior. Ejecute el siguiente comando para instalar todos los paquetes de Node necesarios:
+    </p>
+    <pre>
+<code class="language-bash" translate="No"># npm install --production
+</code></pre>
+  </li>
+  <li>
+    <p>
+      Ejecute el siguiente comando para importar el usuario super-admin predeterminado:
+    </p>
+    <pre>
+<code class="language-bash" translate="No"># npm run import-users
+</code></pre>
+  </li>
+  <li>
+    <p>
+      Para iniciar la aplicación backend, ejecute el siguiente comando:
+    </p>
+    <pre>
+<code class="language-bash" translate="No"># npm run start
+</code></pre>
+  </li>
+  <li>
+    <p>
+      Si todo está configurado correctamente, puede abrir la aplicación en un navegador usando la dirección configurada.
+    </p>
+    <p>
+      Ejemplo:
+    </p>
+    <pre>
+<code class="language-bash" translate="No">http://localhost:3000/login
+</code></pre>
+  </li>
+  <li>
+    <p>
+      Inicie sesión en la aplicación con el usuario super-admin predeterminado importado anteriormente.
+    </p>
+    <ul>
+      <li>
+        Nombre de usuario: super-admin@brightcove.com
+      </li>
+      <li>
+        Contraseña: BR1ghtC0ve
+      </li>
+    </ul>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Inicio de sesión del lado del servidor" src="/assets/images/kollective/backend-login.png"/>
+      <figcaption class="bcls-caption--image">Inicio de sesión del lado del servidor</figcaption>
+    </figure>
+  </li>
+</ol>
+</section>
+
+<section class="bcls-section">
+<h2 id="Installing_the_player_plugin">Instalación del plugin del reproductor</h2>
+<p>
+  Para integrar Kollective con Brightcove Player, agregue el plugin Kollective a su reproductor.
+</p>
+
+	<aside class="bcls-aside bcls-aside--tip">
+      El complemento Kollective es compatible con la versión v6.45+ de Brightcove Player.
+    </aside>
+<p>
+      Los siguientes pasos detallan el uso de Video Cloud Studio para cargar el complemento.
+    </p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        En Video Cloud Studio, abra el módulo <strong>PLAYERS</strong> y cree un nuevo reproductor o localice el reproductor al que desea agregar el plugin.
+      </li>
+      <li>Seleccione el enlace para que el reproductor abra las propiedades del reproductor.</li>
+      <li>Seleccione Plugins en el menú de navegación de la izquierda.<strong></strong></li>
+      <li>
+        <p>
+          A continuación, seleccione el botón Agregar un complemento y, a continuación, seleccione Brightcove Plugin.<strong></strong><strong></strong>
+        </p>
+
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Botón Agregar un Plugin" src="/assets/images/ecdn/kollective/add-a-plugin.png"/>
+          <figcaption class="bcls-caption--image">
+            Botón Agregar un Plugin
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          Expanda el menú desplegable <strong>Brightcove Plugin</strong> y seleccione <strong>kollective</strong>.
+        </p>
+
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Plugin Kollective" src="/assets/images/ecdn/kollective/kollective_plugin.png"/>
+          <figcaption class="bcls-caption--image">
+            Plugin Kollective
+          </figcaption>
+        </figure>
+      </li>
+  <li>
+    <p>
+      Para las <strong>opciones (JSON)</strong>: Introduzca lo siguiente:
+        </p>
+        <ul>
+          <li>
+            <code translate="No">ksdkUrl</code> - Puntos a la <code translate="No">ksdk</code> biblioteca de Kollective — utilice la versión de su elección
+          </li>
+        </ul>
+    <pre>
+<code class="language-bash" translate="No">{
+    "ksdkUrl": "<span class="bcls-input">ksdk URL</span>”
+}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>
+    Seleccione el botón Guardar.<strong></strong>
+  </li>
+  <li>
+    Publica tu reproductor.
+  </li>
+  <li>
+	Actualizar/cambiar el código de inserción de <span class="bcls-input">data-video-id</span> a <span class="bcls-input">data-kollective-video-id</span>.
+  </li>
+<aside class="bcls-aside bcls-aside--warning">
+    Al incrustar un reproductor para su uso con la integración de Kollective, debe actualizar/cambiar el código de inserción de <span class="bcls-input">data-video-id</span> a <span class="bcls-input">data-kollective-video-id</span>.
+  </aside>
+</ol>
+</section>
+
+<section class="bcls-section">
+<h2 id="Whitelisting_domain_names">Incluir nombres de dominio en listas blancas</h2>
+<p>
+  Kollective necesita agregar sus nombres de dominio a su lista blanca para que no aparezca un error CORS. Proporcione los siguientes nombres de dominio a Kollective:
+</p>
+<ul>
+  <li>
+    <p>
+      El nombre de dominio en el que implementó la aplicación del lado del servidor
+    </p>
+  </li>
+  <li>
+    <p>
+      El dominio en el que implementó sus páginas web
+    </p>
+  </li>
+</ul>
+<p>
+  Por ejemplo, si tiene una página en <strong>https://my-server.com/my-video-page</strong> que utiliza Brightcove Player con el complemento Kollective, entonces el dominio <strong>my-server.com</strong> debe agregarse a la lista blanca de Kollective. Esto permitirá la reproducción en la página sin devolver un error CORS.
+</p>
+</section>
+
+
+<!-- <section class="bcls-section">
+<h2 id="Limitations">Limitations</h2>
+
+<p>Here are the limitation associated with the thumbnails plugin.</p>
+
+<ul>
+	<li>The current version of this plugin does not support thumbnails on mobile devices.</li>
+</ul>
+</section>
+
+<section class="bcls-section">
+<h2 id="Changelog">Changelog</h2>
+
+<p>See the <a href="/plugins/changelog/thumbnails-plugin-changelog.html">changelog here</a>.</p>
+</section> -->
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">Contenido de la página</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  Última actualización de la página el 06 oct 2020
+</div>
+
+
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Asistencia técnica de Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            Estado del sistema<a href="https://status.brightcove.com"></a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Contactar soporte</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">Documentación</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Formación</h2>
+
+        <ul class="menu">
+          <li>
+            Cursos en línea<a href="https://studio.support.brightcove.com/training/online-training-courses.html"></a>
+          </li>
+          <li>
+            Inscríbete a un curso<a href="https://studio.support.brightcove.com/training/register-training.html"></a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">Universidad de Brightcove</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">BrightCove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Contáctanos</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
+            </td>
+            <td>Privacidad | Términos y Condiciones<a href="https://www.brightcove.com/en/legal/privacy"></a><a href="https://www.brightcove.com/en/terms-and-conditions"></a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(2, 28, 146);color:Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">¿Tiene alguna pregunta? </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+      
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+  
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
+  <script src="/assets/js/talla-init.js"></script>
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>
