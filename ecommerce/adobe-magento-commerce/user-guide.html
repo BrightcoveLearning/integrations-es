@@ -1,561 +1,138 @@
-﻿<!doctype html>
-<html lang="es-es">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="robots" content="noindex,nofollow"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Este documento proporciona instrucciones paso a paso para utilizar la extensión Brightcove para Adobe Magento Commerce.">
-  
-  <title>Guía del usuario de la extensión Adobe Magento Commerce</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">  
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="logotipo del producto" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">Seleccionar idioma</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-    
-
-
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="soporte"/> Contactar con Soporte</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/">Estado<img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="estado del sistema"/> del sistema</a></span> <br/>
-    
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/ecommerce/adobe-magento-commerce/">Comercio de Adobe Magento</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">Guía del usuario de la extensión Adobe Magento Commerce</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-            <div class="col-sm-3 left-side-bar">
-        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-          <option value="">Otros documentos de Brightcove</option>
-          
-            
-              <option value="https://support.brightcove.com">Documentación Inicio</option>
-            
-          
-            
-              <option value="https://audience.support.brightcove.com">Audiencia de Brightcove</option>
-            
-          
-            
-              <option value="https://beacon.support.brightcove.com">Baliza Brightcove</option>
-            
-          
-            
-              <option value="https://campaign.support.brightcove.com">Campaña de Brightcove</option>
-            
-          
-            
-              <option value="https://engage.support.brightcove.com">Brightcove Engage</option>
-            
-          
-            
-              <option value="https://live.support.brightcove.com">Brightcove Live</option>
-            
-          
-            
-              <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-            
-          
-            
-              <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-            
-          
-            
-              <option value="https://social.support.brightcove.com">Brightcove Social</option>
-            
-          
-            
-              <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
-            
-          
-            
-              <option value="https://player.support.brightcove.com">Desarrollo de jugadores de Brightcove</option>
-            
-          
-            
-              <option value="https://apis.support.brightcove.com">API para la plataforma de Video Cloud</option>
-            
-          
-            
-              <option value="https://sdks.support.brightcove.com">SDK de dispositivos de Video Cloud</option>
-            
-          
-            
-              <option value="https://integrations.support.brightcove.com">Integraciones y conectores CMS</option>
-            
-          
-            
-              <option value="https://general.support.brightcove.com">Información general de Video Cloud</option>
-            
-          
-            
-              <option value="https://zencoder.support.brightcove.com">Zencoder</option>
-            
-          
-        </select>
-
-        <nav class="sidenav" id="side_nav">
-          
-            
-            <h5><a href="/index.html">Inicio</a></h5>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/general/index.html">Información general <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/general/cms-integration-training-videos.html">Vídeos de capacitación sobre integración de CMS</a></li>
-                  
-                
-                  
-                    <li><a href="/general/integrating-your-cms-video-cloud.html">Integración de su CMS con Video Cloud</a></li>
-                  
-                
-                  
-                    <li><a href="/general/embedding-brightcove-players-cms.html">Incorporación de reproductores de Brightcove en un CMS</a></li>
-                  
-                
-                  
-                    <li><a href="/general/embedding-brightcove-page-experiences-cms.html">Incorporación de experiencias en página en un CMS</a></li>
-                  
-                
-                  
-                    <li><a href="/general/debugging-network-and-api-connection-issues-cms-and-dam-integrations.html">Depuración de problemas de conexión de red y API</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">WordPress +<a href="/wordpress/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/wordpress/getting-started-brightcove-video-connect-wordpress-cms.html">Introducción a Brightcove Video Connect</a></li>
-                  
-                
-                  
-                    <li><a href="/wordpress/wordpress-brightcove-connector-configuration.html">Configuración</a></li>
-                  
-                
-                  
-                    <li><a href="/wordpress/wordpress-brightcove-connector-frequently-asked-questions.html">Preguntas Frecuentes</a></li>
-                  
-                
-                  
-                    <li><a href="/wordpress/wordpress-brightcove-connector-installation.html">Instalación</a></li>
-                  
-                
-                  
-                    <li>Uso del conector<a href="/wordpress/wordpress-brightcove-connector-using-connector.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/drupal/index.html">Drupal <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/drupal/getting-started-brightcove-video-connect-drupal-cms.html">Introducción al conector para Drupal</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-8-brightcove-connector-configuration.html">Drupal 8 - Configuración</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-8-brightcove-connector-content-management.html">Drupal 8 - Gestión de Contenido</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-8-brightcove-connector-embedding-content.html">Drupal 8 - Incrustar contenido</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-8-brightcove-connector-installation.html">Drupal 8 - Instalación del conector</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-7-brightcove-connector-configuration-and-usage.html">Drupal 7 - Configuración y uso</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-7-brightcove-connector-installation.html">Drupal 7 - Instalación</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/adobe/index.html">Adobe <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/adobe/getting-started-brightcove-video-connect-adobe-experience-manager.html">Introducción al conector para AEM</a></li>
-                  
-                
-                  
-                    <li><a href="/adobe/adobe-aem-brightcove-connector-configuration.html">Configuración</a></li>
-                  
-                
-                  
-                    <li><a href="/adobe/adobe-aem-brightcove-connector-installation.html">Instalación</a></li>
-                  
-                
-                  
-                    <li>Resumen<a href="/adobe/adobe-aem-brightcove-connector-overview.html"></a></li>
-                  
-                
-                  
-                    <li>Uso del conector<a href="/adobe/adobe-aem-brightcove-connector-using-connector.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Sitecore +<a href="/sitecore/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/sitecore/getting-started-brightcove-video-connect-sitecore-experience-platform.html">Introducción al conector para Sitecore</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">SharePoint +<a href="/sharepoint/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/sharepoint/getting-started-brightcove-video-connect-sharepoint.html">Introducción a Connector para Sharepoint</a></li>
-                  
-                
-                  
-                    <li>Uso del conector<a href="/sharepoint/sharepoint-brightcove-connector-4041-using-connector.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/ecommerce/index.html">Comercio electrónico <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      Salesforce Commerce Cloud +<a href="/ecommerce/salesforce/index.html"><strong></strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li>Salesforce Commerce Cloud:<a href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-installation.html"> Instalación</a></li>
-                        
-                        <li>Salesforce Commerce Cloud:<a href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-user-guide.html"> Guía del usuario</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ecommerce/adobe-magento-commerce/index.html">Adobe Magento Commerce <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecommerce/adobe-magento-commerce/installation-guide.html">Guía de instalación</a></li>
-                        
-                        <li>Guía del usuario<a href="/ecommerce/adobe-magento-commerce/user-guide.html"></a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/ecdn/index.html">eCDN <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      Kollective +<a href="/ecdn/kollective/index.html"><strong></strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li>Guía de implementación de eCDN de Kollective<a href="/ecdn/kollective/kollective-deployment-guide.html"></a></li>
-                        
-                        <li>Guía del usuario de Kollective eCDN<a href="/ecdn/kollective/kollective-user-guide.html"></a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      Peer5 +<a href="/ecdn/peer5/index.html"><strong></strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecdn/peer5/brightcove-with-peer5-integration.html">Brightcove con integración Peer5</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      Rampa +<a href="/ecdn/ramp/index.html"><strong></strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecdn/ramp/getting-started-ramp-omnicache-and-video-cloud.html">Introducción a Ramp Omnicache y Video Cloud</a></li>
-                        
-                        <li><a href="/ecdn/ramp/getting-started-ramp-multicast-and-video-cloud.html">Introducción a Ramp Multicast+ y Video Cloud</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Conferencias Web +<a href="/web-conferencing/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li>Conferencia Zoom en Brightcove Live<a href="/web-conferencing/host-zoom-conference-brightcove-live.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/web-conferencing/host-cisco-webex-conference-brightcove-live.html">Conferencia de Cisco Webex a Brightcove Live</a></li>
-                  
-                
-                  
-                    <li><a href="/web-conferencing/host-avaya-conference-brightcove-live.html">Conferencia de Avaya en Brightcove Live</a></li>
-                  
-                
-                  
-                    <li><a href="/web-conferencing/host-inxpo-live.html">Evento INXPO en Brightcove Live</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Soporte +<a href="/support/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    
-                  
-                
-                  
-                    <li>Visualización de la página Estado del Sistema de Brightcove<a href="/support/viewing-brightcove-system-status-page.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">Contacto con Ventas</a></li>
-                  
-                
-                  
-                    <li>Apertura de un caso de soporte<a href="/support/opening-case-with-brightcove-support.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-      </nav>
-    </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
-
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menú de navegación"/></p>
-
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">Contenido de la página</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="abrir en una nueva pestaña" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-
-  
-    
-
-
-<h1>Guía del usuario de la extensión Adobe Magento Commerce</h1>
+---
+title: 'Guía del usuario de la extensión Adobe Magento Commerce'
+description: 'Este documento proporciona instrucciones paso a paso para utilizar la extensión de Brightcove para Adobe Magento Commerce.'
+parent: Adobe Magento Commerce
+layout: staging
+---
+ <h1>{{page.title}}</h1>
 <article class="bcls-article">
-  <summary>Este documento proporciona instrucciones paso a paso para utilizar la extensión Brightcove para Adobe Magento Commerce.</summary>
+  <summary>{{ page.description }}</summary>
   <section class="bcls-section">
     <h2 id="getting_started"></h2>
     <ol class="bcls-tasklist">
         <li>
           Inicie sesión en Magento Commerce:
           <figure class="bcls-figure">
-            <img class="bcls-image" src="/assets/images/adobe-magento-commerce/magento-login.png" alt="Inicio de sesión en Magento"/>
-            <figcaption class="bcls-caption--image">Inicio de sesión en Magento</figcaption>
+            <img class="bcls-image" src="/assets/images/adobe-magento-commerce/magento-login.png" alt="Magento Login">
+            <figcaption class="bcls-caption--image">Iniciar sesión en Magento</figcaption>
           </figure>
         </li>
         <li>
-          Tenga en cuenta el enlace del módulo Brightcove en la navegación izquierda:
+          Tenga en cuenta el enlace del módulo Brightcove en la navegación del lado izquierdo:
           <figure class="bcls-figure">
-            <img class="bcls-image" src="/assets/images/adobe-magento-commerce/magento-navigation.png" alt="Navegación Magento"/>
+            <img class="bcls-image" src="/assets/images/adobe-magento-commerce/magento-navigation.png" alt="Magento Navigation">
             <figcaption class="bcls-caption--image">Navegación Magento</figcaption>
           </figure>
         </li>
         <li>
-          Haga clic en el icono de Brightcove para mostrar el menú Módulo de Brightcove:
+          Haga clic en el icono de Brightcove para revelar el menú del módulo Brightcove:
           <figure class="bcls-figure">
-            <img class="bcls-image" id="brightcove_module_menu" src="/assets/images/adobe-magento-commerce/brightcove-module-menu.png" alt="Menú del módulo de Brightcove"/>
-            <figcaption class="bcls-caption--image">Menú del módulo de Brightcove</figcaption>
+            <img class="bcls-image" id="brightcove_module_menu" src="/assets/images/adobe-magento-commerce/brightcove-module-menu.png" alt="Brightcove Module Menu">
+            <figcaption class="bcls-caption--image">Menú del módulo Brightcove</figcaption>
           </figure>
         </li>
     </ol>
   </section>
   <section class="bcls-section">
-    <h2 id="uploading_videos">Carga de vídeos</h2>
+    <h2 id="uploading_videos">Carga de videos</h2>
     <ol class="bcls-tasklist-restart">
       <li>
-        En el <a href="#brightcove_module_menu">menú del módulo de Brightcove</a>, abra la página <strong>Agregar vídeos</strong>. 
+        Desde el <a href="#brightcove_module_menu">Menú del módulo Brightcove</a> , abre el <strong>Agregar videos</strong> página.
         <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/adobe-magento-commerce/add-video-page.png" alt="Página Añadir Vídeos"/>
-          <figcaption class="bcls-caption--image">Página Añadir Vídeos</figcaption>
+          <img class="bcls-image" src="/assets/images/adobe-magento-commerce/add-video-page.png" alt="Add Videos Page">
+          <figcaption class="bcls-caption--image">Agregar página de videos</figcaption>
         </figure>
       </li>
-      <li>Seleccione la Vista de tienda a la que agregar el vídeo.</li>
-      <li>Añada el título del vídeo (obligatorio).</li>
-      <li>Busque el archivo de vídeo local (obligatorio).</li>
+      <li>Seleccione la Vista de tienda para agregar el video.</li>
+      <li>Agrega el título del video (requerido).</li>
+      <li>Busque el archivo de video local (obligatorio).</li>
       <li>Busque el archivo de imagen en miniatura local (obligatorio).</li>
-      <li>Busque el archivo de imagen de póster local (opcional).</li>
-      <li>Introduzca etiquetas separadas por comas para el vídeo (opcional).</li>
-      <li>Introduzca una descripción para el vídeo (opcional).</li>
-      <li>Haga clic en <strong>Guardar</strong>.</li>
+      <li>Busque el archivo de imagen del póster local (opcional).</li>
+      <li>Ingrese etiquetas separadas por comas para el video (opcional).</li>
+      <li>Ingresa una descripción para el video (opcional).</li>
+      <li>Hacer clic <strong>Ahorrar</strong>.</li>
     </ol>
-    <p>Nota: la Vista de tienda se almacenará en los metadatos de vídeo como una etiqueta. Esta etiqueta se usará para implementar Localización en la página Asignar.</p>
+    <p>Nota: la vista de tienda se almacenará en los metadatos del video como una etiqueta. Esta etiqueta se utilizará para implementar la localización en la página Asignar.</p>
   </section>
   <section class="bcls-section">
-    <h2 id="assign_videos_to_categories_and_products">Asignar vídeos a categorías y productos</h2>
-    <p>Los vídeos se pueden asignar a Categorías y Productos. En esta sección veremos cómo asignar vídeos a Categorías, y luego cómo asignarlos a Productos en la siguiente sección.</p>
-    <h3>Asignación a categorías</h3>
+    <h2 id="assign_videos_to_categories_and_products">Asignar videos a categorías y productos</h2>
+    <p>Los videos se pueden asignar a Categorías y Productos. En esta sección veremos cómo asignar videos a Categorías y luego cómo asignarlos a Productos en la siguiente sección.</p>
+    <h3>Asignar a categorías</h3>
     <ol class="bcls-tasklist-restart">
       <li>
-        En el <a href="#brightcove_module_menu">menú Módulo de Brightcove</a>, abra la página <strong>Asignar vídeos a categorías</strong>. 
+        Desde el <a href="#brightcove_module_menu">Menú del módulo Brightcove</a> , abre el <strong>Asignar videos a categorías</strong> página.
         <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/adobe-magento-commerce/category-list-with-assigned-videos.png" alt="Página Asignar Vídeos a Categorías"/>
-          <figcaption class="bcls-caption--image">Página Asignar Vídeos a Categorías</figcaption>
+          <img class="bcls-image" src="/assets/images/adobe-magento-commerce/category-list-with-assigned-videos.png" alt="Assign Videos to Categories Page">
+          <figcaption class="bcls-caption--image">Asignar videos a la página de categorías</figcaption>
         </figure>
       </li>
       <li>
-        La página inicial presenta una lista de categorías, mostrando vídeos que están asignados actualmente a ellas, y hay vínculos a <strong>Anular</strong> asignación o <strong>Cambiar</strong> asignaciones de vídeo existentes, así como <strong>Asignar</strong> vídeos a una categoría.
+        La página inicial presenta una lista de categorías, mostrando los videos que se les asignan actualmente, y hay enlaces a <strong>Anular asignación</strong> o <strong>Cambio</strong> asignaciones de video existentes, así como <strong>Asignar</strong> videos a una categoría.
         <p>También tenga en cuenta:</p>
         <ul>
           <li>El selector de alcance, que le permite implementar el filtro de localización</li>
-          <li>Al pasar el cursor sobre un ID de vídeo, aparecerá una imagen en miniatura del vídeo</li>
+          <li>Cuando pasas el cursor sobre una identificación de video, aparecerá una imagen en miniatura del video</li>
         </ul>
       </li>
       <li>
-        Haga clic en <strong>Asignar</strong> junto a una categoría para asignarla para abrir una cuadrícula de vídeos que se asignarán:
+        Hacer clic <strong>Asignar</strong> al lado de una categoría para asignar para abrir una cuadrícula de videos para ser asignados:
         <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/adobe-magento-commerce/video-grid-for-category-assignment.png" alt="Grid de vídeo para asignación de categorías"/>
-          <figcaption class="bcls-caption--image">Grid de vídeo para asignación de categorías</figcaption>
+          <img class="bcls-image" src="/assets/images/adobe-magento-commerce/video-grid-for-category-assignment.png" alt="Video Grid for Category Assignment">
+          <figcaption class="bcls-caption--image">Cuadrícula de video para asignación de categoría</figcaption>
         </figure>
       </li>
-      <li>Si no ves el vídeo que estás buscando, puedes buscar por título de vídeo para encontrarlo.</li>
+      <li>Si no ve el video que está buscando, puede buscar por título de video para encontrarlo.</li>
       <li>Utilice el menú desplegable de localización para obtener el idioma que desee.</li>
       <li>
-        En la columna <strong>Video</strong> :
+        En el <strong>Video</strong> columna:
         <ul>
-          <li>Elija el reproductor para el vídeo seleccionado</li>
-          <li>Utilice el selector para elegir la ranura de video</li>
+          <li>Elija el reproductor para el video seleccionado</li>
+          <li>Use el selector para elegir la ranura de video</li>
         </ul>
-        <aside class="bcls-aside bcls-aside--information language-editable">Tenga en cuenta que el número de valores de ranura se genera a partir de los valores de configuración.</aside>
-        .</li>
-        <li>Si el vídeo ya está asignado a esta categoría, mostrará un borde naranja y una opción <strong>Anular asignación</strong> .</li>
+        <aside class="bcls-aside bcls-aside--information">Tenga en cuenta que el número de valores de ranura se genera a partir de los valores de configuración.</aside>.</li>
+        <li>Si el video ya está asignado a esta categoría, mostrará un borde naranja y un <strong>Anular asignación</strong> opción.</li>
       </ol>
       <h3>Asignación a productos</h3>
       <ol class="bcls-tasklist-restart">
         <li>
-          En el <a href="#brightcove_module_menu">menú Módulo de Brightcove</a>, abra la página <strong>Asignar vídeos a productos</strong>. 
+          Desde el <a href="#brightcove_module_menu">Menú del módulo Brightcove</a> , abre el <strong>Asignar videos a productos</strong> página.
           <figure class="bcls-figure">
-            <img class="bcls-image" src="/assets/images/adobe-magento-commerce/product-list-with-assigned-videos.png" alt="Página Asignar Vídeos a Productos"/>
-            <figcaption class="bcls-caption--image">Página Asignar Vídeos a Productos</figcaption>
+            <img class="bcls-image" src="/assets/images/adobe-magento-commerce/product-list-with-assigned-videos.png" alt="Assign Videos to Products Page">
+            <figcaption class="bcls-caption--image">Asignar videos a la página de productos</figcaption>
           </figure>
         </li>
-        <li>Al igual que con Categorías, puede <strong>Asignar</strong> vídeos, o <strong>Anular asignación</strong> o <strong>Cambiar</strong> vídeos ya asignados. También puede pasar el cursor sobre un ID de vídeo para mostrar la miniatura.</li>
+        <li>Al igual que con Categorías, puede <strong>Asignar</strong> videos, o <strong>Anular asignación</strong> o <strong>Cambio</strong> videos ya asignados. También puede colocar el cursor sobre una identificación de video para mostrar la miniatura.</li>
         <li>
-          Haga clic en los vínculos <strong>Asignar</strong> para asignar un vídeo. Esto mostrará la cuadrícula de video:
+          Haga clic en el <strong>Asignar</strong> enlaces para asignar un video. Esto abrirá la cuadrícula de video:
           <figure class="bcls-figure">
-            <img class="bcls-image" src="/assets/images/adobe-magento-commerce/video-grid-for-product-assignment.png" alt="Grid de vídeo para asignación de productos"/>
-            <figcaption class="bcls-caption--image">Grid de vídeo para asignación de productos</figcaption>
+            <img class="bcls-image" src="/assets/images/adobe-magento-commerce/video-grid-for-product-assignment.png" alt="Video Grid for Product Assignment">
+            <figcaption class="bcls-caption--image">Cuadrícula de video para asignación de productos</figcaption>
           </figure>
         </li>
-        <li>Si no ves el vídeo que estás buscando, puedes buscar por título de vídeo para encontrarlo.</li>
+        <li>Si no ve el video que está buscando, puede buscar por título de video para encontrarlo.</li>
         <li>Utilice el menú desplegable de localización para obtener el idioma que desee.</li>
         <li>
-          En la columna <strong>Video</strong> :
+          En el <strong>Video</strong> columna:
           <ul>
-            <li>Elija el reproductor para el vídeo seleccionado</li>
-            <li>Utilice el selector para elegir la ranura de video</li>
+            <li>Elija el reproductor para el video seleccionado</li>
+            <li>Use el selector para elegir la ranura de video</li>
           </ul>
-          <aside class="bcls-aside bcls-aside--information language-editable">Tenga en cuenta que el número de valores de ranura se genera a partir de los valores de configuración.</aside>
-          .</li>
-          <li>Si el vídeo ya está asignado a este producto, mostrará un borde naranja y una opción <strong>Anular asignación</strong> .</li>
+          <aside class="bcls-aside bcls-aside--information">Tenga en cuenta que el número de valores de ranura se genera a partir de los valores de configuración.</aside>.</li>
+          <li>Si el video ya está asignado a este producto, mostrará un borde naranja y un <strong>Anular asignación</strong> opción.</li>
       </ol>
   </section>
   <section class="bcls-section">
-    <h2 id="generate_embed_code">Generar código de incrustación</h2>
+    <h2 id="generate_embed_code">Generar código incrustado</h2>
     <ol class="bcls-tasklist-restart">
       <li>
-        En el <a href="#brightcove_module_menu">menú del módulo de Brightcove</a>, vaya a la página Generar código de inserción:
+        En el menú del módulo <a href="#brightcove_module_menu">Brightcove</a>, vaya a la página Generar código de inserción:
         <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/adobe-magento-commerce/generate-embed-code-page.png" alt="Página Generar Código Incrustado"/>
-          <figcaption class="bcls-caption--image">Página Generar Código Incrustado</figcaption>
+          <img class="bcls-image" src="/assets/images/adobe-magento-commerce/generate-embed-code-page.png" alt="Generate Embed Code Page">
+          <figcaption class="bcls-caption--image">Generar página de código incrustado</figcaption>
         </figure>
       </li>
-      <li>Seleccione el reproductor que desea utilizar y un vídeo y, a continuación, haga clic en <strong>Obtener código</strong> para ver y copiar el código Básico (iframe) o Avanzado (en página) del reproductor.</li>
-      <li>Le recomendamos que utilice el código de incrustación básico a menos que esté personalizando el reproductor de alguna manera que lo requiera y el script en la página.</li>
+      <li>Seleccione el reproductor que desea usar y un video, y luego haga clic en <strong>Obtener código</strong> para ver y copiar el código básico (iframe) o avanzado (en la página) del reproductor.</li>
+      <li>Le recomendamos que utilice el código de inserción básico a menos que esté personalizando el reproductor de alguna manera que requiera un script en la página.</li>
     </ol>
   </section>
   <section class="bcls-section">
@@ -563,203 +140,48 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <p>Puede actualizar o agregar a la configuración de Brightcove.</p>
     <ol class="bcls-tasklist-restart">
       <li>
-        Vaya a <strong>Almacenado - Configuración de vídeo de &gt; Brightcove</strong>:
+        Ir <strong>Almacenado -&gt; Configuración de video de Brightcove</strong>:
         <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/adobe-magento-commerce/brightcove-configuration-page.png" alt="Página Configuración de Brightcove"/>
-          <figcaption class="bcls-caption--image">Página Configuración de Brightcove</figcaption>
+          <img class="bcls-image" src="/assets/images/adobe-magento-commerce/brightcove-configuration-page.png" alt="Brightcove Configuration Page">
+          <figcaption class="bcls-caption--image">Página de configuración de Brightcove</figcaption>
         </figure>
       </li>
-      <li>El ID del cliente, el secreto del cliente, la URL base de API (para obtener tokens de acceso) y el ID de tienda ya deberían haberse rellenado durante la instalación, pero puede actualizar estos valores si es necesario.</li>
-      <li>También puede establecer el número de ranuras de vídeo para Categorías, Masters y Variantes.</li>
-      <li>Por último, si desea utilizar la opción Importación masiva de datos (descibida en la siguiente sección), introduzca una lista de direcciones de correo electrónico separadas por comas para recibir notificaciones relacionadas con las importaciones masivas.</li>
+      <li>El ID del cliente, el secreto del cliente, la URL base de la API (para obtener tokens de acceso) y el ID de la tienda ya deberían haberse completado durante la instalación, pero puede actualizar estos valores si es necesario.</li>
+      <li>También puede establecer la cantidad de espacios de video para Categorías, Maestros y Variantes.</li>
+      <li>Por último, si desea utilizar la opción Importación masiva de datos (que se describe en la siguiente sección), ingrese una lista de direcciones de correo electrónico separadas por comas para recibir notificaciones relacionadas con las importaciones masivas.</li>
     </ol>
   </section>
   <section class="bcls-section">
     <h2 id="bulk_import_data">Importación masiva de datos</h2>
-    <p>Hay varios tipos de datos que puede importar en masa, como una lista de vídeos para cargar en Brightcove, asignaciones de categorías de vídeo y asignaciones de productos de vídeo.</p>
+    <p>Hay varios tipos de datos que puede importar de forma masiva, incluida una lista de videos para cargar en Brightcove, asignaciones de categorías de video y asignaciones de productos de video.</p>
     <ol class="bcls-tasklist-restart">
       <li>
-        Vaya a <strong>Sistema - &gt; Importación</strong> , abra la página Importación masiva:
+        Ir <strong>Sistema -&gt; Importar</strong> abra la página Importación masiva:
         <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/adobe-magento-commerce/bulk-import-page.png" alt="Página Importación masiva"/>
-          <figcaption class="bcls-caption--image">Página Importación masiva</figcaption>
+          <img class="bcls-image" src="/assets/images/adobe-magento-commerce/bulk-import-page.png" alt="Bulk Import Page">
+          <figcaption class="bcls-caption--image">Página de importación masiva</figcaption>
         </figure>
       </li>
       <li>Seleccione el tipo de importación que desea realizar.</li>
       <li>
-        A continuación se muestra un ejemplo de la página Subir vídeos en bloque a Brightcove:
+        Aquí hay una muestra de la página Carga masiva de videos a Brightcove:
         <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/adobe-magento-commerce/bulk-upload-video-page.png" alt="Página de subida masiva de vídeo"/>
-          <figcaption class="bcls-caption--image">Página de subida masiva de vídeo</figcaption>
+          <img class="bcls-image" src="/assets/images/adobe-magento-commerce/bulk-upload-video-page.png" alt="Bulk Upload Video Page">
+          <figcaption class="bcls-caption--image">Página de subida masiva de vídeos</figcaption>
         </figure>
       </li>
-      <li>Si no tiene un archivo CSV de muestra para la importación, puede descargarlo mediante el enlace de descarga de ejemplo.</li>
+      <li>Si no tiene un archivo CSV de muestra para la importación, puede descargar uno usando el enlace de descarga de muestra.</li>
       <li>
-        Seleccione el <strong>comportamiento de importación</strong>:
+        Selecciona el <strong>Importar comportamiento</strong>:
         <ul>
-          <li><strong>Añadir/Actualizar</strong> - Agregar y reemplazar registros existentes</li>
+          <li><strong>Agregar / actualizar</strong> - Agregar y reemplazar registros existentes</li>
           <li><strong>Reemplazar</strong> - Reemplazar los registros existentes</li>
-          <li><strong>Eliminar</strong> - Eliminar los registros existentes</li>
+          <li><strong>Borrar</strong> - Eliminar los registros existentes</li>
         </ul>
       </li>
-      <li>Con el botón <strong>Examinar</strong> , seleccione el archivo CSV.</li>
-      <li>Haga clic en <strong>Comprobar datos</strong> para asegurarse de que los datos son válidos. (Si el archivo CSV no contiene ningún registro válido, no se mostrará la opción de importación).</li>
-      <li>Haga clic en el botón <strong>Importar</strong> para importar los datos. Debería ver un mensaje de éxito.</li>
+      <li>Utilizando el <strong>Navegar</strong> , seleccione su archivo CSV.</li>
+      <li>Hacer clic <strong>Verificar datos</strong> para asegurar que los datos sean válidos. (Si el archivo CSV no contiene ningún registro válido, no se mostrará la opción de importación).</li>
+      <li>Haga clic en el <strong>Importar</strong> botón para importar los datos. Debería ver un mensaje de éxito.</li>
     </ol>
   </section>
 </article>
-
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">Contenido de la página</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
-</div>
-
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>Asistencia técnica de Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            Estado del sistema<a href="https://status.brightcove.com"></a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Contactar soporte</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">Documentación</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>Formación</h2>
-
-        <ul class="menu">
-          <li>
-            Cursos en línea<a href="https://studio.support.brightcove.com/training/online-training-courses.html"></a>
-          </li>
-          <li>
-            Inscríbete a un curso<a href="https://studio.support.brightcove.com/training/register-training.html"></a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">Universidad de Brightcove</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">BrightCove.com</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Contáctanos</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
-            </td>
-            <td>Privacidad | Términos y Condiciones<a href="https://www.brightcove.com/en/legal/privacy"></a><a href="https://www.brightcove.com/en/terms-and-conditions"></a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-      
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-  
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
-  
-
-</script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
-  <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
-  <script src="/assets/js/feedback.js"></script>
-  
-  <script src="/assets/js/sajari-search-foot.js"></script>
-  
-  <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <style>
-    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
-      background-color: lightblue;
-    }
-    div.sj-tabs__tab {
-      margin-top: 3rem;
-      margin-left: .3rem;
-      border-top-left-radius: .4rem;
-      border-top-right-radius: .4rem;
-      background-color:#e8e8e8;
-    }
-
-    div.sj-tabs__tab.sj-tabs__tab--selected {
-      border-bottom-color: crimson;
-      background-color: #f8f8f8;
-    }
-
-    p.sj-results__result__description.css-p9jvyt {
-      font-size: 1rem;
-    }
-
-    .sj-result__text.css-31l7gp h3 {
-      color: navy;
-      font-size: 1.4rem;
-    }
-    </style>
-
-</body>
-
-</html>

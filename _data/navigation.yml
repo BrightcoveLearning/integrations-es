@@ -1,0 +1,148 @@
+- section:
+  name: 'Casa'
+  url: '/index.html'
+- section:
+  name: 'Información general'
+  url: '/general/index.html'
+  docs:
+    - name: 'Vídeos de formación sobre integración de CMS'
+      url: '/general/cms-integration-training-videos.html'
+    - name: 'Integrando su CMS con Video Cloud'
+      url: '/general/integrating-your-cms-video-cloud.html'
+    - name: 'Incorporación de reproductores de Brightcove en un CMS'
+      url: '/general/embedding-brightcove-players-cms.html'
+    - name: 'Incorporación de experiencias in-page en un CMS'
+      url: '/general/embedding-brightcove-page-experiences-cms.html'
+    - name: 'Depuración de problemas de conexión de red y API'
+      url: '/general/debugging-network-and-api-connection-issues-cms-and-dam-integrations.html'
+- section:
+  name: 'WordPress'
+  url: '/wordpress/index.html'
+  docs:
+    - name: 'Introducción a Brightcove Video Connect'
+      url: '/wordpress/getting-started-brightcove-video-connect-wordpress-cms.html'
+    - name: 'Configuración'
+      url: '/wordpress/wordpress-brightcove-connector-configuration.html'
+    - name: 'Preguntas frecuentes'
+      url: '/wordpress/wordpress-brightcove-connector-frequently-asked-questions.html'
+    - name: 'Instalación'
+      url: '/wordpress/wordpress-brightcove-connector-installation.html'
+    - name: 'Usando el conector'
+      url: '/wordpress/wordpress-brightcove-connector-using-connector.html'
+- section:
+  name: 'Drupal'
+  url: '/drupal/index.html'
+  docs:
+    - name: 'Introducción a Connector para Drupal'
+      url: '/drupal/getting-started-brightcove-video-connect-drupal-cms.html'
+    - name: 'Drupal 8 - Configuración'
+      url: '/drupal/drupal-8-brightcove-connector-configuration.html'
+    - name: 'Drupal 8 - Gestión de contenido'
+      url: '/drupal/drupal-8-brightcove-connector-content-management.html'
+    - name: 'Drupal 8: incrustación de contenido'
+      url: '/drupal/drupal-8-brightcove-connector-embedding-content.html'
+    - name: 'Drupal 8 - Instalación del conector'
+      url: '/drupal/drupal-8-brightcove-connector-installation.html'
+    - name: 'Drupal 7 - Configuración y uso'
+      url: '/drupal/drupal-7-brightcove-connector-configuration-and-usage.html'
+    - name: 'Drupal 7 - Instalación'
+      url: '/drupal/drupal-7-brightcove-connector-installation.html'
+- section:
+  name: 'Adobe'
+  url: '/adobe/index.html'
+  docs:
+    - name: 'Introducción a Connector para AEM'
+      url: '/adobe/getting-started-brightcove-video-connect-adobe-experience-manager.html'
+    - name: 'Configuración'
+      url: '/adobe/adobe-aem-brightcove-connector-configuration.html'
+    - name: 'Instalación'
+      url: '/adobe/adobe-aem-brightcove-connector-installation.html'
+    - name: 'Descripción general'
+      url: '/adobe/adobe-aem-brightcove-connector-overview.html'
+    - name: 'Usando el conector'
+      url: '/adobe/adobe-aem-brightcove-connector-using-connector.html'
+- section:
+  name: 'Sitecore'
+  url: '/sitecore/index.html'
+  docs:
+    - name: 'Introducción al conector para Sitecore'
+      url: '/sitecore/getting-started-brightcove-video-connect-sitecore-experience-platform.html'
+- section:
+  name: 'SharePoint'
+  url: '/sharepoint/index.html'
+  docs:
+    - name: 'Introducción a Connector para Sharepoint'
+      url: '/sharepoint/getting-started-brightcove-video-connect-sharepoint.html'
+    - name: 'Usando el conector'
+      url: '/sharepoint/sharepoint-brightcove-connector-4041-using-connector.html'
+- section:
+  name: 'comercio electrónico'
+  url: '/ecommerce/index.html'
+  docs:
+    - name: 'Salesforce Commerce Cloud'
+      url: '/ecommerce/salesforce/index.html'
+      docs:
+        - name: 'Salesforce Commerce Cloud: Instalación'
+          url: '/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-installation.html'
+        - name: 'Salesforce Commerce Cloud: Guía del usuario'
+          url: '/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-user-guide.html'
+    - name: 'Comercio de Adobe Magento'
+      url: '/ecommerce/adobe-magento-commerce/index.html'
+      docs:
+        - name: 'Guía de instalación'
+          url: '/ecommerce/adobe-magento-commerce/installation-guide.html'
+        - name: 'Guía del usuario'
+          url: '/ecommerce/adobe-magento-commerce/user-guide.html'
+- section:
+  name: 'eCDN'
+  url: '/ecdn/index.html'
+  docs:
+    - name: 'Kollectivo'
+      url: '/ecdn/kollective/index.html'
+      docs:
+        - name: 'Guía de implementación de Kollective eCDN'
+          url: '/ecdn/kollective/kollective-deployment-guide.html'
+        - name: 'Guía del usuario de Kollective eCDN'
+          url: '/ecdn/kollective/kollective-user-guide.html'
+    - name: 'Peer 5'
+      url: '/ecdn/peer5/index.html'
+      docs:
+        - name: 'Brightcove con integración Peer5'
+          url: '/ecdn/peer5/brightcove-with-peer5-integration.html'
+    - name: 'Rampa'
+      url: '/ecdn/ramp/index.html'
+      docs:
+        - name: 'Introducción a Ramp OmniCache y Video Cloud'
+          url: '/ecdn/ramp/getting-started-ramp-omnicache-and-video-cloud.html'
+        - name: 'Introducción a Ramp Multicast + y Video Cloud'
+          url: '/ecdn/ramp/getting-started-ramp-multicast-and-video-cloud.html'
+- section:
+  name: 'Conferencias web'
+  url: '/web-conferencing/index.html'
+  docs:
+    - name: Conferencia Zoom sobre Brightcove Live
+      url: '/web-conferencing/host-zoom-conference-brightcove-live.html'
+    - name: Conferencia de Cisco Webex a Brightcove Live
+      url: '/web-conferencing/host-cisco-webex-conference-brightcove-live.html'
+    - name: Conferencia de Avaya en Brightcove Live
+      url: '/web-conferencing/host-avaya-conference-brightcove-live.html'
+    - name: Evento INXPO en Brightcove Live
+      url: '/web-conferencing/host-inxpo-live.html'
+- section:
+  name: 'Jugadores que no pertenecen a Brightcove'
+  url: '/non-brightcove-players/index.html'
+  docs:
+    - name: Entregue contenido de Brightcove mediante InPlayer
+      url: '/non-brightcove-players/inplayer.html'
+- section:
+  name: 'Apoyo'
+  url: '/support/index.html'
+  docs:
+    - name: 'Visualización de la página de estado del sistema Brightcove'
+      url: '/support/viewing-brightcove-system-status-page.html'
+    - name: 'Comuníquese con Ventas'
+      url: '/support/contact-sales.html'
+    - name: 'Abrir un caso de asistencia'
+      url: '/support/opening-case-with-brightcove-support.html'
+    - name: 'Restablecer la contraseña del portal de soporte'
+      url: '/support/reset-support-portal-password.html'
