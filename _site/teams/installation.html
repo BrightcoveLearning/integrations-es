@@ -1,0 +1,1066 @@
+﻿<!DOCTYPE html>
+<html lang="es"> 
+    <head>
+        <title>Instalación del conector para equipos</title>
+        
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Este tema cubre la instalación y configuración de Brightcove Video Connector para Microsoft Teams.">
+        
+        <!-- Google Font -->
+        <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/fonts/articulat-site.css">
+        <link href="/assets/s-site-assets-stylesheets/fonts/source-code-pro.css" rel="stylesheet">
+        
+        <!-- FontAwesome JS-->
+        
+        <script src="https://kit.fontawesome.com/d67c74a882.js" crossorigin="anonymous"></script>  
+        
+        <!-- Plugins CSS -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.css">
+
+        <!-- Theme CSS -->  
+        <link id="theme-style" rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/css/theme.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/prism.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/custom-css/styles.css">
+
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBJC11HF8Z"></script>
+        <script translate="no">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XBJC11HF8Z');
+        </script>
+        <script src="/assets/s-site-assets-scripts/sixth-sense.js"></script>
+        <script src="/assets/s-site-assets-scripts/sajari-head.js"></script>
+        <script src="/assets/s-site-assets-scripts/feather.min.js"></script>
+
+    </head> 
+
+    <body class="docs-page">
+        
+
+<header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid position-relative py-2">
+      <div class="docs-logo-wrapper">
+        <button id="docs-sidebar-toggler" class="docs-sidebar-toggler"
+          type="button">
+          <span></span> <span></span> <span></span>
+        </button>
+        <div class="site-logo"><a class="navbar-brand" href="https://support.brightcove.com/" style="margin-left: 15px;"> <img class="logo-icon me-2" src="/assets/s-site-assets-template-stylesheets/images/bc_logo_black_1@1x.png" alt="logo" style="margin-bottom: 9px;"/>
+            <!-- <span class="logo-text">BRIGHTCOVE</span> -->
+          </a></div>
+      </div><!--//docs-logo-wrapper-->
+
+      <div class="docs-top-utilities d-flex justify-content-end
+        align-items-center">
+        
+        <!-- Search bar -->
+        <div id="nav-search-box" class="top-search-box d-none d-lg-flex" style="margin-right: 10px ;"></div>
+
+<select id="site_select" class="form-select select-focus" style="width:
+          20%; margin-right: 10px;" translate="no">
+          <option value="">Other Brightcove Docs</option>
+          
+          
+          <option value="https://support.brightcove.com" translate="no">Documentation Home</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD --</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Studio</option>
+          
+          
+          
+          <option value="https://mstudio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Marketing Studio</option>
+          
+          
+          
+          <option value="https://player.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Player Development</option>
+          
+          
+          
+          <option value="https://apis.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Platform APIs</option>
+          
+          
+          
+          <option value="https://sdks.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Device SDKs</option>
+          
+          
+          
+          <option value="https://integrations.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Integrations and CMS Connectors</option>
+          
+          
+          
+          <option value="https://general.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud General Information</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO ESSENTIALS --</option>
+          
+          
+          
+          <option value="https://audience-insights.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Audience Insights</option>
+          
+          
+          
+          <option value="https://beacon-help.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Studio</option>
+          
+          
+          
+          <option value="https://beacon.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Classic</option>
+          
+          
+          
+          <option value="https://corptv.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;CorpTV</option>
+          
+          
+          
+          <option value="https://live.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Live</option>
+          
+          
+          
+          <option value="https://zencoder.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Zencoder</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD ADD-ONS --</option>
+          
+          
+          
+          <option value="https://gallery.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Gallery</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com/social/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Social</option>
+          
+          
+          
+          <option value="https://interactivity.support.brightcove.com/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Interactivity</option>
+          
+          
+          
+          <option value="https://ssai.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove SSAI</option>
+          
+          
+          
+          <option value="https://campaign.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Campaign</option>
+          
+          
+        </select>
+
+        <select id="language_select" class="form-select select-focus" style="width: 10%;"
+          onchange="doGTranslate(this);" translate="no">
+          <!-- <option value="">Select Language</option> -->
+          <option value="en|en" translate="No">English</option>
+          <option value="en|zh-TW" translate="No">繁體中文</option>
+          <option value="en|fr" translate="No">Français</option>
+          <option value="en|de" translate="No">Deutsche</option>
+          <option value="en|ja" translate="No">日本語</option>
+          <option value="en|ko" translate="No">한국어</option>
+          <option value="en|es" translate="No">Español</option>
+        </select>
+
+        <script translate="no">
+          /* <![CDATA[ */
+          function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+          /* ]]> */
+        </script>
+      </div>
+    </div>
+  </div>
+</header><!--//header-->
+
+<div class="docs-wrapper">
+  <div id="docs-sidebar" class="docs-sidebar" style="padding-right: 15px;">
+    <div id="nav-search-box" class="top-search-box d-lg-none p-3"></div>
+    <div class="row">
+      
+        <div id="side_nav" style="margin-left: 1em; display: inline-block; border-right: 1px solid #e5e5e6; padding-right: 1em;">
+          
+          <nav class="docs-nav sidenav" aria-label="Main">
+            <ul class="site-nav" style="list-style-type: none;">
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/index.html">Inicio</a></li>
+            
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/general/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Información general</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/cms-integration-training-videos.html">Vídeos de formación sobre integración de CMS</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/integrating-your-cms-video-cloud.html">Integración de su CMS con Video Cloud</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/embedding-brightcove-players-cms.html">Incorporación de reproductores de Brightcove en un CMS</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/embedding-brightcove-page-experiences-cms.html">Incorporación de experiencias in-page en un CMS</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/debugging-network-and-api-connection-issues-cms-and-dam-integrations.html">Depuración de problemas de conexión de red y API</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/wordpress/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;WordPress</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/wordpress/getting-started-brightcove-video-connect-wordpress-cms.html">Introducción a Brightcove Video Connect</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/drupal/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Drupal</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/getting-started-brightcove-video-connect-drupal-cms.html">Introducción a Connector para Drupal</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-9-brightcove-connector-overview.html">Drupal 9 - Conector de Brightcove: Descripción general</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-8-brightcove-connector-configuration.html">Drupal 8 - Configuración</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-8-brightcove-connector-content-management.html">Drupal 8 - Gestión de contenido</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-8-brightcove-connector-embedding-content.html">Drupal 8: incrustación de contenido</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-8-brightcove-connector-installation.html">Drupal 8 - Instalación del conector</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-7-brightcove-connector-configuration-and-usage.html">Drupal 7 - Configuración y uso</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-7-brightcove-connector-installation.html">Drupal 7 - Instalación</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/adobe/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Adobe</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/getting-started-brightcove-video-connect-adobe-experience-manager.html">Introducción a Connector para AEM</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/adobe-aem-brightcove-connector-configuration.html">Configuración</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/adobe-aem-brightcove-connector-installation.html">Instalación para AEM local</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/adobe-aem-brightcove-connection-installation-cloud.html">Instalación para la nube AEM</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/adobe-aem-brightcove-connector-overview.html">Descripción general</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/adobe-aem-brightcove-connector-using-connector.html">Usando el conector</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/sitecore/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Núcleo del sitio</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/sitecore/getting-started-brightcove-video-connect-sitecore-experience-platform.html">Introducción al conector para Sitecore</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/sitecore/installation-guide.html">Guía de instalación: Brightcove Video Connect para Sitecore</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/sitecore/configuration.html">Guía de configuración: Brightcove Video Connect para Sitecore</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/sitecore/user-guide.html">Guía del usuario: Brightcove Video Connect para Sitecore</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/sharepoint/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;SharePoint</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/sharepoint/getting-started-brightcove-video-connect-sharepoint.html">Introducción a Connector para Sharepoint</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/hootsuite/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Hootsuite</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/hootsuite/publishing-brightcove-video-hootsuite.html">Publicación de vídeos de Brightcove desde Hootsuite</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/ecommerce/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;comercio electrónico</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ecommerce/salesforce/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Nube de comercio de Salesforce</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-installation.html">Salesforce Commerce Cloud: Instalación</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-user-guide.html">Salesforce Commerce Cloud: Guía del usuario</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ecommerce/adobe-magento-commerce/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Comercio de Adobe Magento</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecommerce/adobe-magento-commerce/installation-guide.html">Guía de instalación</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecommerce/adobe-magento-commerce/user-guide.html">Guía del usuario</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/ecdn/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;eCDN</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ecdn/kollective/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;colectivo</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/kollective/kollective-deployment-guide.html">Guía de implementación de Kollective eCDN</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/kollective/add-kollective-player-plugin.html">Instalación del complemento del reproductor Kollective</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/kollective/kollective-user-guide.html">Guía del usuario de Kollective eCDN</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ecdn/peer5/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Par5</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/peer5/brightcove-with-peer5-integration.html">Brightcove con integración Peer5</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ecdn/ramp/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Rampa</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/ramp/getting-started-ramp-omnicache-and-video-cloud.html">Introducción a Ramp OmniCache y Video Cloud</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/ramp/getting-started-ramp-multicast-and-video-cloud.html">Introducción a Ramp Multicast + y Video Cloud</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/teams/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Brightcove Video Connect para equipos de Microsoft</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/teams/installation.html" aria-current="page">Instalación del conector para equipos</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/teams/using.html">Uso del conector para equipos de Microsoft</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/web-conferencing/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Conferencia web</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/web-conferencing/host-zoom-conference-brightcove-live.html">Conferencia Zoom en Brightcove Live</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/web-conferencing/host-cisco-webex-conference-brightcove-live.html">Conferencia de Cisco Webex a Brightcove Live</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/web-conferencing/host-avaya-conference-brightcove-live.html">Conferencia de Avaya en Brightcove Live</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/web-conferencing/host-inxpo-live.html">Evento INXPO en Brightcove Live</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/non-brightcove-players/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Jugadores que no son de Brightcove</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/non-brightcove-players/inplayer.html">Entregue contenido de Brightcove mediante InPlayer</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/support/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Apoyo</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/viewing-brightcove-system-status-page.html">Visualización de la página de estado del sistema Brightcove</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/contact-sales.html">Contactar con ventas</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html">Abrir un caso de soporte</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/reset-support-portal-password.html">Restablecer la contraseña del portal de soporte</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+          </ul>
+          </nav>
+        </div>
+      </div>
+    </div><!--//docs-sidebar-->
+  </div>
+</div>
+
+<div style="margin-top: 20px;">
+  <div class="docs-content" style="padding-bottom: 0px;">
+    <div class="container">
+      <div class="docs-overview">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/">Inicio</a></li>
+            
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/teams/">equipos</a></li>
+            
+            
+            
+            <li class="breadcrumb-item active" aria-current="page">Instalación del conector para equipos</li>
+            
+            
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="docs-content">
+  <div class="container">
+    <div class="docs-overview py-5">
+      
+      <div class="centered-inpage-nav" id="centered_inpage_nav">
+        <nav id="centered_toc">
+          <select id="centered_in_page_toc" class="form-select select-focus"></select>
+        </nav>
+      </div>
+      <br/>
+      
+      
+<h1>Instalación del conector para equipos</h1>
+<article class="bcls-article">
+  <summary>Este tema cubre la instalación y configuración de Brightcove Video Connector para Microsoft Teams.</summary>
+  <section class="bcls-section">
+    <h2 id="introduction">Introducción</h2>
+		<p>El Brightcove Video Connector para Microsoft Teams (Video Connector) se puede instalar de dos formas: Manualmente, como una aplicación personalizada de Teams o a través de Microsoft AppSource.</p>
+		<h3>Requisitos previos</h3>
+		<ul>
+			<li>Equipos de Microsoft</li>
+			<li><strong>Dueño</strong> permisos en la ubicación de Teams en la que está instalando el conector de video</li>
+		</ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Install_from_app_store">Instalar desde Microsoft AppSource</h2>
+    <p>Para instalar Video Connector desde Microsoft AppSource, siga los pasos a continuación.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Abierto <code translate="No">https://appsource.microsoft.com/</code> en tu navegador.</li>
+      <li>
+        Busque Brightcove Video Connect:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/team/install/appstore-search-for-brightcove.png" alt="Buscar Brightcove"/>
+          <figcaption class="bcls-caption--image">Buscar Brightcove</figcaption>
+        </figure>
+        <aside class="bcls-aside bcls-aside--information language-editable">Tenga en cuenta que si no encuentra la aplicación Brightcove Video Connect en la tienda de su equipo, es posible que deba ponerse en contacto con el administrador de Microsoft Teams para habilitar la tienda de su equipo y permitir que esta aplicación se pueda buscar.</aside>
+      </li>
+      <li>
+        Haga clic en la aplicación para mostrar los detalles de la aplicación:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/team/install/appstore-app-details.png" alt="Detalles de la aplicación de Brightcove"/>
+          <figcaption class="bcls-caption--image">Detalles de la aplicación de Brightcove</figcaption>
+        </figure>
+      </li>
+      <li>
+        Haga clic en el botón <strong>Agregar a un equipo</strong> :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/team/install/appstore-add-to-team-button.png" alt="Botón Agregar al equipo"/>
+          <figcaption class="bcls-caption--image">Botón Agregar al equipo</figcaption>
+        </figure>
+      </li>
+      <li>
+        Busque el equipo al que desea agregar la aplicación y selecciónelo:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/team/install/appstore-search-for-team.png" alt="Buscar equipo"/>
+          <figcaption class="bcls-caption--image">Buscar equipo</figcaption>
+        </figure>
+      </li>
+      <li>
+        Tenga en cuenta que, de forma predeterminada, la aplicación se agrega al canal General del equipo; más adelante, podrá crear un nuevo canal y agregarle la aplicación también si lo desea:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/team/install/appstore-app-added-general-channel.png" alt="Aplicación instalada en el canal general"/>
+          <figcaption class="bcls-caption--image">Aplicación instalada en el canal general</figcaption>
+        </figure>
+      </li>
+      <li>
+        Haga clic en el botón <strong>Configurar una pestaña</strong> :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/team/install/appstore-click-setup-tab.png" alt="Configurar una pestaña"/>
+          <figcaption class="bcls-caption--image">Configurar una pestaña</figcaption>
+        </figure>
+      </li>
+      <li>
+        En el cuadro de diálogo modal que se abre, seleccione la cuenta de Brightcove que desea conectar al equipo:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/team/install/appstore-select-brightcove-account.png" alt="Seleccionar cuenta de Brightcove"/>
+          <figcaption class="bcls-caption--image">Seleccionar cuenta de Brightcove</figcaption>
+        </figure>
+      </li>
+      <li>
+        A continuación, seleccione el modo de pestaña que desea utilizar para el conector:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/team/install/appstore-select-tab-mode.png" alt="Seleccione el modo de pestaña"/>
+          <figcaption class="bcls-caption--image">Seleccione el modo de pestaña&amp;quot;</figcaption>
+        </figure>
+        <aside class="bcls-aside bcls-aside--information language-editable">Tenga en cuenta que hay tres modos para elegir; por lo general, primero querrá agregar Brightcove Asset Manager. Puede agregar uno o ambos de los otros también más adelante.</aside>
+      </li>
+      <li>
+        Haga clic en <strong>Guardar</strong> y accederá al Administrador de activos:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/team/install/appstore-go-to-asset-manager.png" alt="Gestor de activos"/>
+          <figcaption class="bcls-caption--image">Gestor de activos</figcaption>
+        </figure>
+        <aside class="bcls-aside bcls-aside--information language-editable">Consulte <a href="/teams/using.html">Uso del conector para Microsoft Teams</a> para obtener información sobre lo que puede hacer aquí.</aside>
+      </li>
+    </ol>
+  </section>
+	<section class="bcls-section">
+		<h2 id="Manual_installation">Instalación manual (aplicación personalizada)</h2>
+		<p>Para instalar Video Connector manualmente (instalación de la aplicación personalizada en Teams), siga los pasos a continuación.</p>
+		<ol class="bcls-tasklist-restart">
+			<li>Descargue la última versión del paquete de manifiesto de Video Connector desde el repositorio de GitHub aquí: <a href="https://appsource.microsoft.com/en-us/marketplace/apps?search=Brightcove&amp;page=1">Microsoft AppSource</a> y guárdelo en su computadora local.</li>
+			<li>Abra Microsoft Teams y abra el equipo donde desea instalar el conector.</li>
+			<li>
+				Selecciona el <strong>Mas opciones</strong> menú:
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/more-options.png" alt="Más opciones para el equipo"/>
+					<figcaption class="bcls-caption--image">Más opciones para el equipo</figcaption>
+				</figure>
+			</li>
+			<li>
+				Haz clic en el elemento del menú «Administrar equipo» (<strong>nota</strong>: debes tener permisos de propietario en esta ubicación de Teams para ver el elemento de menú mencionado; consulta la sección de requisitos previos más arriba):
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/manage-team.png" alt="Administrar equipo"/>
+					<figcaption class="bcls-caption--image">Administrar equipo</figcaption>
+				</figure>
+			</li>
+			<li>
+				Selecciona el <strong>Aplicaciones</strong> pestaña:
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/select-apps-tab.png" alt="Pestaña Aplicaciones de equipo"/>
+					<figcaption class="bcls-caption--image">Pestaña Aplicaciones de equipo</figcaption>
+				</figure>
+			</li>
+			<li>
+				Haga clic en el <strong>Cargar una aplicación personalizada</strong> enlace en la parte inferior de la página de aplicaciones:
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/upload-custom-app.png" alt="Cargar enlace de aplicación personalizado"/>
+					<figcaption class="bcls-caption--image">Cargar enlace de aplicación personalizado</figcaption>
+				</figure>
+			</li>
+			<li>
+				Navegue hasta la ubicación del manifiesto del conector (que descargó anteriormente), selecciónelo y haga clic en el <strong>Abierto</strong> botón:
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/select-brightcovevideoconnect.png" alt="Cargar el conector"/>
+					<figcaption class="bcls-caption--image">Cargar el conector</figcaption>
+				</figure>
+			</li>
+			<li>
+				Hacer clic <strong>Agregar</strong> en la ventana modal Brightcove Video Connect que se muestra:
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/add-brightcovevideoconnect.png" alt="Agregar Brightcove Video Connect"/>
+					<figcaption class="bcls-caption--image">Agregar Brightcove Video Connect</figcaption>
+				</figure>
+			</li>
+			<li>
+				La aplicación Video Connector debería estar instalada y ahora debería verla en la lista de aplicaciones disponibles para el equipo como se muestra a continuación:
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/installed-app.png" alt="Aplicaciones de equipo disponibles"/>
+					<figcaption class="bcls-caption--image">Aplicaciones de equipo disponibles</figcaption>
+				</figure>
+			</li>
+		</ol>
+		<p>Cubriremos la configuración del conector en una sección posterior y su uso en <a href="/teams/using.html">Usar el conector para Microsoft Teams</a></p>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Install_from_Microsoft_App_Store">Instalar desde Microsoft App Store</h2>
+		<p>Esta capacidad se está aprovisionando actualmente y la documentación se actualizará una vez que esté en su lugar.</p>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Add_Brightcove_Media_Asset_Manager_to_Teams">Agregar Brightcove Media Asset Manager a los equipos</h2>
+		<p>Primero debe instalar Video Connector en el equipo al que desea agregar el administrador de medios. Siga la guía de instalación como se describe en las secciones anteriores de la documentación si aún no lo ha hecho.</p>
+		<p>Ahora procederemos con la configuración.</p>
+		<ol class="bcls-tasklist-restart">
+			<li>En Microsoft Teams, abra el equipo que ya tiene instalada la aplicación de conector de video.</li>
+			<li>Abra el canal de equipo en el que desea instalar el administrador de medios.</li>
+			<li>
+				Haga clic en el <strong>Agregar pestaña</strong> opción de menú:
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/add-tab-option.png" alt="Agregar opciones de pestaña para el canal del equipo"/>
+					<figcaption class="bcls-caption--image">Agregar opciones de pestaña para el canal del equipo</figcaption>
+				</figure>
+			</li>
+			<li>
+				Selecciona el <strong>Brightcove Video Connect</strong> aplicación de la <strong>Agregar una pestaña</strong> ventana modal:
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/add-tab-modal.png" alt="Agregar una pestaña modal"/>
+					<figcaption class="bcls-caption--image">Agregar una pestaña modal</figcaption>
+				</figure>
+			</li>
+			<li>En el <strong>Configuración</strong> ventana modal, debajo <strong>Cuenta Brightcove</strong> hacer clic <strong>Nuevo</strong> para agregar una cuenta al conector (o seleccione una del menú desplegable si ha usado anteriormente el conector en otro equipo en este entorno de equipos).</li>
+			<li>
+				Si agrega una nueva cuenta de Brightcove (si hizo clic en <strong>Nuevo</strong> en el paso anterior) complete el formulario con su ID de cuenta de Brightcove, ID de clave de acceso API (ID de cliente) y Clave de acceso secreta API (secreto de cliente) como se muestra. Hacer clic <strong>Guardar cuenta y continuar</strong>.
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/add-account-info.png" alt="Información de la cuenta de Brightcove"/>
+					<figcaption class="bcls-caption--image">Información de la cuenta de Brightcove</figcaption>
+				</figure>
+				<p>Para obtener información sobre cómo obtener las credenciales del cliente, consulte <a href="https://apis.support.brightcove.com/getting-started/authentication-brightcove-api-requests.html">Autenticación para solicitudes de API</a>. Las credenciales necesitan al menos estos permisos para las API de CMS, Ingesta dinámica y Perfiles de ingesta:</p>
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/api-permissions.png" alt="Permisos mínimos de API"/>
+					<figcaption class="bcls-caption--image">Permisos mínimos de API</figcaption>
+				</figure>
+			</li>
+			<li>
+				En la ventana de configuración, en <strong>Modo de pestaña de conector</strong> Selecciona el <strong>Administrador de activos de Brightcove</strong> de las opciones desplegables:
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/select-brightcove-asset-manager.png" alt="Modo de pestaña de conector"/>
+					<figcaption class="bcls-caption--image">Modo de pestaña de conector</figcaption>
+				</figure>
+			</li>
+			<li>
+				Hacer clic <strong>Ahorrar</strong>:
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/save-brightcove-connector-tab.png" alt="Guardar la configuración del conector de Brightcove"/>
+					<figcaption class="bcls-caption--image">Guardar la configuración del conector de Brightcove</figcaption>
+				</figure>
+			</li>
+			<li>
+				Brightcove Asset Manager debería aparecer ahora en la pestaña recién creada como se muestra a continuación:
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/team/install/asset-manager-tab-appears.png" alt="Conector de video configurado"/>
+					<figcaption class="bcls-caption--image">Conector de video configurado</figcaption>
+				</figure>
+			</li>
+		</ol>
+		<p>Brightcove Video Connector ya está instalado y configurado. Para usar el conector para administrar activos multimedia, consulte <a href="/teams/using.html">Usar el conector para Microsoft Teams</a>.</p>
+	</section>
+</article>
+
+<!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
+  
+  <nav class="right-side-nav" id="right_side_nav">
+    <h6 class="toc">Contenido de la página</h6>
+    <ul id="in_page_nav" class="list-none"></ul>
+  </nav>
+  
+<!-- </div> -->
+</div>
+</div>
+</div>
+<div class="page-content" style="background-color: rgb(1, 5, 14);">
+  <div class="container" style="width: 50%;">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Soporte de Brightcove</h5>
+          <ul class="list-unstyled text-small" style="color: white ;">
+            <li><a class="a-text" href="https://status.brightcove.com">Estado del sistema</a></li>
+            <li><a class="a-text" href="https://supportportal.brightcove.com">Contactar con el soporte</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/search.html">Buscar toda la documentación</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Capacitación</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/online-training-courses.html">Cursos online</a></li>
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/register-training.html">Regístrese para un curso</a></li>
+            <li><a class="a-text" href="https://academy.brightcove.com/">Academia Brightcove</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Brightcove</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://www.brightcove.com">Brightcove.com</a></li>
+            <li><a class="a-text" href="https://community.brightcove.com/s/">Foro de la comunidad de Bright Spot</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/product-updates.html">Notas de lanzamiento del producto</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/doc-updates.html">Actualizaciones de documentación</a></li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>© Brightcove Inc. Todos los derechos reservados.</p>
+      <a class="a-text" href="https://www.brightcove.com/en/legal/privacy">Privacidad</a> <a class="a-text" href="https://www.brightcove.com/en/terms-and-conditions">Términos y condiciones</a>
+
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" target="_blank" class="gf-social-linkedin" style="margin-right: 1rem;"><i data-feather="linkedin" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://twitter.com/brightcove" title="Gorjeo" target="_blank" class="gf-social-twitter" style="margin-right: 1rem;"><i data-feather="twitter" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://www.facebook.com/Brightcove" title="Facebook" target="_blank" class="gf-social-facebook"><i data-feather="facebook" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+      </ul>
+      </div>
+    </footer>
+  </div>
+</div>
+
+
+<script translate="no">
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documentation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder,
+    styling: {
+      components: {
+        
+        input: {
+          container: {
+          backgroundColor: 'white',
+          }
+        
+        }
+      }
+    },
+    maxSuggestions: 5, // Maximum number of suggestions to show
+      attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+
+  
+
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+    window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+  </script>
+  
+  <!-- Javascript -->          
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/popper.min.js"></script>
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+
+
+  <!-- Page Specific JS -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/smoothscroll.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script> -->
+  <!-- <script src="/assets/s-site-assets-template-stylesheets/js/highlight-custom.js"></script>  -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+  <script src="/assets/s-site-assets-template-stylesheets/js/docs.js"></script> 
+
+  <!-- original footer components -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+  <script src="/assets/s-site-assets-scripts/https-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/setDate.js"></script>
+  <script src="/assets/s-site-assets-scripts/selector.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/prism.js"></script>
+  <script src="/assets/s-site-assets-scripts/prism-normalize.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/learning-paths/learning-paths.js"></script>
+  <!-- <script src="/assets/s-site-assets-scripts/site.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/tabs.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/toc-new-template.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="/assets/s-site-assets-scripts/bcls-utils.js"></script>
+  <script src="/assets/s-site-assets-scripts/local-link-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/sajari-reindex.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/sajari-search-foot.js"></script>
+  
+  <script translate="no">
+    feather.replace()
+  </script>
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/in-app.js"></script>
+  <style translate="no">
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+  </body>
+</html> 

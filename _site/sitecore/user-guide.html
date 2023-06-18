@@ -1,0 +1,1444 @@
+﻿<!DOCTYPE html>
+<html lang="es"> 
+    <head>
+        <title>Guía del usuario: Brightcove Video Connect para Sitecore</title>
+        
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Administre y use sus activos de video de Brightcove dentro de Sitecore 10.2 o 10.1.x">
+        
+        <!-- Google Font -->
+        <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/fonts/articulat-site.css">
+        <link href="/assets/s-site-assets-stylesheets/fonts/source-code-pro.css" rel="stylesheet">
+        
+        <!-- FontAwesome JS-->
+        
+        <script src="https://kit.fontawesome.com/d67c74a882.js" crossorigin="anonymous"></script>  
+        
+        <!-- Plugins CSS -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.css">
+
+        <!-- Theme CSS -->  
+        <link id="theme-style" rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/css/theme.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/prism.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/custom-css/styles.css">
+
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBJC11HF8Z"></script>
+        <script translate="no">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XBJC11HF8Z');
+        </script>
+        <script src="/assets/s-site-assets-scripts/sixth-sense.js"></script>
+        <script src="/assets/s-site-assets-scripts/sajari-head.js"></script>
+        <script src="/assets/s-site-assets-scripts/feather.min.js"></script>
+
+    </head> 
+
+    <body class="docs-page">
+        
+
+<header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid position-relative py-2">
+      <div class="docs-logo-wrapper">
+        <button id="docs-sidebar-toggler" class="docs-sidebar-toggler"
+          type="button">
+          <span></span> <span></span> <span></span>
+        </button>
+        <div class="site-logo"><a class="navbar-brand" href="https://support.brightcove.com/" style="margin-left: 15px;"> <img class="logo-icon me-2" src="/assets/s-site-assets-template-stylesheets/images/bc_logo_black_1@1x.png" alt="logo" style="margin-bottom: 9px;"/>
+            <!-- <span class="logo-text">BRIGHTCOVE</span> -->
+          </a></div>
+      </div><!--//docs-logo-wrapper-->
+
+      <div class="docs-top-utilities d-flex justify-content-end
+        align-items-center">
+        
+        <!-- Search bar -->
+        <div id="nav-search-box" class="top-search-box d-none d-lg-flex" style="margin-right: 10px ;"></div>
+
+<select id="site_select" class="form-select select-focus" style="width:
+          20%; margin-right: 10px;" translate="no">
+          <option value="">Other Brightcove Docs</option>
+          
+          
+          <option value="https://support.brightcove.com" translate="no">Documentation Home</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD --</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Studio</option>
+          
+          
+          
+          <option value="https://mstudio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Marketing Studio</option>
+          
+          
+          
+          <option value="https://player.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Player Development</option>
+          
+          
+          
+          <option value="https://apis.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Platform APIs</option>
+          
+          
+          
+          <option value="https://sdks.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Device SDKs</option>
+          
+          
+          
+          <option value="https://integrations.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Integrations and CMS Connectors</option>
+          
+          
+          
+          <option value="https://general.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud General Information</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO ESSENTIALS --</option>
+          
+          
+          
+          <option value="https://audience-insights.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Audience Insights</option>
+          
+          
+          
+          <option value="https://beacon-help.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Studio</option>
+          
+          
+          
+          <option value="https://beacon.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Classic</option>
+          
+          
+          
+          <option value="https://corptv.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;CorpTV</option>
+          
+          
+          
+          <option value="https://live.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Live</option>
+          
+          
+          
+          <option value="https://zencoder.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Zencoder</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD ADD-ONS --</option>
+          
+          
+          
+          <option value="https://gallery.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Gallery</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com/social/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Social</option>
+          
+          
+          
+          <option value="https://interactivity.support.brightcove.com/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Interactivity</option>
+          
+          
+          
+          <option value="https://ssai.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove SSAI</option>
+          
+          
+          
+          <option value="https://campaign.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Campaign</option>
+          
+          
+        </select>
+
+        <select id="language_select" class="form-select select-focus" style="width: 10%;"
+          onchange="doGTranslate(this);" translate="no">
+          <!-- <option value="">Select Language</option> -->
+          <option value="en|en" translate="No">English</option>
+          <option value="en|zh-TW" translate="No">繁體中文</option>
+          <option value="en|fr" translate="No">Français</option>
+          <option value="en|de" translate="No">Deutsche</option>
+          <option value="en|ja" translate="No">日本語</option>
+          <option value="en|ko" translate="No">한국어</option>
+          <option value="en|es" translate="No">Español</option>
+        </select>
+
+        <script translate="no">
+          /* <![CDATA[ */
+          function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+          /* ]]> */
+        </script>
+      </div>
+    </div>
+  </div>
+</header><!--//header-->
+
+<div class="docs-wrapper">
+  <div id="docs-sidebar" class="docs-sidebar" style="padding-right: 15px;">
+    <div id="nav-search-box" class="top-search-box d-lg-none p-3"></div>
+    <div class="row">
+      
+        <div id="side_nav" style="margin-left: 1em; display: inline-block; border-right: 1px solid #e5e5e6; padding-right: 1em;">
+          
+          <nav class="docs-nav sidenav" aria-label="Main">
+            <ul class="site-nav" style="list-style-type: none;">
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/index.html">Inicio</a></li>
+            
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/general/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Información general</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/cms-integration-training-videos.html">Vídeos de formación sobre integración de CMS</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/integrating-your-cms-video-cloud.html">Integración de su CMS con Video Cloud</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/embedding-brightcove-players-cms.html">Incorporación de reproductores de Brightcove en un CMS</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/embedding-brightcove-page-experiences-cms.html">Incorporación de experiencias in-page en un CMS</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/debugging-network-and-api-connection-issues-cms-and-dam-integrations.html">Depuración de problemas de conexión de red y API</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/wordpress/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;WordPress</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/wordpress/getting-started-brightcove-video-connect-wordpress-cms.html">Introducción a Brightcove Video Connect</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/drupal/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Drupal</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/getting-started-brightcove-video-connect-drupal-cms.html">Introducción a Connector para Drupal</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-9-brightcove-connector-overview.html">Drupal 9 - Conector de Brightcove: Descripción general</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-8-brightcove-connector-configuration.html">Drupal 8 - Configuración</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-8-brightcove-connector-content-management.html">Drupal 8 - Gestión de contenido</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-8-brightcove-connector-embedding-content.html">Drupal 8: incrustación de contenido</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-8-brightcove-connector-installation.html">Drupal 8 - Instalación del conector</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-7-brightcove-connector-configuration-and-usage.html">Drupal 7 - Configuración y uso</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-7-brightcove-connector-installation.html">Drupal 7 - Instalación</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/adobe/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Adobe</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/getting-started-brightcove-video-connect-adobe-experience-manager.html">Introducción a Connector para AEM</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/adobe-aem-brightcove-connector-configuration.html">Configuración</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/adobe-aem-brightcove-connector-installation.html">Instalación para AEM local</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/adobe-aem-brightcove-connection-installation-cloud.html">Instalación para la nube AEM</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/adobe-aem-brightcove-connector-overview.html">Descripción general</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/adobe-aem-brightcove-connector-using-connector.html">Usando el conector</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/sitecore/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Núcleo del sitio</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/sitecore/getting-started-brightcove-video-connect-sitecore-experience-platform.html">Introducción al conector para Sitecore</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/sitecore/installation-guide.html">Guía de instalación: Brightcove Video Connect para Sitecore</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/sitecore/configuration.html">Guía de configuración: Brightcove Video Connect para Sitecore</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/sitecore/user-guide.html" aria-current="page">Guía del usuario: Brightcove Video Connect para Sitecore</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/sharepoint/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;SharePoint</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/sharepoint/getting-started-brightcove-video-connect-sharepoint.html">Introducción a Connector para Sharepoint</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/hootsuite/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Hootsuite</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/hootsuite/publishing-brightcove-video-hootsuite.html">Publicación de vídeos de Brightcove desde Hootsuite</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/ecommerce/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;comercio electrónico</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ecommerce/salesforce/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Nube de comercio de Salesforce</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-installation.html">Salesforce Commerce Cloud: Instalación</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-user-guide.html">Salesforce Commerce Cloud: Guía del usuario</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ecommerce/adobe-magento-commerce/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Comercio de Adobe Magento</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecommerce/adobe-magento-commerce/installation-guide.html">Guía de instalación</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecommerce/adobe-magento-commerce/user-guide.html">Guía del usuario</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/ecdn/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;eCDN</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ecdn/kollective/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;colectivo</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/kollective/kollective-deployment-guide.html">Guía de implementación de Kollective eCDN</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/kollective/add-kollective-player-plugin.html">Instalación del complemento del reproductor Kollective</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/kollective/kollective-user-guide.html">Guía del usuario de Kollective eCDN</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ecdn/peer5/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Par5</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/peer5/brightcove-with-peer5-integration.html">Brightcove con integración Peer5</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ecdn/ramp/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Rampa</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/ramp/getting-started-ramp-omnicache-and-video-cloud.html">Introducción a Ramp OmniCache y Video Cloud</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/ramp/getting-started-ramp-multicast-and-video-cloud.html">Introducción a Ramp Multicast + y Video Cloud</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/teams/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Brightcove Video Connect para equipos de Microsoft</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/teams/installation.html">Instalación del conector para equipos</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/teams/using.html">Uso del conector para equipos de Microsoft</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/web-conferencing/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Conferencia web</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/web-conferencing/host-zoom-conference-brightcove-live.html">Conferencia Zoom en Brightcove Live</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/web-conferencing/host-cisco-webex-conference-brightcove-live.html">Conferencia de Cisco Webex a Brightcove Live</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/web-conferencing/host-avaya-conference-brightcove-live.html">Conferencia de Avaya en Brightcove Live</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/web-conferencing/host-inxpo-live.html">Evento INXPO en Brightcove Live</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/non-brightcove-players/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Jugadores que no son de Brightcove</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/non-brightcove-players/inplayer.html">Entregue contenido de Brightcove mediante InPlayer</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/support/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Apoyo</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/viewing-brightcove-system-status-page.html">Visualización de la página de estado del sistema Brightcove</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/contact-sales.html">Contactar con ventas</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html">Abrir un caso de soporte</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/reset-support-portal-password.html">Restablecer la contraseña del portal de soporte</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+          </ul>
+          </nav>
+        </div>
+      </div>
+    </div><!--//docs-sidebar-->
+  </div>
+</div>
+
+<div style="margin-top: 20px;">
+  <div class="docs-content" style="padding-bottom: 0px;">
+    <div class="container">
+      <div class="docs-overview">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/">Inicio</a></li>
+            
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/sitecore/">Sitecore</a></li>
+            
+            
+            
+            <li class="breadcrumb-item active" aria-current="page">Guía del usuario: Brightcove Video Connect para Sitecore</li>
+            
+            
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="docs-content">
+  <div class="container">
+    <div class="docs-overview py-5">
+      
+      <div class="centered-inpage-nav" id="centered_inpage_nav">
+        <nav id="centered_toc">
+          <select id="centered_in_page_toc" class="form-select select-focus"></select>
+        </nav>
+      </div>
+      <br/>
+      
+      
+<h1>Guía del usuario: Brightcove Video Connect para Sitecore</h1>
+<article class="bcls-article">
+  <summary>Administre y use sus activos de video de Brightcove dentro de Sitecore 10.2 o 10.1.x</summary>
+  <section class="bcls-section">
+    <h2 id="Introduction">Introducción</h2>
+    <p>Tenga en cuenta que debe completar la <a href="/sitecore/installation-guide.html">instalación</a> y <a href="/sitecore/configuration.html">configuración</a> del conector Brightcove-Sitecore antes de realizar las tareas descritas en este tema.</p>
+    <h3>10.1.1 Liberación</h3>
+    <p>Brightcove Video Connect para Sitecore 10.2 o 10.1.x.1 incluye nuevas funciones interesantes que le permiten lograr aún más con el conector. Esta versión incluye la capacidad de sincronizar experiencias y reproductores con su cuenta de Brightcove Video Cloud. También puede actualizar y crear nuevos reproductores desde el conector y sincronizarlos con Video Cloud.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Syncing_Experiences">Sincronización de experiencias</h2>
+    <p>Para ejecutar el proceso de sincronización para experiencias en la página, siga los pasos a continuación.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>En Sitecore, seleccione el <strong>Editor de contenido</strong> .</li>
+      <li>En el Editor de contenido, seleccione el elemento <strong>Sistema</strong> .</li>
+      <li>Ampliar <strong>Intercambio de datos &gt; Inquilino de Brightcove &gt; Lotes de tubería</strong> .</li>
+      <li>Seleccione el elemento <strong>Lote de canalización de sincronización</strong> .</li>
+      <li>
+        En el panel de configuración, asegúrese de que esté seleccionada <strong>la Canalización de experiencias de extracción</strong> (vea la figura a continuación).
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/experiences-sync-pull-pipeline.png" alt="Panel de configuración"/>
+          <figcaption class="bcls-caption--image">Panel de configuración</figcaption>
+        </figure>
+      </li>
+      <li>Haga clic en el <strong>Ahorrar</strong> botón.</li>
+      <li>
+        Haga clic en <strong>Ejecutar procesamiento por lotes</strong> para iniciar el proceso de sincronización. El proceso comienza y muestra una ventana emergente como se muestra a continuación.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/experiences-sync-popup.png" alt="Ejecución por lotes de canalización"/>
+          <figcaption class="bcls-caption--image">Ejecución por lotes de canalización</figcaption>
+        </figure>
+      </li>
+      <li>Hacer clic <strong>OK</strong>. Los botones <strong>Mostrar estado de lote de canalización</strong> y <strong>Detener lote de canalización</strong> están habilitados mientras se ejecuta el proceso (y el botón Ejecutar lote de canalización está deshabilitado). Cuando finaliza la sincronización, ambos botones se deshabilitan y el botón Ejecutar lote de canalización se vuelve a habilitar. Tenga en cuenta que el proceso de sincronización puede completarse muy rápidamente, según la cantidad de elementos que se sincronizan; es posible que vea solo un parpadeo en tales casos y el botón Ejecutar procesamiento por lotes permanece habilitado.</li>
+      <li>Confirme que la sincronización se realizó correctamente siguiendo los pasos de Confirmar experiencias sincronizadas a continuación.</li>
+    </ol>
+    <h3>Confirmar experiencias sincronizadas</h3>
+    <ol class="bcls-tasklist">
+      <li>En Sitecore, seleccione el <strong>Editor de contenido</strong> .</li>
+      <li>En el Editor de contenido, seleccione la <strong>Biblioteca de medios</strong> .</li>
+      <li>Ampliar la <strong>Brightcove &gt; Cuenta de Brightcove</strong> elementos.</li>
+      <li>Haga clic en la carpeta <strong>Experiencias</strong> .</li>
+      <li>
+        En el panel principal, haga clic en el icono Buscar que se muestra a continuación.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/search-icon.png" alt="Icono de búsqueda"/>
+          <figcaption class="bcls-caption--image">Icono de búsqueda</figcaption>
+        </figure>
+      </li>
+      <li>
+        Haga clic en el botón Buscar para el campo de búsqueda que se muestra (sin ingresar ningún término de búsqueda).
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/empty-search-field.png" alt="Campo de búsqueda vacío"/>
+          <figcaption class="bcls-caption--image">Campo de búsqueda vacío</figcaption>
+        </figure>
+      </li>
+      <li>
+        Debería ver todas las experiencias de nube de video sincronizadas en los resultados de búsqueda, incluidos los recuentos de cuántas de ellas se sincronizaron.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/synched-experiences.png" alt="Experiencias sincronizadas"/>
+          <figcaption class="bcls-caption--image">Experiencias sincronizadas</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Syncing_Video_Cloud_players">Sincronización de reproductores de Video Cloud</h2>
+    <p>Para ejecutar el proceso de sincronización de reproductores, siga los pasos a continuación.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>En Sitecore, seleccione el <strong>Editor de contenido</strong> .</li>
+      <li>En el Editor de contenido, seleccione el elemento <strong>Sistema</strong> .</li>
+      <li>Ampliar <strong>Intercambio de datos &gt; Inquilino de Brightcove &gt; Lotes de tubería</strong> .</li>
+      <li>Seleccione el elemento <strong>Lote de canalización de sincronización</strong> .</li>
+      <li>
+        En el panel de configuración, asegúrese de que el Pipeline de Pull Players y el Pipeline de Push Players estén seleccionados como se muestra a continuación (vea la figura a continuación).
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/experiences-sync-pull-players-pipeline.png" alt="Tubería de sincronización de jugadores"/>
+          <figcaption class="bcls-caption--image">Tubería de sincronización de jugadores</figcaption>
+        </figure>
+      </li>
+      <li>Haga clic en el <strong>Ahorrar</strong> botón.</li>
+      <li>
+        Haga clic en <strong>Ejecutar procesamiento por lotes</strong> para iniciar el proceso de sincronización. El proceso comienza y muestra una ventana emergente como se muestra a continuación.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/experiences-sync-popup.png" alt="Ejecución por lotes de canalización"/>
+          <figcaption class="bcls-caption--image">Ejecución por lotes de canalización</figcaption>
+        </figure>
+      </li>
+      <li>Hacer clic <strong>OK</strong>. Los botones <strong>Mostrar estado de lote de canalización</strong> y <strong>Detener lote de canalización</strong> están habilitados mientras se ejecuta el proceso (y el botón Ejecutar lote de canalización está deshabilitado). Cuando finaliza la sincronización, ambos botones se deshabilitan y el botón Ejecutar lote de canalización se vuelve a habilitar. Tenga en cuenta que el proceso de sincronización puede completarse muy rápidamente, según la cantidad de elementos que se sincronizan; es posible que vea solo un parpadeo en tales casos y el botón Ejecutar procesamiento por lotes permanece habilitado.</li>
+      <li>Confirme que la sincronización se realizó correctamente siguiendo los pasos de Confirmar jugador sincronizado a continuación.</li>
+    </ol>
+    <h3>Confirmar jugadores sincronizados</h3>
+    <ol class="bcls-tasklist">
+      <li>En Sitecore, seleccione el <strong>Editor de contenido</strong> .</li>
+      <li>En el Editor de contenido, seleccione la <strong>Biblioteca de medios</strong> .</li>
+      <li>Ampliar la <strong>Brightcove &gt; Cuenta de Brightcove</strong> elementos.</li>
+      <li>Haga clic en la carpeta <strong>Reproductores</strong> .</li>
+      <li>
+        En el panel principal, haga clic en el icono Buscar que se muestra a continuación.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/search-icon.png" alt="Icono de búsqueda"/>
+          <figcaption class="bcls-caption--image">Icono de búsqueda</figcaption>
+        </figure>
+      </li>
+      <li>
+        Haga clic en el botón Buscar para el campo de búsqueda que se muestra (sin ingresar ningún término de búsqueda).
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/empty-search-field.png" alt="Campo de búsqueda vacío"/>
+          <figcaption class="bcls-caption--image">Campo de búsqueda vacío</figcaption>
+        </figure>
+      </li>
+      <li>
+        Debería ver todas las experiencias de nube de video sincronizadas en los resultados de búsqueda, incluidos los recuentos de cuántas de ellas se sincronizaron.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/synched-players.png" alt="Experiencias sincronizadas"/>
+          <figcaption class="bcls-caption--image">Experiencias sincronizadas</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Updating_Players">Actualizar jugadores</h2>
+    <p>Siga los pasos a continuación para actualizar las propiedades de un reproductor.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>En Sitecore, seleccione el <strong>Editor de contenido</strong> .</li>
+      <li>En el Editor de contenido, seleccione la <strong>Biblioteca de medios</strong> .</li>
+      <li>Ampliar la <strong>Brightcove &gt; Cuenta de Brightcove</strong> elementos.</li>
+      <li>Haga clic en la carpeta <strong>Reproductores</strong> .</li>
+      <li>
+        Realiza una búsqueda de un jugador.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/search-for-player.png" alt="Buscar jugador"/>
+          <figcaption class="bcls-caption--image">Buscar jugador</figcaption>
+        </figure>
+      </li>
+      <li>
+        Seleccione el reproductor que desea actualizar y edítelo (consulte la edición en el campo Descripción breve a continuación en este ejemplo).
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/edit-player.png" alt="Editar jugador"/>
+          <figcaption class="bcls-caption--image">Editar jugador</figcaption>
+        </figure>
+      </li>
+      <li>Haz clic en Guardar.</li>
+      <li>Realice una sincronización de reproductores como se describe en la sección <a href="#Syncing_Video_Cloud_players">Sincronización de reproductores de Video Cloud</a> .</li>
+      <li>Inicie sesión en Brightcove Video Cloud Studio y busque el reproductor editado.</li>
+      <li>Confirme que su edición del conector se refleja en el reproductor en Video Cloud.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="adding_players">Agregar jugadores</h2>
+    <p>Para agregar un nuevo reproductor de Video Cloud, siga las instrucciones a continuación.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>En Sitecore, seleccione el <strong>Editor de contenido</strong> .</li>
+      <li>En el Editor de contenido, seleccione la <strong>Biblioteca de medios</strong> .</li>
+      <li>Ampliar la <strong>Brightcove &gt; Cuenta de Brightcove</strong> elementos.</li>
+      <li>
+        Haga clic derecho en la carpeta <strong>Players</strong> , luego seleccione <strong>Insertar &gt; Inserte desde la plantilla</strong> como se muestra a continuación.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/insert-player-from-template.png" alt="Insertar reproductor desde plantilla"/>
+          <figcaption class="bcls-caption--image">Insertar reproductor desde plantilla</figcaption>
+        </figure>
+      </li>
+      <li>
+        Asegúrese de que Brightcove Video Player sea la plantilla seleccionada, luego asigne un nombre al reproductor (&amp;quot;I Am Connector Player&amp;quot; se usa en el siguiente ejemplo).
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/brightcove-player-template.png" alt="Plantilla de reproductor de Brightcove"/>
+          <figcaption class="bcls-caption--image">Plantilla de reproductor de Brightcove</figcaption>
+        </figure>
+      </li>
+      <li>Haga clic en el botón <strong>Insertar</strong> .</li>
+      <li>
+        Haga clic en el <strong>Ahorrar</strong> botón.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/save-new-player.png" alt="Guardar nuevo jugador"/>
+          <figcaption class="bcls-caption--image">Guardar nuevo jugador</figcaption>
+        </figure>
+      </li>
+      <li>Realice una sincronización de reproductores como se describe en <a href="#Syncing_Video_Cloud_players">la sección Sincronizar reproductores</a> .</li>
+      <li>Inicie sesión en Brightcove Video Cloud Studio y confirme que el reproductor recién agregado se encuentra en la lista de reproductores en Video Cloud.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Defining_Video_Cloud_Players">Definición de reproductores de Video Cloud</h2>
+    <p>Se necesita un reproductor para mostrar un solo video o una lista de reproducción de videos. Un jugador define qué tipo de capacidades están disponibles para el visitante que quiere ver un video. Los autores de contenido pueden agregar nuevos reproductores, editar reproductores existentes y eliminar reproductores existentes.</p>
+    <h3 id="Add_Player">Agregar jugador</h3>
+    <p>Esta sección describe cómo crear manualmente el elemento de Sitecore que corresponde a un jugador.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        En Brightcove Video Cloud, vaya a la sección Reproductores.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/go-to-players-module.png" alt="Navegar a Jugadores"/>
+          <figcaption class="bcls-caption--image">Navegar a Jugadores</figcaption>
+        </figure>
+      </li>
+      <li>
+        Seleccione un reproductor que desee crear en Sitecore. Tenga en cuenta el valor <strong>de ID del jugador</strong> debajo del nombre del jugador. Deberá ingresar esto en Sitecore en la siguiente sección.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/select-player.png" alt="ID de jugador"/>
+          <figcaption class="bcls-caption--image">ID de jugador</figcaption>
+        </figure>
+      </li>
+      <li>En Sitecore, en la <strong>Biblioteca multimedia</strong> , seleccione el elemento <strong>Cuenta de Brightcove</strong> .</li>
+      <li>Seleccione el elemento <strong>Cuentas</strong> .</li>
+      <li>Seleccione el elemento <strong>Jugadores</strong> .</li>
+      <li>Haga clic derecho en Reproductores y haga clic en Insertar y Brightcove Video Player</li>
+      <li>Agregue un nuevo elemento <strong>del reproductor de video de Brightcove</strong> . Se le pedirá que ingrese la <strong>identificación del jugador</strong> . Introduzca el valor de Brightcove Video Cloud.</li>
+      <li>Querrás asegurarte de agregar reproductores habilitados para video único y listas de reproducción.</li>
+    </ol>
+    <h3 id="set_default_players">Establecer jugadores predeterminados</h3>
+    <p>Para obtener una vista previa de videos y listas de reproducción en Sitecore, se deben especificar los reproductores predeterminados. Esta sección describe cómo configurar los reproductores predeterminados.</p>
+    <ol class="bcls-tasklist">
+      <li>En Sitecore, en la <strong>Biblioteca multimedia</strong> , seleccione el elemento <strong>Cuenta de Brightcove</strong> .</li>
+      <li>Seleccione el elemento <strong>Cuentas</strong> .</li>
+      <li>
+        En la sección Configuración, establezca los valores para el campo Reproductor de video predeterminado y el campo Reproductor de lista de reproducción predeterminado.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/set-default-players.png" alt="Establecer jugadores predeterminados"/>
+          <figcaption class="bcls-caption--image">Establecer jugadores predeterminados</figcaption>
+        </figure>
+      </li>
+      <li>Guarde el artículo.</li>
+    </ol>
+    <h3 id="editing_and_deleting_players">Edición y eliminación de jugadores</h3>
+    <p>Los elementos del reproductor se pueden editar o eliminar como cualquier otro elemento de Sitecore.</p>
+    <aside class="bcls-aside bcls-aside--information language-editable">Nota: La eliminación de un reproductor de Sitecore no hará que el reproductor se elimine de Brightcove Video Cloud.</aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Working_with_Brightcove_videos">Trabajar con vídeos de Brightcove</h2>
+    <h3 id="Importing_Adding_Previewing_and_Deleting_Videos">Importación, adición, vista previa y eliminación de videos</h3>
+    <p>Sitecore Data Exchange Framework se utiliza para sincronizar contenido entre Sitecore y la nube de Brightcove. Los autores de contenido también pueden cargar videos nuevos en la nube de Brightcove utilizando la opción de carga en la cinta de opciones de Brightcove en el Editor de contenido (consulte <a href="#Add_Video">Agregar video</a> a continuación).</p>
+      <h4 id="importing_video">Importación de vídeo</h4>
+      <p>Un autor o administrador de contenido de Sitecore puede desencadenar el proceso de importación de video ejecutando los lotes de canalización de extracción o sincronización en el arrendatario DEF de Brightcove. Tenga en cuenta que el lote de canalización de sincronización exportará cualquier edición pendiente a Brightcove, así como también importará los cambios pendientes de Brightcove.</p>
+      <h4 id="Add_Video">Añadir video</h4>
+      <p>Brightcove Video Connect para Sitecore permite a los autores de contenido agregar nuevos videos. Los autores de contenido pueden cargar un nuevo video en la nube de Brightcove haciendo clic en el botón de carga en la cinta de opciones de Brightcove en el Editor de contenido.</p>
+      <h4 id="Edit_Video">Editar video</h4>
+      <p>Los elementos de video se editan como cualquier otro elemento de Sitecore, pero los cambios se deben sincronizar con Brightcove mediante los lotes de canalización de inserción o sincronización.</p>
+      <h4 id="Delete_Video">Eliminar vídeo</h4>
+      <p>Eliminar un elemento de video NO lo eliminará de la nube de Brightcove. Si desea eliminar el elemento de video y eliminarlo de la nube de Brightcove, debe marcar la casilla de verificación <strong>Eliminar</strong> en la pestaña <strong>Sincronización</strong> en el elemento de video y luego ejecutar el lote de canalización de inserción o sincronización.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Adding_multilingual_metadata">Agregar metadatos multilingües</h2>
+    <p>Brightcove Video Connect para Sitecore 10.2 o 10.1.x.2 incluye nuevas funciones interesantes que le permiten lograr aún más con el conector. Esta versión de actualización agrega la capacidad de definir metadatos multilingües de video en Sitecore y sincronizarlos con Brightcove Studio. Al hacerlo, los metadatos del video en las inserciones aparecerán en el idioma asociado con las preferencias de idioma del navegador del usuario o se configurarán manualmente en la inserción del video.</p>
+    <aside class="bcls-aside bcls-aside--information language-editable">
+      Notas:
+      <ol>
+        <li>Los pasos de la guía del usuario a continuación asumen que ha descargado, instalado y configurado el paquete de versión Brightcove Video Connect para Sitecore 10.2 o 10.1.x.2 en su entorno Sitecore, como se describe en la documentación sobre cómo hacerlo.</li>
+        <li>El soporte de la plataforma Brightcove Video Cloud para metadatos multilingües se describe con más detalle aquí: <a href="https://studio.support.brightcove.com/media/working-multi-lingual-metadata.html">Trabajar con metadatos multilingües</a> .</li>
+      </ol>
+    </aside>
+    <h3>Definir metadatos multilingües para un video</h3>
+    <ol class="bcls-tasklist-restart">
+      <li>En Sitecore, seleccione el <strong>Editor de contenido</strong> .</li>
+      <li>En el Editor de contenido, seleccione el elemento <strong>Biblioteca multimedia</strong> .</li>
+      <li>Expandir <strong>Brightcove &gt; Cuenta de Brightcove</strong> .</li>
+      <li>Haga clic en la carpeta <strong>Vídeos</strong> .</li>
+      <li>
+        En el panel principal, ingrese el nombre del video para el que desea crear metadatos multilingües en el campo de búsqueda y haga clic en el ícono de búsqueda.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/search-for-video.png" alt="Buscar vídeo"/>
+          <figcaption class="bcls-caption--image">Buscar vídeo</figcaption>
+        </figure>
+      </li>
+      <li>Haz clic en el vídeo para seleccionarlo.</li>
+      <li>
+        En la pestaña del menú <strong>INICIO</strong> , seleccione el elemento de menú <strong>Brightcove Video Variant</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/brightcove-video-variant-item.png" alt="Elemento de variante de vídeo de Brightcove"/>
+          <figcaption class="bcls-caption--image">Elemento de variante de vídeo de Brightcove</figcaption>
+        </figure>
+      </li>
+      <li>
+        Introduzca un nombre para la nueva variante de metadatos multilingües y haga clic en <strong>Aceptar</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/name-for-variant.png" alt="Agregar nombre para variante"/>
+          <figcaption class="bcls-caption--image">Agregar nombre para variante</figcaption>
+        </figure>
+      </li>
+      <li>
+        La nueva variante de metadatos multilingüe se crea y se muestra como un elemento secundario de su original, como se muestra a continuación.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/variant-as-child.png" alt="Variante como Niño"/>
+          <figcaption class="bcls-caption--image">Variante como Niño</figcaption>
+        </figure>
+      </li>
+      <li>
+        Rellene los campos de la sección <strong>Metadatos de la variante de vídeo</strong> de la nueva variante según corresponda.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/variant-metadata-fields.png" alt="Campos de metadatos variantes"/>
+          <figcaption class="bcls-caption--image">Campos de metadatos variantes</figcaption>
+        </figure>
+      </li>
+      <li>Haga clic en <strong>Guardar</strong> para guardar sus cambios.</li>
+      <li>Realice una sincronización para sincronizar sus cambios con Video Cloud.</li>
+    </ol>
+    <h3>Sincronice sus cambios con Video Cloud</h3>
+    <ol class="bcls-tasklist">
+      <li>En Sitecore, seleccione el <strong>Editor de contenido</strong> .</li>
+      <li>En el Editor de contenido, seleccione el elemento <strong>Sistema</strong> .</li>
+      <li>Ampliar <strong>Intercambio de datos &gt; Inquilino de Brightcove &gt; Lotes de tubería</strong> .</li>
+      <li>Seleccione el elemento <strong>Lote de canalización de sincronización</strong> .</li>
+      <li>
+        En el panel de configuración, asegúrese de que las <strong>canalizaciones de videos Push y Pull</strong> estén seleccionadas (vea la figura a continuación).
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/Push-and-Pull-Videos-Pipelines.png" alt="Canalizaciones de vídeos de empujar y tirar"/>
+          <figcaption class="bcls-caption--image">Canalizaciones de vídeos de empujar y tirar</figcaption>
+        </figure>
+      </li>
+      <li>Haga clic en el <strong>Ahorrar</strong> botón.</li>
+      <li>
+        Haga clic en <strong>Ejecutar procesamiento por lotes</strong> para iniciar el proceso de sincronización. El proceso comienza y muestra una ventana emergente como se muestra a continuación.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/pipeline_batch_process_popup.png" alt="Ventana emergente de proceso por lotes de canalización"/>
+          <figcaption class="bcls-caption--image">Ventana emergente de proceso por lotes de canalización</figcaption>
+        </figure>
+      </li>
+      <li>Hacer clic <strong>OK</strong>. Los botones Mostrar estado de lote de canalización y Detener lote de canalización están habilitados mientras se ejecuta el proceso (y el botón Ejecutar lote de canalización está deshabilitado). Cuando finaliza la sincronización, ambos botones se deshabilitan y el botón Ejecutar lote de canalización se vuelve a habilitar. Tenga en cuenta que el proceso de sincronización puede completarse muy rápidamente, según la cantidad de elementos que se sincronizan; es posible que vea solo un parpadeo en tales casos y el botón Ejecutar procesamiento por lotes permanece habilitado.</li>
+      <li>Confirme que la sincronización se realizó correctamente revisando la fecha y la hora de actualización del video para el que acaba de crear los metadatos multilingües. Debe reflejar la fecha y la hora actualizadas recientemente.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Working_with_Labels">Trabajar con etiquetas</h2>
+    <h3>Crear etiquetas</h3>
+    <ol class="bcls-tasklist-restart">
+      <li>En&nbsp;Sitecore, seleccione el <strong>Editor de contenido</strong>.</li>
+      <li>En el Editor de contenido, seleccione el elemento <strong>Biblioteca multimedia</strong> .</li>
+      <li>Expandir <strong>Brightcove &gt; {Cuenta de Brightcove de interés}</strong> . Debería ver una carpeta &amp;quot;Etiquetas&amp;quot; debajo del nodo de cuenta de Brightcove expandido.</li>
+      <li>
+        Haga clic derecho en la carpeta Etiquetas, luego seleccione Insertar &gt; Etiqueta de video de Brightcove como se muestra a continuación:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/labels-right-clidk-menu.png" alt="Menú contextual de etiquetas"/>
+          <figcaption class="bcls-caption--image">Menú contextual de etiquetas</figcaption>
+        </figure>
+      </li>
+      <li>Introduzca un nombre para la etiqueta.</li>
+      <li>Haga clic en el Ahorrar botón.</li>
+      <li>Realice una sincronización de inserción y extracción para la etiqueta (como se describe en <a href="#Synchronization_Between_Sitecore_and_Video_Cloud">el uso de canalizaciones de inserción/extracción</a> ).</li>
+    </ol>
+    <h3>Actualización de etiquetas</h3>
+    <ol class="bcls-tasklist-restart">
+      <li>En&nbsp;Sitecore, seleccione el <strong>Editor de contenido</strong>.</li>
+      <li>En el Editor de contenido, seleccione el elemento <strong>Biblioteca multimedia</strong> .</li>
+      <li>Expandir <strong>Brightcove &gt; {Cuenta de interés de Brightcove} &gt; etiquetas</strong></li>
+      <li>Haga clic en la etiqueta que desea actualizar.</li>
+      <li>Especifique el nuevo nombre como se describe junto al campo "Nuevo nombre".</li>
+      <li>Haz clic en Guardar.</li>
+      <li>Realice una sincronización de inserción y extracción para la etiqueta (como se describe en <a href="#Synchronization_Between_Sitecore_and_Video_Cloud">el uso de canalizaciones de inserción/extracción</a> ).</li>
+    </ol>
+    <h3>Eliminación de etiquetas</h3>
+    <ol class="bcls-tasklist-restart">
+      <li>En&nbsp;Sitecore, seleccione el <strong>Editor de contenido</strong>.</li>
+      <li>En el Editor de contenido, seleccione el elemento <strong>Biblioteca multimedia</strong> .</li>
+      <li>Expandir <strong>Brightcove &gt; {Cuenta de interés de Brightcove} &gt; etiquetas</strong></li>
+      <li>Haga clic en la etiqueta que desea eliminar.</li>
+      <li>Haga clic en el icono Eliminar en la barra de menú.</li>
+      <li>Haz clic en Guardar.</li>
+      <li>Realice una sincronización de inserción y extracción para la etiqueta (como se describe en <a href="#Synchronization_Between_Sitecore_and_Video_Cloud">el uso de canalizaciones de inserción/extracción</a> ).</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Working_with_Folders">Trabajar con carpetas</h2>
+    <h3>Crear carpetas</h3>
+    <ol class="bcls-tasklist-restart">
+      <li>En&nbsp;Sitecore, seleccione el <strong>Editor de contenido</strong>.</li>
+      <li>En el Editor de contenido, seleccione el elemento <strong>Biblioteca multimedia</strong> .</li>
+      <li>Expandir <strong>Brightcove &gt; {Cuenta de Brightcove de interés}</strong> . Debería ver una carpeta &amp;quot;Carpetas&amp;quot; debajo del nodo de cuenta de Brightcove expandido.</li>
+      <li>
+        Haga clic derecho en la carpeta Carpetas, luego seleccione Insertar &gt; Carpeta de video de Brightcove como se muestra a continuación:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/folders-right-click-menu.png" alt="Menú contextual de carpetas"/>
+          <figcaption class="bcls-caption--image">Menú contextual de carpetas</figcaption>
+        </figure>
+      </li>
+      <li>Introduzca un nombre para la carpeta.</li>
+      <li>Haga clic en el Ahorrar botón.</li>
+      <li>Realice una sincronización de inserción y extracción para la carpeta (como se describe en <a href="#Synchronization_Between_Sitecore_and_Video_Cloud">el uso de canalizaciones de inserción/extracción</a> ).</li>
+    </ol>
+    <h3>Actualización de carpetas</h3>
+    <ol class="bcls-tasklist-restart">
+      <li>En&nbsp;Sitecore, seleccione el <strong>Editor de contenido</strong>.</li>
+      <li>En el Editor de contenido, seleccione el elemento <strong>Biblioteca multimedia</strong> .</li>
+      <li>Expandir <strong>Brightcove &gt; {Cuenta de interés de Brightcove} &gt; carpetas</strong></li>
+      <li>Haga clic en la carpeta que desea actualizar.</li>
+      <li>Especifique el nuevo nombre como se describe junto al campo "Nuevo nombre".</li>
+      <li>Haz clic en Guardar.</li>
+      <li>Realice una sincronización de inserción y extracción para la carpeta (como se describe en <a href="#Synchronization_Between_Sitecore_and_Video_Cloud">el uso de canalizaciones de inserción/extracción</a> ).</li>
+    </ol>
+    <h3>Eliminación de carpetas</h3>
+    <ol class="bcls-tasklist-restart">
+      <li>En&nbsp;Sitecore, seleccione el <strong>Editor de contenido</strong>.</li>
+      <li>En el Editor de contenido, seleccione el elemento <strong>Biblioteca multimedia</strong> .</li>
+      <li>Expandir <strong>Brightcove &gt; {Cuenta de interés de Brightcove} &gt; carpetas</strong></li>
+      <li>Haga clic en la carpeta que desea eliminar.</li>
+      <li>Haga clic en el icono Eliminar en la barra de menú.</li>
+      <li>Haz clic en Guardar.</li>
+      <li>Realice una sincronización de inserción y extracción para la carpeta (como se describe en <a href="#Synchronization_Between_Sitecore_and_Video_Cloud">el uso de canalizaciones de inserción/extracción</a> ).</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Associating_Videos_With_Labels_and_Folders">Asociación de videos con etiquetas y carpetas</h2>
+    <ol class="bcls-tasklist-restart">
+      <li>En&nbsp;Sitecore, seleccione el <strong>Editor de contenido</strong>.</li>
+      <li>En el Editor de contenido, seleccione el elemento <strong>Biblioteca multimedia</strong> .</li>
+      <li>Expandir <strong>Brightcove &gt; {Cuenta de interés de Brightcove} &gt; carpetas</strong></li>
+      <li>Realice una <a href="#Search_for_Videos_and_Playlists">búsqueda</a> para encontrar el video de su elección, abra los detalles del video.</li>
+      <li>Desplácese a la sección <strong>Datos de video de Brightcove</strong> de los detalles del video</li>
+      <li>
+        Debería ver los campos Etiquetas y Carpeta de Brightcove:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/label-and-folder-fields.png" alt="Campos de etiqueta y carpeta para video"/>
+          <figcaption class="bcls-caption--image">Campos de etiqueta y carpeta para video</figcaption>
+        </figure>
+      </li>
+      <li>Seleccione las etiquetas deseadas o use el menú desplegable de carpetas de Brightcove para seleccionar una carpeta deseada para asociarla.</li>
+      <li>Haz clic en Guardar.</li>
+      <li>Realice una <a href="#Synchronization_Between_Sitecore_and_Video_Cloud">sincronización</a> .</li>
+      <li>
+        Después de la sincronización, abra y vea el video en Brightcove Studio, observe que la carpeta asociada también se refleja en Brightcove Video en Video Cloud en la sección Categorización:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/folder-associated-with-video.png" alt="Carpeta asociada con video"/>
+          <figcaption class="bcls-caption--image">Carpeta asociada con video</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Search_for_Videos_and_Playlists">Búsqueda de videos y listas de reproducción</h2>
+    <p>Para buscar videos o listas de reproducción, haga clic en el icono de lupa para abrir la pestaña <strong>Buscar</strong> .</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/sitecore/start-search.png" alt="Pestaña de búsqueda"/>
+      <figcaption class="bcls-caption--image">Pestaña de búsqueda</figcaption>
+    </figure>
+    <p>Introduzca los términos de búsqueda en el campo y haga clic en el icono de búsqueda.</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/sitecore/search.png" alt="Búsqueda de medios"/>
+      <figcaption class="bcls-caption--image">Búsqueda de medios</figcaption>
+    </figure>
+    <p>Puede seleccionar filtros a la derecha para limitar los resultados de la búsqueda.</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/sitecore/filter-search.png" alt="Filtrado de búsquedas"/>
+      <figcaption class="bcls-caption--image">Filtrado de búsquedas</figcaption>
+    </figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Importing_Adding_Previewing_and_Deleting_Playlists">Importación, adición, vista previa y eliminación de listas de reproducción</h2>
+    <p>Una lista de reproducción es una colección de videos en un solo reproductor. Sitecore Data Exchange Framework se utiliza para sincronizar contenido entre Sitecore y la nube de Brightcove.</p>
+    <h3 id="Add_Playlist">Agregar lista de reproducción</h3>
+    <p>Brightcove Video Connect para Sitecore permite a los autores de contenido agregar nuevas listas de reproducción.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Abra la biblioteca multimedia de Sitecore.</li>
+      <li>Navegue a la cuenta con los videos para los que desea crear una lista de reproducción.</li>
+      <li>Navegue hasta el elemento de la biblioteca multimedia.</li>
+      <li>Navegue a la carpeta Listas de reproducción y haga clic derecho sobre ella.</li>
+      <li>
+        Agregue un nuevo elemento de lista de reproducción de Brightcove.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/brightcove-playlist-item.png" alt="Elemento de la lista de reproducción de Brightcove"/>
+          <figcaption class="bcls-caption--image">Elemento de la lista de reproducción de Brightcove</figcaption>
+        </figure>
+      </li>
+      <li>En el campo Nombre, ingrese un nombre descriptivo para el video.</li>
+      <li>Para el campo ID de video, seleccione los videos que desea incluir en la lista de reproducción.</li>
+    </ol>
+    <h3 id="edit_playlist">Editar lista de reproducción</h3>
+    <p>Los elementos de la lista de reproducción se editan como cualquier otro elemento de Sitecore.</p>
+    <h3 id="delete_playlist">Eliminar lista de reproducción</h3>
+    <p>Eliminar un elemento de la lista de reproducción <strong>NO</strong> lo eliminará de la nube de Brightcove. Si desea eliminar el elemento de la lista de reproducción y eliminarlo de la nube de Brightcove, debe marcar la casilla de verificación <strong>Eliminar</strong> en la pestaña <strong>Sincronización</strong> en el elemento de la lista de reproducción y luego ejecutar el lote de canalización de inserción o sincronización.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Add_Video_to_Pages">Agregar video a las páginas</h2>
+    <p>Brightcove Video Connect para Sitecore permite a los autores de contenido insertar medios en sus páginas de diversas formas. Esta sección cubre las opciones disponibles.</p>
+    <h3 id="Rich_Text_Editor">Editor de texto enriquecido</h3>
+      <p>Los campos de texto enriquecido permiten a los autores de contenido insertar contenido formateado en sus páginas. Los autores de contenido utilizan el editor de texto enriquecido para crear y editar este contenido formateado. Esta sección cubre las funciones que Brightcove Video Connect para Sitecore agrega al editor de texto enriquecido.</p>
+    <h4 id="Embed_Media">Insertar medios</h4>
+    <p>Los medios se pueden incrustar directamente en un campo de texto enriquecido.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>En el editor de texto enriquecido, haga clic en el botón <strong>Insertar medios</strong> .</li>
+      <li>Utilice la pantalla de búsqueda para encontrar el medio que desea insertar. Haga clic en la fila que representa el medio que desea insertar. Haga clic en <strong>Siguiente &gt;</strong> botón.</li>
+      <li>iii. Dependiendo del tipo de medio que seleccione, verá opciones adicionales. Por ejemplo, si selecciona un video, debe especificar el reproductor que debe usarse para mostrar el video, junto con las dimensiones del reproductor. Haz clic en Finalizar.</li>
+      <li>Los medios están incrustados en el campo de texto enriquecido.</li>
+    </ol>
+    <h3 id="rendering">Representación</h3>
+    <p>Las representaciones de Sitecore permiten que el contenido se coloque en una ubicación específica de una página. Sitecore permite dos tipos de renderizados: Brightcove Video Connect para Sitecore incluye una representación que permite a los autores de contenido insertar medios en las páginas.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Utilice el Editor de páginas para agregar una representación a un marcador de posición.</li>
+      <li>Seleccione la representación <strong>de medios incrustados</strong> .</li>
+      <li>La representación se ha agregado al marcador de posición. Ahora haga clic en el botón <strong>Insertar elemento multimedia</strong> .</li>
+      <li>Utilice la pantalla de búsqueda para encontrar el medio que desea insertar. Haga clic en la fila que representa el medio que desea insertar. Haga clic en el botón Siguiente&gt;.</li>
+      <li>Dependiendo del tipo de medio que seleccione, verá opciones adicionales. Por ejemplo, si selecciona un video, debe especificar el reproductor que debe usarse para mostrar el video, junto con las dimensiones del reproductor. Haz clic en<strong> Finalizar</strong>.</li>
+      <li>El medio ha sido seleccionado para el renderizado.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Synchronization_Between_Sitecore_and_Video_Cloud">Sincronización entre Sitecore y Video Cloud</h2>
+    <p>Esta sección cubre cómo mantener videos y listas de reproducción sincronizados entre Sitecore para los siguientes escenarios:</p>
+    <ul>
+      <li>Cuando se eliminan videos y listas de reproducción de Brightcove</li>
+      <li>Cuando se agregan videos y listas de reproducción en Sitecore</li>
+      <li>Cuando los videos y las listas de reproducción se eliminan de Sitecore</li>
+    </ul>
+    <p>La importación de Brightcove a Sitecore se trató anteriormente <a href="/sitecore/getting-started-brightcove-video-connect-sitecore-experience-platform.html#videos">aquí</a> .</p>
+    <h3 id="Playback_Event_Analytics">Análisis de eventos de reproducción</h3>
+    <p>Brightcove Video Connect para Sitecore permite grabar eventos de reproducción de video para usarlos en el sistema de marketing digital (DMS) de Sitecore. Esta sección cubre las opciones disponibles.</p>
+    <h3 id="Playback_Events">Eventos de reproducción</h3>
+    <p>Los eventos de reproducción se utilizan para registrar eventos de página DMS como resultado de las acciones del reproductor de video. Por ejemplo, cuando comienza la reproducción de video, se puede escribir un evento de página DMS.</p>
+    <h4>Eventos de reproducción predeterminados</h4>
+    <p>Brightcove Video Connect para Sitecore viene con los siguientes eventos de reproducción:</p>
+    <ul>
+      <li>Reproducción iniciada</li>
+      <li>Reproducción completada</li>
+      <li>Error de reproducción</li>
+    </ul>
+    <h4>Configurar eventos de reproducción para la cuenta</h4>
+    <p>De forma predeterminada, se graban los eventos de reproducción iniciada y reproducción completada. Esto está habilitado en la sección Configuración del elemento Cuenta de Brightcove.</p>
+    <p>De forma predeterminada, se graban los eventos de reproducción iniciada y reproducción completada. Esto está habilitado en la sección Configuración del elemento Cuenta de Brightcove.</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/sitecore/playback-events-per-account.png" alt="Eventos Plaubacl"/>
+      <figcaption class="bcls-caption--image">Eventos Plaubacl</figcaption>
+    </figure>
+    <h4>Desactivar eventos de reproducción para la cuenta</h4>
+    <p>Todos los eventos de reproducción se pueden desactivar para una cuenta específica.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>En el Editor de contenido, vaya a la cuenta en Biblioteca multimedia &gt; Brightcove &gt; [Nombre de la cuenta].</li>
+      <li>
+        El campo Reglas de eventos de reproducción describe las condiciones que se deben cumplir para que se registren los eventos de reproducción. Por defecto, la condición es <code translate="No">where true</code> , significado <code translate="No">always</code>. Haga clic en el botón Editar regla para cambiar la condición o eliminar la regla existente.
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/sitecore/playback-event-rules.png" alt="Reglas de eventos de reproducción"/>
+          <figcaption class="bcls-caption--image">Reglas de eventos de reproducción</figcaption>
+        </figure>
+      </li>
+    </ol>
+    <h4>Especificar eventos de reproducción para medios</h4>
+    <p>Cada lista de reproducción y elemento de video tiene un campo llamado Eventos. Este campo determina qué eventos de reproducción se manejarán para el elemento especificado.</p>
+    <p>La siguiente captura de pantalla indica que se han especificado eventos de reproducción para el video:</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/sitecore/specify-playback-events-for-media.png" alt="Especificar eventos de reproducción para medios"/>
+      <figcaption class="bcls-caption--image">Especificar eventos de reproducción para medios</figcaption>
+    </figure>
+    <aside class="bcls-aside bcls-aside--information language-editable">
+      Notas:
+      <ul>
+        <li>Los valores estándar se pueden usar para garantizar que se graben ciertos eventos para todas las listas de reproducción y videos, pero el campo también permite que las listas de reproducción y videos individuales tengan sus propios eventos seleccionados.</li>
+        <li>Estos eventos solo se registrarán si el elemento Configuración en el elemento de la cuenta de Brightcove tiene su campo Reglas de eventos de reproducción configurado con la acción <strong>Agregar eventos de elementos multimedia</strong> .</li>
+      </ul>
+    </aside>
+    <h4>Crear nuevos eventos de reproducción</h4>
+    <p>Puede agregar nuevos eventos de reproducción para capturar información más detallada sobre las métricas de reproducción de video.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>En el Editor de contenido, navegue hasta <strong>la Biblioteca de medios &gt; Brightcove &gt; [Nombre de la cuenta]</strong> .</li>
+      <li>Agregue un nuevo elemento utilizando la plantilla Evento de reproducción.</li>
+      <li>Para el campo Evento de página, seleccione <strong>Reproducción modificada</strong></li>
+      <li>
+        Para el campo Parámetro, puede ingresar un valor en uno de los siguientes formatos:
+        <ul>
+          <li>Número: después de que se reproduce el video este número de segundos, se graba el evento de la página. Un ejemplo de valor válido es 15</li>
+          <li>Porcentaje: después de que el video se reproduzca esta cantidad, se graba el evento de página. Un ejemplo de valor válido es 50%</li>
+        </ul>
+      </li>
+      <li>Guarde el artículo.</li>
+      <li>Publicar el artículo.</li>
+      <li>Ahora puede agregar el evento de nueva página a su lista de reproducción y videos.</li>
+    </ol>
+    <aside class="bcls-aside bcls-aside--information language-editable">Nota: Recuerde asignar el nuevo evento de reproducción a su lista de reproducción y videos. De lo contrario, el evento no se registrará.</aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Reports">Informes</h2>
+    <p>Brightcove Video Connect para Sitecore incluye varios informes relacionados con la reproducción de video.</p>
+    <h3>Reproducción iniciada</h3>
+    <p>Este informe muestra una lista de los videos que han activado el evento de inicio de video.</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/sitecore/most-started-videos.png" alt="videos más iniciados"/>
+      <figcaption class="bcls-caption--image">Vídeos más iniciados</figcaption>
+    </figure>
+    <h3>Reproducción completada</h3>
+    <p>Este informe muestra una lista de los videos que han activado el evento de video completado.</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/sitecore/videos-completed-report.png" alt="videos mas completados"/>
+      <figcaption class="bcls-caption--image">Vídeos más completados</figcaption>
+    </figure>
+    <h3>Reproducción incompleta</h3>
+    <p>Este informe muestra una lista de los videos que han activado el evento de inicio de video, pero no el evento de finalización de video.</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/sitecore/videos-completed-report.png" alt="videos reproducidos incompletamente"/>
+      <figcaption class="bcls-caption--image">Videos reproducidos incompletamente</figcaption>
+    </figure>
+  </section>
+</article>
+<!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
+  
+  <nav class="right-side-nav" id="right_side_nav">
+    <h6 class="toc">Contenido de la página</h6>
+    <ul id="in_page_nav" class="list-none"></ul>
+  </nav>
+  
+<!-- </div> -->
+</div>
+</div>
+</div>
+<div class="page-content" style="background-color: rgb(1, 5, 14);">
+  <div class="container" style="width: 50%;">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Soporte de Brightcove</h5>
+          <ul class="list-unstyled text-small" style="color: white ;">
+            <li><a class="a-text" href="https://status.brightcove.com">Estado del sistema</a></li>
+            <li><a class="a-text" href="https://supportportal.brightcove.com">Contactar con el soporte</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/search.html">Buscar toda la documentación</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Capacitación</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/online-training-courses.html">Cursos online</a></li>
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/register-training.html">Regístrese para un curso</a></li>
+            <li><a class="a-text" href="https://academy.brightcove.com/">Academia Brightcove</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Brightcove</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://www.brightcove.com">Brightcove.com</a></li>
+            <li><a class="a-text" href="https://community.brightcove.com/s/">Foro de la comunidad de Bright Spot</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/product-updates.html">Notas de lanzamiento del producto</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/doc-updates.html">Actualizaciones de documentación</a></li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>© Brightcove Inc. Todos los derechos reservados.</p>
+      <a class="a-text" href="https://www.brightcove.com/en/legal/privacy">Privacidad</a> <a class="a-text" href="https://www.brightcove.com/en/terms-and-conditions">Términos y condiciones</a>
+
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" target="_blank" class="gf-social-linkedin" style="margin-right: 1rem;"><i data-feather="linkedin" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://twitter.com/brightcove" title="Gorjeo" target="_blank" class="gf-social-twitter" style="margin-right: 1rem;"><i data-feather="twitter" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://www.facebook.com/Brightcove" title="Facebook" target="_blank" class="gf-social-facebook"><i data-feather="facebook" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+      </ul>
+      </div>
+    </footer>
+  </div>
+</div>
+
+
+<script translate="no">
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documentation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder,
+    styling: {
+      components: {
+        
+        input: {
+          container: {
+          backgroundColor: 'white',
+          }
+        
+        }
+      }
+    },
+    maxSuggestions: 5, // Maximum number of suggestions to show
+      attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+
+  
+
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+    window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+  </script>
+  
+  <!-- Javascript -->          
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/popper.min.js"></script>
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+
+
+  <!-- Page Specific JS -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/smoothscroll.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script> -->
+  <!-- <script src="/assets/s-site-assets-template-stylesheets/js/highlight-custom.js"></script>  -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+  <script src="/assets/s-site-assets-template-stylesheets/js/docs.js"></script> 
+
+  <!-- original footer components -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+  <script src="/assets/s-site-assets-scripts/https-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/setDate.js"></script>
+  <script src="/assets/s-site-assets-scripts/selector.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/prism.js"></script>
+  <script src="/assets/s-site-assets-scripts/prism-normalize.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/learning-paths/learning-paths.js"></script>
+  <!-- <script src="/assets/s-site-assets-scripts/site.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/tabs.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/toc-new-template.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="/assets/s-site-assets-scripts/bcls-utils.js"></script>
+  <script src="/assets/s-site-assets-scripts/local-link-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/sajari-reindex.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/sajari-search-foot.js"></script>
+  
+  <script translate="no">
+    feather.replace()
+  </script>
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/in-app.js"></script>
+  <style translate="no">
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+  </body>
+</html> 

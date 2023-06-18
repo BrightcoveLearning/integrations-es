@@ -1,0 +1,1241 @@
+﻿<!DOCTYPE html>
+<html lang="es"> 
+    <head>
+        <title>Uso de Brightcove Video Connector para Shopify</title>
+        
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta name="robots" content="noindex,nofollow"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Este tema proporciona instrucciones sobre el uso de Brightcove Video Connector para Shopify.">
+        
+        <!-- Google Font -->
+        <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/fonts/articulat-site.css">
+        <link href="/assets/s-site-assets-stylesheets/fonts/source-code-pro.css" rel="stylesheet">
+        
+        <!-- FontAwesome JS-->
+        <script src="https://kit.fontawesome.com/d67c74a882.js" crossorigin="anonymous"></script>  
+        
+        <!-- Plugins CSS -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.css">
+
+        <!-- Theme CSS -->  
+        <link id="theme-style" rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/css/theme.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/prism.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/custom-css/styles.css">
+
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBJC11HF8Z"></script>
+        <script translate="no">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XBJC11HF8Z');
+        </script>
+        <script src="/assets/s-site-assets-scripts/sixth-sense.js"></script>
+        <script src="/assets/s-site-assets-scripts/sajari-head.js"></script>
+        <script src="/assets/s-site-assets-scripts/feather.min.js"></script>
+
+    </head> 
+
+    <body class="docs-page">
+
+
+<header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid position-relative py-2">
+      <div class="docs-logo-wrapper">
+        <button id="docs-sidebar-toggler" class="docs-sidebar-toggler"
+          type="button">
+          <span></span> <span></span> <span></span>
+        </button>
+        <div class="site-logo"><a class="navbar-brand" href="https://support.brightcove.com/" style="margin-left: 15px;"> <img class="logo-icon me-2" src="/assets/s-site-assets-template-stylesheets/images/bc_logo_black_1@1x.png" alt="logo" style="margin-bottom: 9px;"/>
+            <!-- <span class="logo-text">BRIGHTCOVE</span> -->
+          </a></div>
+      </div><!--//docs-logo-wrapper-->
+
+      <div class="docs-top-utilities d-flex justify-content-end
+        align-items-center">
+        
+        <!-- Search bar -->
+        <div id="nav-search-box" class="top-search-box d-none d-lg-flex" style="margin-right: 10px ;"></div>
+
+<select id="site_select" class="form-select select-focus" style="width:
+          20%; margin-right: 10px;" translate="no">
+          <option value="">Other Brightcove Docs</option>
+          
+          
+          <option value="https://support.brightcove.com" translate="no">Documentation Home</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD --</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Studio</option>
+          
+          
+          
+          <option value="https://mstudio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Marketing Studio</option>
+          
+          
+          
+          <option value="https://player.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Player Development</option>
+          
+          
+          
+          <option value="https://apis.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Platform APIs</option>
+          
+          
+          
+          <option value="https://sdks.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Device SDKs</option>
+          
+          
+          
+          <option value="https://integrations.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Integrations and CMS Connectors</option>
+          
+          
+          
+          <option value="https://general.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud General Information</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO ESSENTIALS --</option>
+          
+          
+          
+          <option value="https://audience-insights.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Audience Insights</option>
+          
+          
+          
+          <option value="https://beacon-help.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Studio</option>
+          
+          
+          
+          <option value="https://beacon.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Classic</option>
+          
+          
+          
+          <option value="https://corptv.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;CorpTV</option>
+          
+          
+          
+          <option value="https://live.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Live</option>
+          
+          
+          
+          <option value="https://zencoder.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Zencoder</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD ADD-ONS --</option>
+          
+          
+          
+          <option value="https://gallery.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Gallery</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com/social/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Social</option>
+          
+          
+          
+          <option value="https://interactivity.support.brightcove.com/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Interactivity</option>
+          
+          
+          
+          <option value="https://ssai.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove SSAI</option>
+          
+          
+          
+          <option value="https://campaign.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Campaign</option>
+          
+          
+        </select>
+
+        <select id="language_select" class="form-select select-focus" style="width: 10%;"
+          onchange="doGTranslate(this);" translate="no">
+          <!-- <option value="">Select Language</option> -->
+          <option value="en|en" translate="No">English</option>
+          <option value="en|zh-TW" translate="No">繁體中文</option>
+          <option value="en|fr" translate="No">Français</option>
+          <option value="en|de" translate="No">Deutsche</option>
+          <option value="en|ja" translate="No">日本語</option>
+          <option value="en|ko" translate="No">한국어</option>
+          <option value="en|es" translate="No">Español</option>
+        </select>
+
+        <script translate="no">
+          /* <![CDATA[ */
+          function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+          /* ]]> */
+        </script>
+      </div>
+    </div>
+  </div>
+</header><!--//header-->
+
+<div class="docs-wrapper">
+  <div id="docs-sidebar" class="docs-sidebar" style="padding-right: 15px;">
+    <div id="nav-search-box" class="top-search-box d-lg-none p-3"></div>
+    <div class="row">
+      
+        <div id="side_nav" style="margin-left: 1em; display: inline-block; border-right: 1px solid #e5e5e6; padding-right: 1em;">
+          
+          <nav class="docs-nav sidenav" aria-label="Main">
+            <ul class="site-nav" style="list-style-type: none;">
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/index.html">Inicio</a></li>
+            
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/general/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Información general</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/cms-integration-training-videos.html">Vídeos de formación sobre integración de CMS</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/integrating-your-cms-video-cloud.html">Integración de su CMS con Video Cloud</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/embedding-brightcove-players-cms.html">Incorporación de reproductores de Brightcove en un CMS</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/embedding-brightcove-page-experiences-cms.html">Incorporación de experiencias in-page en un CMS</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/debugging-network-and-api-connection-issues-cms-and-dam-integrations.html">Depuración de problemas de conexión de red y API</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/wordpress/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;WordPress</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/wordpress/getting-started-brightcove-video-connect-wordpress-cms.html">Introducción a Brightcove Video Connect</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/drupal/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Drupal</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/getting-started-brightcove-video-connect-drupal-cms.html">Introducción a Connector para Drupal</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-9-brightcove-connector-overview.html">Drupal 9 - Conector de Brightcove: Descripción general</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-8-brightcove-connector-configuration.html">Drupal 8 - Configuración</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-8-brightcove-connector-content-management.html">Drupal 8 - Gestión de contenido</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-8-brightcove-connector-embedding-content.html">Drupal 8: incrustación de contenido</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-8-brightcove-connector-installation.html">Drupal 8 - Instalación del conector</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-7-brightcove-connector-configuration-and-usage.html">Drupal 7 - Configuración y uso</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-7-brightcove-connector-installation.html">Drupal 7 - Instalación</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/adobe/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Adobe</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/getting-started-brightcove-video-connect-adobe-experience-manager.html">Introducción a Connector para AEM</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/adobe-aem-brightcove-connector-configuration.html">Configuración</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/adobe-aem-brightcove-connector-installation.html">Instalación para AEM local</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/adobe-aem-brightcove-connection-installation-cloud.html">Instalación para la nube AEM</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/adobe-aem-brightcove-connector-overview.html">Descripción general</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/adobe-aem-brightcove-connector-using-connector.html">Usando el conector</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/sitecore/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Núcleo del sitio</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/sitecore/getting-started-brightcove-video-connect-sitecore-experience-platform.html">Introducción al conector para Sitecore</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/sitecore/installation-guide.html">Guía de instalación: Brightcove Video Connect para Sitecore</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/sitecore/configuration.html">Guía de configuración: Brightcove Video Connect para Sitecore</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/sitecore/user-guide.html">Guía del usuario: Brightcove Video Connect para Sitecore</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/sharepoint/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;SharePoint</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/sharepoint/getting-started-brightcove-video-connect-sharepoint.html">Introducción a Connector para Sharepoint</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/hootsuite/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Hootsuite</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/hootsuite/publishing-brightcove-video-hootsuite.html">Publicación de vídeos de Brightcove desde Hootsuite</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/ecommerce/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;comercio electrónico</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ecommerce/salesforce/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Nube de comercio de Salesforce</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-installation.html">Salesforce Commerce Cloud: Instalación</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-user-guide.html">Salesforce Commerce Cloud: Guía del usuario</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ecommerce/adobe-magento-commerce/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Comercio de Adobe Magento</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecommerce/adobe-magento-commerce/installation-guide.html">Guía de instalación</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecommerce/adobe-magento-commerce/user-guide.html">Guía del usuario</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/ecdn/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;eCDN</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ecdn/kollective/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;colectivo</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/kollective/kollective-deployment-guide.html">Guía de implementación de Kollective eCDN</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/kollective/add-kollective-player-plugin.html">Instalación del complemento del reproductor Kollective</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/kollective/kollective-user-guide.html">Guía del usuario de Kollective eCDN</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ecdn/peer5/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Par5</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/peer5/brightcove-with-peer5-integration.html">Brightcove con integración Peer5</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ecdn/ramp/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Rampa</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/ramp/getting-started-ramp-omnicache-and-video-cloud.html">Introducción a Ramp OmniCache y Video Cloud</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/ramp/getting-started-ramp-multicast-and-video-cloud.html">Introducción a Ramp Multicast + y Video Cloud</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/teams/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Brightcove Video Connect para equipos de Microsoft</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/teams/installation.html">Instalación del conector para equipos</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/teams/using.html">Uso del conector para equipos de Microsoft</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/web-conferencing/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Conferencia web</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/web-conferencing/host-zoom-conference-brightcove-live.html">Conferencia Zoom en Brightcove Live</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/web-conferencing/host-cisco-webex-conference-brightcove-live.html">Conferencia de Cisco Webex a Brightcove Live</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/web-conferencing/host-avaya-conference-brightcove-live.html">Conferencia de Avaya en Brightcove Live</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/web-conferencing/host-inxpo-live.html">Evento INXPO en Brightcove Live</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/non-brightcove-players/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Jugadores que no son de Brightcove</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/non-brightcove-players/inplayer.html">Entregue contenido de Brightcove mediante InPlayer</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/support/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Apoyo</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/viewing-brightcove-system-status-page.html">Visualización de la página de estado del sistema Brightcove</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/contact-sales.html">Contactar con ventas</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html">Abrir un caso de soporte</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/reset-support-portal-password.html">Restablecer la contraseña del portal de soporte</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+          </ul>
+          </nav>
+        </div>
+      </div>
+    </div><!--//docs-sidebar-->
+  </div>
+</div>
+
+<div style="margin-top: 20px;">
+  <div class="docs-content" style="padding-bottom: 0px;">
+    <div class="container">
+      <div class="docs-overview">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/">Inicio</a></li>
+            
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/ecommerce/">Comercio electrónico</a></li>
+            
+            
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/ecommerce/shopify/">Shopify</a></li>
+            
+            
+            
+            <li class="breadcrumb-item active" aria-current="page">Uso de Brightcove Video Connector para Shopify</li>
+            
+            
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="docs-content">
+  <div class="container">
+    <div class="docs-overview py-5">
+      
+      <div class="centered-inpage-nav" id="centered_inpage_nav">
+        <nav id="centered_toc">
+          <select id="centered_in_page_toc" class="form-select select-focus"></select>
+        </nav>
+      </div>
+      <br/>
+      
+      
+<h1>Uso de Brightcove Video Connector para Shopify</h1>
+<article class="bcls-article">
+  <summary>Este tema proporciona instrucciones sobre el uso de Brightcove Video Connector para Shopify.</summary>
+  <section class="bcls-section">
+    <h2 id="Introduction">Introducción</h2>
+    <p>El conector de video de Brightcove para Shopify le permite usar videos de la nube de video en las páginas de sus productos, también para transmitir en vivo en su tienda y verificar la audiencia, el rendimiento y los análisis de participación dentro de la aplicación Shopify. También te permite subir videos a Video Cloud desde la aplicación. Estas operaciones se detallan en las secciones siguientes.</p>
+    <aside class="bcls-aside bcls-aside--information language-editable">Para obtener instrucciones sobre cómo instalar Brightcove Video Connector, consulte la <a href="/ecommerce/shopify/brightcove-shopify-commerce-platform-overview.html">Descripción general</a> .</aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="guidelines">Pestaña Directrices</h2>
+    <p>En la pestaña <strong>Directrices</strong> encontrará instrucciones para configurar la aplicación.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="viewing_videos">Ver videos</h2>
+    <p>Para ver videos existentes en su cuenta de Brightcove, haga clic en <strong>Videos</strong> :</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/shopify/video-tab.webp" alt="Pestaña Vídeos"/>
+      <figcaption class="bcls-caption--image">Pestaña Vídeos</figcaption>
+    </figure>
+    <p>Se muestran doce videos a la vez, y puede navegar a través de la colección usando las flechas hacia adelante y hacia atrás resaltadas en la imagen de arriba.</p>
+    <h3>Filtrado de la lista de videos</h3>
+    <p>Para filtrar la lista de videos por palabras que aparecen en el título, ingrese esas palabras en el cuadro <strong>de filtro</strong> :</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/shopify/filter-by-title.webp" alt="Filtrar por Título"/>
+      <figcaption class="bcls-caption--image">Filtrar por Título</figcaption>
+    </figure>
+    <p>También puede filtrar por etiqueta o descripción haciendo clic en <span class="button-gray-border">Más filtros</span> :</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/shopify/filter-tag-description.webp" alt="Filtrar por etiqueta/descripción"/>
+      <figcaption class="bcls-caption--image">Filtrar por etiqueta/descripción</figcaption>
+    </figure>
+    <aside class="bcls-aside bcls-aside--tip language-editable">Tenga en cuenta que cuando utiliza varios filtros, se aplican con un <code translate="No">AND</code> lógica. Por ejemplo, si ingresa "cuadro" en los cuadros de título, etiqueta y descripción, solo se mostrarán los videos que tengan "cuadro" tanto en el título como en la descripción, y que también tengan la etiqueta "cuadro".</aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="uploading_videos">Subir vídeos</h2>
+    <ol class="bcls-tasklist-restart">
+      <li>Para cargar videos nuevos, haga clic en <span class="button-gray-border">Cargar video</span> .</li>
+      <li>En el cuadro de diálogo Cargar video, ingrese un <strong>Nombre</strong> (obligatorio), una <strong>descripción</strong> (opcional) y <strong>etiquetas</strong> (opcional) para el video.</li>
+      <li>Haz clic en <span class="button-green">Guardar</span>.</li>
+    </ol>
+    <p>El video ahora estará disponible en Shopify y Video Cloud Studio.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="video_options">Opciones de vídeo</h2>
+    <p>Para acceder a las opciones de cualquier video, haga clic en los 3 puntos debajo del video para revelar el menú de opciones:</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/shopify/video-options-menu.webp" alt="Menú de opciones de vídeo"/>
+      <figcaption class="bcls-caption--image">Menú de opciones de vídeo</figcaption>
+    </figure>
+    <p>Veremos estas opciones en las siguientes secciones.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="edit_video">Editar video</h2>
+    <ol class="bcls-tasklist-restart">
+      <li>Haga clic en los 3 puntos debajo del video y seleccione la opción <strong>Editar video</strong> en el menú.</li>
+      <li>
+        En el cuadro de diálogo Detalles del video, realice los cambios que desee en el nombre, la descripción y las etiquetas:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/shopify/video-details.webp" alt="Detalles del vídeo"/>
+          <figcaption class="bcls-caption--image">Detalles del vídeo</figcaption>
+        </figure>
+      </li>
+      <li>Haz clic en <span class="button-green">Guardar</span> para guardar los cambios.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Delete video">Eliminar vídeo</h2>
+    <aside class="bcls-aside bcls-aside--warning language-editable">Tenga en cuenta que la eliminación de un video no es reversible y que, si el video está asociado con alguna campaña, no aparecerá en esa campaña; asegúrese de que esto es lo que desea hacer antes de continuar.</aside>
+    <ol class="bcls-tasklist-restart">
+      <li>Haz clic en los 3 puntos debajo del video y selecciona la opción <strong>Eliminar video</strong> en el menú.</li>
+      <li>
+        En el cuadro de diálogo Eliminar video, haga clic en <span class="button-green">Confirmar</span> para completar la eliminación del video:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/shopify/delete-video.webp" alt="Eliminar vídeo"/>
+          <figcaption class="bcls-caption--image">Eliminar vídeo</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Create_campaign_for_video">Crear campaña para video</h2>
+    <p>Las campañas se utilizan para agregar tus videos a páginas de productos particulares en Shopify.</p>
+    <aside class="bcls-aside bcls-aside--information language-editable">Tenga en cuenta que también puede crear una campaña y asociarle un video en la <a href="#viewing_campaigns">pestaña Campañas</a> .</aside>
+    <ol class="bcls-tasklist-restart">
+      <li>Haga clic en los 3 puntos debajo del video y seleccione la opción <strong>Crear campaña para este video</strong> en el menú.</li>
+      <li>
+        En el cuadro de diálogo Nueva campaña, agregue un nombre (obligatorio), una descripción (opcional) y etiquetas (opcional). También seleccione o cambie el video:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/shopify/delete-video.webp" alt="Crear campaña"/>
+          <figcaption class="bcls-caption--image">Crear campaña</figcaption>
+        </figure>
+        <aside class="bcls-aside bcls-aside--information language-editable">Dependiendo de si crea la campaña desde la pestaña <strong>Campañas</strong> o <strong>Videos</strong> , el video puede o no estar rellenado previamente. Puede agregar o cambiar el video según sea necesario.</aside>
+      </li>
+      <li>Haz clic en <span class="button-green">Guardar</span> para guardar los cambios.</li>
+      <li>Independientemente de dónde cree la campaña, la pestaña <strong>Campañas</strong> ahora se abrirá y mostrará su campaña en la parte superior de la lista.</li>
+      <li>
+        Para agregar la campaña/video a una página de producto, haga clic en <strong>editar para editar la campaña</strong> :
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/shopify/edit-campaign.webp" alt="Editar enlace para la campaña"/>
+          <figcaption class="bcls-caption--image">Editar enlace para la campaña</figcaption>
+        </figure>
+      </li>
+      <li>
+        Aparecerá una sección <strong>de Producto</strong> en la parte inferior del cuadro de diálogo de edición de la campaña; haga clic en el enlace <strong>Agregar</strong> para agregar un producto:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/shopify/add-link-for-product-campaign.webp" alt="Agregar enlace para agregar producto"/>
+          <figcaption class="bcls-caption--image">Agregar enlace para agregar producto</figcaption>
+        </figure>
+      </li>
+      <li>
+        En el selector de productos, puede buscar y agregar uno o más productos para asociar la campaña con:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/shopify/campaign-product-selector.webp" alt="Selector de productos para campaña"/>
+          <figcaption class="bcls-caption--image">Selector de productos para campaña</figcaption>
+        </figure>
+      </li>
+      <li>
+        Para cada producto que seleccione, ahora puede establecer la posición del video en la página del producto:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/shopify/set-position-of-video.webp" alt="Establecer la posición de los videos"/>
+          <figcaption class="bcls-caption--image">Establecer la posición de los videos</figcaption>
+        </figure>
+        <aside class="bcls-aside bcls-aside--information language-editable">Tenga en cuenta que también puede <strong>Eliminar</strong> productos si cambia de opinión.</aside>
+      </li>
+      <li>
+        El cuadro de diálogo Establecer posición le ofrece la opción de escribir un selector (CSS) o elegir uno de la página del producto:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/shopify/set-position-dialog.webp" alt="Cuadro de diálogo Establecer posición"/>
+          <figcaption class="bcls-caption--image">Cuadro de diálogo Establecer posición</figcaption>
+        </figure>
+      </li>
+      <li>
+        Si elige obtener un selector de la página del producto, verá la página del producto, donde primero debe elegir si su video se colocará antes o después del elemento que seleccione:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/shopify/choose-before-after.webp" alt="Elige Antes o Después"/>
+          <figcaption class="bcls-caption--image">Elige Antes o Después</figcaption>
+        </figure>
+        <aside class="bcls-aside bcls-aside--information language-editable">Después de elegir, haga clic en <strong>Entendido</strong> para cerrar el cuadro de diálogo.</aside>
+      </li>
+      <li>
+        Pase el mouse sobre los elementos en la página del producto y haga clic en el que desea colocar el video antes (o después):
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/shopify/get-selector.webp" alt="Encuentre un Selector"/>
+          <figcaption class="bcls-caption--image">Encuentre un Selector</figcaption>
+        </figure>
+        <aside class="bcls-aside bcls-aside--tip language-editable">Para obtener los mejores resultados, elija un elemento en el lado derecho de la página.</aside>
+      </li>
+      <li>
+        Cuando hace clic en un elemento para seleccionarlo, verá una vista previa de la posición del video, y también notará la nota en la parte inferior de la página:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/shopify/preview-video-position.webp" alt="Vista previa de la posición del video"/>
+          <figcaption class="bcls-caption--image">Vista previa de la posición del video</figcaption>
+        </figure>
+      </li>
+      <li>
+        Cuando cierre la página del producto, verá el campo Selector en el cuadro de diálogo lleno, y debe hacer clic en <span class="button-green">Establecer posición</span> para completar la adición del video a la página:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/shopify/selector-field-filled.webp" alt="Campo selector lleno"/>
+          <figcaption class="bcls-caption--image">Campo selector lleno</figcaption>
+        </figure>
+      </li>
+      <li>
+        También puede hacer clic en Vista previa para ver y reproducir el video en la página del producto (puede hacer clic en Establecer posición junto al producto para volver a abrir ese cuadro de diálogo y ver la vista previa en cualquier momento, o simplemente ir a verlo en su tienda en línea):
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/" alt="Vista previa del video en la página del producto"/>
+          <figcaption class="bcls-caption--image">Vista previa del video en la página del producto</figcaption>
+        </figure>
+      </li>
+    </ol>
+    <aside class="bcls-aside bcls-aside--information language-editable">
+      Tenga en cuenta que solo puede agregar un video a una campaña, pero puede asociar varias campañas con un producto para agregar varios videos:
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/shopify/multiple-campaigns.webp" alt="Campañas Múltiples"/>
+        <figcaption class="bcls-caption--image">Campañas Múltiples</figcaption>
+      </figure>
+    </aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="viewing_campaigns">Visualización de campañas</h2>
+    <p>Para ver las campañas existentes, haga clic en <strong>Campañas</strong> :</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/shopify/campaigns-tab.png" alt="Pestaña Campañas"/>
+      <figcaption class="bcls-caption--image">Pestaña Campañas</figcaption>
+    </figure>
+    <p>Se muestran todas sus campañas.</p>
+    <h3>Filtrar la lista de campañas</h3>
+    <p>Para filtrar la lista de campañas por las palabras que aparecen en el título, ingrese esas palabras en el cuadro <strong>de filtro</strong> :</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/shopify/filter-campaigns-by-title.png" alt="Filtrar campañas por título"/>
+      <figcaption class="bcls-caption--image">Filtrar campañas por título</figcaption>
+    </figure>
+    <p>También puede filtrar por etiqueta o descripción haciendo clic en <span class="button-gray-border">Más filtros</span> :</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/shopify/filter-tag-description.webp" alt="Filtrar por etiqueta/descripción"/>
+      <figcaption class="bcls-caption--image">Filtrar por etiqueta/descripción</figcaption>
+    </figure>
+    <aside class="bcls-aside bcls-aside--tip language-editable">Tenga en cuenta que cuando utiliza varios filtros, se aplican con un <code translate="No">AND</code> lógica. Por ejemplo, si ingresa "cuadro" en los cuadros de título, etiqueta y descripción, solo se mostrarán los videos que tengan "cuadro" tanto en el título como en la descripción, y que también tengan la etiqueta "cuadro".</aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="create_new_campaign">Crear nueva campaña</h2>
+    <p>Para crear una nueva campaña, haga clic en <span class="button-gray-border">Nueva campaña</span> .</p>
+    <p>El resto del proceso es el mismo que cuando <a href="#Create_campaign_for_video">crea una campaña para un video</a> en la pestaña Videos.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="delete_campaigns">Eliminar campañas</h2>
+    <p>Puede eliminar las campañas que ya no necesite seleccionando una o más de la lista:</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/shopify/select-campaigns-to-delete.webp" alt="Seleccionar campañas para eliminar"/>
+      <figcaption class="bcls-caption--image">Seleccionar campañas para eliminar</figcaption>
+    </figure>
+    <p>Una vez que haya seleccionado las campañas que desea eliminar, haga clic en <span class="button-gray-border">Eliminar campañas</span> .</p>
+    <p>Para completar la eliminación, haga clic en <span class="button-green">Confirmar</span> en el cuadro de diálogo de confirmación:</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/shopify/delete-campaigns-confirm.webp" alt="Confirmar Eliminación de Campañas"/>
+      <figcaption class="bcls-caption--image">Confirmar Eliminación de Campañas</figcaption>
+    </figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="view_live_events">Ver eventos en vivo</h2>
+    <p>Para ver una lista de eventos en vivo para su cuenta, vaya a la pestaña <strong>Eventos en vivo</strong> :</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/shopify/live-events-tab.webp" alt="Lista de eventos en vivo"/>
+      <figcaption class="bcls-caption--image">Lista de eventos en vivo</figcaption>
+    </figure>
+    <p>Para ver un evento en vivo en curso (o una grabación de un evento finalizado, si se realizó uno), haga clic en <strong>Ver</strong> :</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/shopify/view-live-event.webp" alt="Ver evento en vivo"/>
+      <figcaption class="bcls-caption--image">Ver evento en vivo</figcaption>
+    </figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="add_new_live_event">Agregar nuevo evento en vivo</h2>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>Para agregar un nuevo evento en vivo, haga clic en <span class="button-green">Nuevo evento en vivo</span> para abrir el cuadro de diálogo que se muestra a continuación.</p>
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/shopify/live-event-new-dialog.webp" alt="Nuevo evento en vivo"/>
+          <figcaption class="bcls-caption--image">Nuevo evento en vivo</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>Rellene los campos:</p>
+        <ul>
+          <li><strong>Nombre</strong> (requerido)</li>
+          <li><strong>Descripción</strong> (opcional)</li>
+          <li><strong>Etiquetas</strong> (opcional)</li>
+          <li><strong>ID de referencia</strong> (opcional) que generalmente se usa para hacer coincidir una ID en otro sistema.</li>
+          <li><strong>Los productos</strong> (opcional) resaltan sus productos en el evento en vivo, lo que también le permitirá anclarlos en la parte superior del chat que aparece en la parte superior del chat que acompaña al evento en vivo, donde los espectadores pueden hacer clic en ellos para visitar la página del producto donde se puede comprar.</li>
+          <li>
+            <strong>Región</strong> (obligatorio) elija la región que cree que estará más cerca de su público objetivo.
+          </li>
+          <li>
+            <strong>Perfil de ingesta en vivo</strong> (opcional) si desea utilizar un perfil diferente al predeterminado, puede ver las representaciones creadas para cada perfil seleccionándolo. El perfil determina las representaciones de video realmente entregadas a los espectadores (tenga en cuenta que la representación real que ve un espectador depende del ancho de banda disponible en la conexión del espectador).
+          </li>
+          <li><strong>Convertir evento en activo de video cuando se complete,</strong> marque la casilla para guardar una grabación VOD del mismo. Tenga en cuenta que si más tarde intenta ver un evento en vivo finalizado para el que no se guardó ninguna grabación, verá un error en el reproductor.</li>
+          <li><strong>Productos,</strong> haga clic en <span class="button-green">Agregar producto</span> para abrir el selector de productos, donde puede filtrar y seleccionar los productos que desea agregar al evento en vivo. Haga clic en <span class="button-green">Guardar</span> cuando haya hecho sus selecciones.</li>
+        </ul>
+      </li>
+      <li>
+        Haga clic en <span class="button-green">Guardar</span> para crear el evento en vivo.
+        <aside class="bcls-aside bcls-aside--tip language-editable">Nota: si ve un mensaje de error que indica que ha creado la cantidad máxima de eventos para la región seleccionada, seleccione una región diferente y haga clic en <span class="button-green">Guardar</span> nuevamente.</aside>
+      </li>
+    </ol>
+    <h3>Configurar y ejecutar el evento en vivo</h3>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        El evento en vivo tardará un par de minutos en inicializarse. Mientras espera eso, puede preparar su codificador en vivo copiando el punto final en vivo (dirección RTMP) y el nombre de transmisión en la configuración de su codificador desde la sala de control de eventos en vivo:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/shopify/live-rtmp-stream-name.webp" alt="Punto final en vivo y nombre de transmisión"/>
+          <figcaption class="bcls-caption--image">Punto final en vivo y nombre de transmisión</figcaption>
+        </figure>
+        <aside class="bcls-aside bcls-aside--information language-editable">
+          <p>La forma en que se ingresan el punto final y el nombre de la transmisión en su codificador varía según el codificador que use. Por ejemplo, en el codificador del software OBS, ve a Configuración:</p>
+          <figure class="bcls-figure">
+            <img class="bcls-image" src="/assets/images/shopify/obs-setup-settings.webp" alt="Configuraciones de estructura de desglose de la organización"/>
+            <figcaption class="bcls-caption--image">Configuraciones de estructura de desglose de la organización</figcaption>
+          </figure>
+          <p>Luego vaya a la configuración <strong>de Transmisión</strong> , establezca el <strong>Servicio</strong> en <strong>Personalizado</strong> e ingrese el punto final RTMP en el campo <strong>Servidor</strong> y el nombre de la transmisión en el campo <strong>Clave de Steam</strong> :</p>
+          <figure class="bcls-figure">
+            <img class="bcls-image" src="/assets/images/shopify/obs-setup-rtmp-stream-name.webp" alt="Configuración de flujo de OBS"/>
+            <figcaption class="bcls-caption--image">Configuración de flujo de OBS</figcaption>
+          </figure>
+        </aside>
+      </li>
+      <li>
+        Una vez que haya iniciado su codificador y el evento en vivo esté listo, haga clic en el botón Reproducir en el reproductor en la sala de control del evento en vivo para que pueda ver la transmisión y usar el <strong>chat</strong> que se incluye automáticamente:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/shopify/live-playbutton.webp" alt="Iniciar reproducción de eventos en vivo"/>
+          <figcaption class="bcls-caption--image">Iniciar reproducción de eventos en vivo</figcaption>
+        </figure>
+      </li>
+      <li>
+        Mientras se reproduce el evento, puede ingresar sus propios mensajes de chat o responder a los mensajes de los espectadores:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/shopify/live-enter-chat-message.webp" alt="Enviar mensajes de chat"/>
+          <figcaption class="bcls-caption--image">Enviar mensajes de chat</figcaption>
+        </figure>
+      </li>
+      <li>
+        También puede anclar los productos que agregó en la parte superior del chat: los espectadores pueden hacer clic en ellos para ir a la página del producto:
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/shopify/live-pin-product-to-chat.webp" alt="Anclar productos para chatear"/>
+          <figcaption class="bcls-caption--image">Anclar productos para chatear</figcaption>
+        </figure>
+        <p>También puede desanclar productos del chat cuando lo desee.</p>
+      </li>
+      <li>Cuando desee finalizar el evento, haga clic en <span class="button-gray-border">Finalizar evento</span> .</li>
+    </ol>
+    <p>Una vez finalizado el evento en vivo, se mostrarán los análisis del evento en la sala de control:</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/shopify/live-event-analytics.webp" alt="Análisis de eventos en vivo"/>
+      <figcaption class="bcls-caption--image">Análisis de eventos en vivo</figcaption>
+    </figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="viewing_analytics">Ver análisis</h2>
+    <p>Vaya a la pestaña Análisis para ver los análisis de sus videos:</p>
+    <aside class="bcls-aside bcls-aside--information language-editable">Tenga en cuenta que estos son los mismos análisis que vería en Video Cloud Studio: se incluyen aquí para su comodidad mientras trabaja en Shopify.</aside>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/shopify/analytics-tab.webp" alt="Pestaña de análisis"/>
+      <figcaption class="bcls-caption--image">Pestaña de análisis</figcaption>
+    </figure>
+    <aside class="bcls-aside bcls-aside--information language-editable">Para obtener información más detallada sobre el significado de las diversas métricas de análisis, consulte la <a href="https://studio.support.brightcove.com/analytics/reports/analytics-report-reference.html">Referencia de informes de análisis</a> .</aside>
+    <p>Aquí hay una serie de opciones que le permiten filtrar los datos de diferentes maneras.</p>
+    <h3>Selector de rango de fechas</h3>
+    <p>El selector de rango de fechas le brinda una variedad de rangos de fechas estándar para ver análisis y también la capacidad de seleccionar su propia fecha o rango de fechas:</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/shopify/analytics-date-range-selector.webp" alt="Selector de intervalo de fechas"/>
+      <figcaption class="bcls-caption--image">Selector de intervalo de fechas</figcaption>
+    </figure>
+    <p>También puede cambiar la zona horaria de los informes haciendo clic en el enlace <strong>GMT</strong> debajo del selector de rango de fechas. El enlace lo llevará a Video Cloud Studio, donde, si es administrador de la cuenta, puede cambiar la zona horaria <a href="https://studio.support.brightcove.com/admin/general/managing-account-settings.html#account_settings">siguiendo estas instrucciones</a> .</p>
+    <h3>Tipo de informe</h3>
+    <p>Hay dos tipos básicos de informes que puede ver:</p>
+    <dl>
+      <dt>Informes de rendimiento</dt>
+      <dd>Los informes de rendimiento brindan información general sobre el rendimiento del contenido de video, como cuántas veces se vieron los videos, en qué dispositivos se vieron, cuántos segundos de video se vieron, etc.</dd>
+      <dt>Informes de participación</dt>
+      <dd>Los informes de participación le muestran cuántas vistas hubo en diferentes puntos de un video; recuerde que se trata de vistas, no de espectadores, por lo que, por ejemplo, si alguien moviera el cabezal de reproducción hacia atrás y volviera a ver los últimos segundos del video 10 veces, eso sería cuenta como 10 vistas en ese momento. Sin embargo, las tendencias aún pueden ser reveladoras. Una fuerte disminución en las vistas al principio del video, por ejemplo, sugiere que, en general, no es atractivo, mientras que una fuerte disminución más adelante en el video podría indicar una parte aburrida o algo que sugiere a los espectadores que el video prácticamente ha terminado.</dd>
+    </dl>
+    <p>Puede alternar entre los informes de rendimiento y compromiso utilizando el selector de tipo de informe:</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/shopify/analytics-performance-engagement-selector.webp" alt="Selector de tipo de informe"/>
+      <figcaption class="bcls-caption--image">Selector de tipo de informe</figcaption>
+    </figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="performance_report_subtypes">Tipos de informes de rendimiento</h2>
+    <p>Cuando está viendo informes de rendimiento, hay muchos tipos entre los que puede elegir usando el selector de subtipo a la derecha del selector de tipo de informe:</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/shopify/performance-report-filter-selector.webp" alt="Tipos de informes de rendimiento"/>
+      <figcaption class="bcls-caption--image">Tipos de informes de rendimiento</figcaption>
+    </figure>
+    <p>Los diferentes informes son útiles de varias maneras. Por ejemplo, para su modelo de negocio, puede ser particularmente útil saber si los espectadores son predominantemente en computadoras de escritorio o dispositivos móviles, o en qué países se producen la mayoría de las vistas. Del mismo modo, es posible que desee ver los datos por día, ya que es importante para usted saber si los espectadores miran sus campañas más entre semana o los fines de semana.</p>
+    <p>La tabla del informe de rendimiento debajo de los selectores muestra los datos analíticos de elementos individuales. Mostrará hasta 10 elementos a la vez, y si hay más de 10 elementos, verá botones para navegar por ellos en la parte inferior:</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="performance_report_chart">Reporte de desempeño</h2>
+    <p>El gráfico sobre la tabla del informe de rendimiento muestra los valores totales de la cuenta para diferentes métricas durante el intervalo de fechas seleccionado. El selector sobre el gráfico le permite elegir diferentes métricas para ver:</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/shopify/analytics-report-selectors.webp" alt="Selector de métricas"/>
+      <figcaption class="bcls-caption--image">Selector de métricas</figcaption>
+    </figure>
+    <p></p>También observe que cuando pasa el mouse sobre una de las barras en el gráfico, se muestra el número de datos real que representa:</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/shopify/performance-report-mouseover-date.webp" alt="Pase el ratón sobre el gráfico de rendimiento"/>
+      <figcaption class="bcls-caption--image">Pase el ratón sobre el gráfico de rendimiento</figcaption>
+    </figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="engagement_reports">Informes de participación</h2>
+    <p>También hay subtipos para el tipo de informe Compromiso, pero se limitan a video, reproductor y día:</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/shopify/engagement-report-filter-selector.webp" alt="Tipos de informes de interacción"/>
+      <figcaption class="bcls-caption--image">Tipos de informes de interacción</figcaption>
+    </figure>
+    <p>El gráfico sobre la tabla del informe de participación muestra la participación promedio de los videos en toda la cuenta. El único cambio que puede hacer en el gráfico es ajustar el rango de fechas.</p>
+  </section>
+</article>
+<!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
+  
+  <nav class="right-side-nav" id="right_side_nav">
+    <h6 class="toc">Contenido de la página</h6>
+    <ul id="in_page_nav" class="list-none"></ul>
+  </nav>
+  
+<!-- </div> -->
+</div>
+</div>
+</div>
+<div class="page-content" style="background-color: rgb(1, 5, 14);">
+  <div class="container" style="width: 50%;">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Soporte de Brightcove</h5>
+          <ul class="list-unstyled text-small" style="color: white ;">
+            <li><a class="a-text" href="https://status.brightcove.com">Estado del sistema</a></li>
+            <li><a class="a-text" href="https://supportportal.brightcove.com">Contactar con el soporte</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/search.html">Buscar toda la documentación</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Capacitación</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/online-training-courses.html">Cursos online</a></li>
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/register-training.html">Regístrese para un curso</a></li>
+            <li><a class="a-text" href="https://academy.brightcove.com/">Academia Brightcove</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Brightcove</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://www.brightcove.com">Brightcove.com</a></li>
+            <li><a class="a-text" href="https://community.brightcove.com/s/">Foro de la comunidad de Bright Spot</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/product-updates.html">Notas de lanzamiento del producto</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/doc-updates.html">Actualizaciones de documentación</a></li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>© Brightcove Inc. Todos los derechos reservados.</p>
+      <a class="a-text" href="https://www.brightcove.com/en/legal/privacy">Privacidad</a> <a class="a-text" href="https://www.brightcove.com/en/terms-and-conditions">Términos y condiciones</a>
+
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" target="_blank" class="gf-social-linkedin" style="margin-right: 1rem;"><i data-feather="linkedin" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://twitter.com/brightcove" title="Gorjeo" target="_blank" class="gf-social-twitter" style="margin-right: 1rem;"><i data-feather="twitter" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://www.facebook.com/Brightcove" title="Facebook" target="_blank" class="gf-social-facebook"><i data-feather="facebook" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+      </ul>
+      </div>
+    </footer>
+  </div>
+</div>
+
+
+<script translate="no">
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documentation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder,
+    styling: {
+      components: {
+        
+        input: {
+          container: {
+          backgroundColor: 'white',
+          }
+        
+        }
+      }
+    },
+    maxSuggestions: 5, // Maximum number of suggestions to show
+      attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+
+  
+
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+    window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+  </script>
+  
+  <!-- Javascript -->          
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/popper.min.js"></script>
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+
+
+  <!-- Page Specific JS -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/smoothscroll.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script> -->
+  <!-- <script src="/assets/s-site-assets-template-stylesheets/js/highlight-custom.js"></script>  -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+  <script src="/assets/s-site-assets-template-stylesheets/js/docs.js"></script> 
+
+  <!-- original footer components -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+  <script src="/assets/s-site-assets-scripts/https-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/setDate.js"></script>
+  <script src="/assets/s-site-assets-scripts/selector.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/prism.js"></script>
+  <script src="/assets/s-site-assets-scripts/prism-normalize.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/learning-paths/learning-paths.js"></script>
+  <!-- <script src="/assets/s-site-assets-scripts/site.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/tabs.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/toc-new-template.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="/assets/s-site-assets-scripts/bcls-utils.js"></script>
+  <script src="/assets/s-site-assets-scripts/local-link-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/sajari-reindex.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/sajari-search-foot.js"></script>
+  
+  <script translate="no">
+    feather.replace()
+  </script>
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/in-app.js"></script>
+  <style translate="no">
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+  </body>
+</html> 

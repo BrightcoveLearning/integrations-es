@@ -1,501 +1,767 @@
-﻿<!doctype html>
-<html lang="es-es">
+﻿<!DOCTYPE html>
+<html lang="es"> 
+    <head>
+        <title>Conector Adobe-AEM-Brightcove: Usando el conector</title>
+        
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        
+        <!-- Google Font -->
+        <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/fonts/articulat-site.css">
+        <link href="/assets/s-site-assets-stylesheets/fonts/source-code-pro.css" rel="stylesheet">
+        
+        <!-- FontAwesome JS-->
+        
+        <script src="https://kit.fontawesome.com/d67c74a882.js" crossorigin="anonymous"></script>  
+        
+        <!-- Plugins CSS -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.css">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  
-  <title>Conector Adobe-AEM-BrightCove: Uso del conector</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">  
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="logotipo del producto" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">Seleccionar idioma</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-    
+        <!-- Theme CSS -->  
+        <link id="theme-style" rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/css/theme.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/prism.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/custom-css/styles.css">
 
 
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="soporte"/> Contactar con Soporte</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/">Estado<img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="estado del sistema"/> del sistema</a></span> <br/>
-    
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/adobe/">Adobe</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">Conector Adobe-AEM-BrightCove: Uso del conector</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-            <div class="col-sm-3 left-side-bar">
-        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-          <option value="">Otros documentos de Brightcove</option>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBJC11HF8Z"></script>
+        <script translate="no">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XBJC11HF8Z');
+        </script>
+        <script src="/assets/s-site-assets-scripts/sixth-sense.js"></script>
+        <script src="/assets/s-site-assets-scripts/sajari-head.js"></script>
+        <script src="/assets/s-site-assets-scripts/feather.min.js"></script>
+
+    </head> 
+
+    <body class="docs-page">
+        
+
+<header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid position-relative py-2">
+      <div class="docs-logo-wrapper">
+        <button id="docs-sidebar-toggler" class="docs-sidebar-toggler"
+          type="button">
+          <span></span> <span></span> <span></span>
+        </button>
+        <div class="site-logo"><a class="navbar-brand" href="https://support.brightcove.com/" style="margin-left: 15px;"> <img class="logo-icon me-2" src="/assets/s-site-assets-template-stylesheets/images/bc_logo_black_1@1x.png" alt="logo" style="margin-bottom: 9px;"/>
+            <!-- <span class="logo-text">BRIGHTCOVE</span> -->
+          </a></div>
+      </div><!--//docs-logo-wrapper-->
+
+      <div class="docs-top-utilities d-flex justify-content-end
+        align-items-center">
+        
+        <!-- Search bar -->
+        <div id="nav-search-box" class="top-search-box d-none d-lg-flex" style="margin-right: 10px ;"></div>
+
+<select id="site_select" class="form-select select-focus" style="width:
+          20%; margin-right: 10px;" translate="no">
+          <option value="">Other Brightcove Docs</option>
           
-            
-              <option value="https://support.brightcove.com">Documentación Inicio</option>
-            
           
-            
-              <option value="https://audience.support.brightcove.com">Audiencia de Brightcove</option>
-            
+          <option value="https://support.brightcove.com" translate="no">Documentation Home</option>
           
-            
-              <option value="https://beacon.support.brightcove.com">Baliza Brightcove</option>
-            
           
-            
-              <option value="https://campaign.support.brightcove.com">Campaña de Brightcove</option>
-            
           
-            
-              <option value="https://engage.support.brightcove.com">Brightcove Engage</option>
-            
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD --</option>
           
-            
-              <option value="https://live.support.brightcove.com">Brightcove Live</option>
-            
           
-            
-              <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-            
           
-            
-              <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-            
+          <option value="https://studio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Studio</option>
           
-            
-              <option value="https://social.support.brightcove.com">Brightcove Social</option>
-            
           
-            
-              <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
-            
           
-            
-              <option value="https://player.support.brightcove.com">Desarrollo de jugadores de Brightcove</option>
-            
+          <option value="https://mstudio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Marketing Studio</option>
           
-            
-              <option value="https://apis.support.brightcove.com">API para la plataforma de Video Cloud</option>
-            
           
-            
-              <option value="https://sdks.support.brightcove.com">SDK de dispositivos de Video Cloud</option>
-            
           
-            
-              <option value="https://integrations.support.brightcove.com">Integraciones y conectores CMS</option>
-            
+          <option value="https://player.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Player Development</option>
           
-            
-              <option value="https://general.support.brightcove.com">Información general de Video Cloud</option>
-            
           
-            
-              <option value="https://zencoder.support.brightcove.com">Zencoder</option>
-            
+          
+          <option value="https://apis.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Platform APIs</option>
+          
+          
+          
+          <option value="https://sdks.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Device SDKs</option>
+          
+          
+          
+          <option value="https://integrations.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Integrations and CMS Connectors</option>
+          
+          
+          
+          <option value="https://general.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud General Information</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO ESSENTIALS --</option>
+          
+          
+          
+          <option value="https://audience-insights.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Audience Insights</option>
+          
+          
+          
+          <option value="https://beacon-help.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Studio</option>
+          
+          
+          
+          <option value="https://beacon.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Classic</option>
+          
+          
+          
+          <option value="https://corptv.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;CorpTV</option>
+          
+          
+          
+          <option value="https://live.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Live</option>
+          
+          
+          
+          <option value="https://zencoder.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Zencoder</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD ADD-ONS --</option>
+          
+          
+          
+          <option value="https://gallery.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Gallery</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com/social/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Social</option>
+          
+          
+          
+          <option value="https://interactivity.support.brightcove.com/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Interactivity</option>
+          
+          
+          
+          <option value="https://ssai.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove SSAI</option>
+          
+          
+          
+          <option value="https://campaign.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Campaign</option>
+          
           
         </select>
 
-        <nav class="sidenav" id="side_nav">
-          
-            
-            <h5><a href="/index.html">Inicio</a></h5>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/general/index.html">Información general <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/general/cms-integration-training-videos.html">Vídeos de capacitación sobre integración de CMS</a></li>
-                  
-                
-                  
-                    <li><a href="/general/integrating-your-cms-video-cloud.html">Integración de su CMS con Video Cloud</a></li>
-                  
-                
-                  
-                    <li><a href="/general/embedding-brightcove-players-cms.html">Incorporación de reproductores de Brightcove en un CMS</a></li>
-                  
-                
-                  
-                    <li><a href="/general/embedding-brightcove-page-experiences-cms.html">Incorporación de experiencias en página en un CMS</a></li>
-                  
-                
-                  
-                    <li><a href="/general/debugging-network-and-api-connection-issues-cms-and-dam-integrations.html">Depuración de problemas de conexión de red y API</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">WordPress +<a href="/wordpress/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/wordpress/getting-started-brightcove-video-connect-wordpress-cms.html">Introducción a Brightcove Video Connect</a></li>
-                  
-                
-                  
-                    <li><a href="/wordpress/wordpress-brightcove-connector-configuration.html">Configuración</a></li>
-                  
-                
-                  
-                    <li><a href="/wordpress/wordpress-brightcove-connector-frequently-asked-questions.html">Preguntas Frecuentes</a></li>
-                  
-                
-                  
-                    <li><a href="/wordpress/wordpress-brightcove-connector-installation.html">Instalación</a></li>
-                  
-                
-                  
-                    <li>Uso del conector<a href="/wordpress/wordpress-brightcove-connector-using-connector.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/drupal/index.html">Drupal <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/drupal/getting-started-brightcove-video-connect-drupal-cms.html">Introducción al conector para Drupal</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-8-brightcove-connector-configuration.html">Drupal 8 - Configuración</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-8-brightcove-connector-content-management.html">Drupal 8 - Gestión de Contenido</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-8-brightcove-connector-embedding-content.html">Drupal 8 - Incrustar contenido</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-8-brightcove-connector-installation.html">Drupal 8 - Instalación del conector</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-7-brightcove-connector-configuration-and-usage.html">Drupal 7 - Configuración y uso</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-7-brightcove-connector-installation.html">Drupal 7 - Instalación</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/adobe/index.html">Adobe <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/adobe/getting-started-brightcove-video-connect-adobe-experience-manager.html">Introducción al conector para AEM</a></li>
-                  
-                
-                  
-                    <li><a href="/adobe/adobe-aem-brightcove-connector-configuration.html">Configuración</a></li>
-                  
-                
-                  
-                    <li><a href="/adobe/adobe-aem-brightcove-connector-installation.html">Instalación</a></li>
-                  
-                
-                  
-                    <li>Resumen<a href="/adobe/adobe-aem-brightcove-connector-overview.html"></a></li>
-                  
-                
-                  
-                    <li>Uso del conector<a href="/adobe/adobe-aem-brightcove-connector-using-connector.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Sitecore +<a href="/sitecore/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/sitecore/getting-started-brightcove-video-connect-sitecore-experience-platform.html">Introducción al conector para Sitecore</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">SharePoint +<a href="/sharepoint/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/sharepoint/getting-started-brightcove-video-connect-sharepoint.html">Introducción a Connector para Sharepoint</a></li>
-                  
-                
-                  
-                    <li>Uso del conector<a href="/sharepoint/sharepoint-brightcove-connector-4041-using-connector.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/ecommerce/index.html">Comercio electrónico <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      Salesforce Commerce Cloud +<a href="/ecommerce/salesforce/index.html"><strong></strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li>Salesforce Commerce Cloud:<a href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-installation.html"> Instalación</a></li>
-                        
-                        <li>Salesforce Commerce Cloud:<a href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-user-guide.html"> Guía del usuario</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ecommerce/adobe-magento-commerce/index.html">Adobe Magento Commerce <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecommerce/adobe-magento-commerce/installation-guide.html">Guía de instalación</a></li>
-                        
-                        <li>Guía del usuario<a href="/ecommerce/adobe-magento-commerce/user-guide.html"></a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/ecdn/index.html">eCDN <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      Kollective +<a href="/ecdn/kollective/index.html"><strong></strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li>Guía de implementación de eCDN de Kollective<a href="/ecdn/kollective/kollective-deployment-guide.html"></a></li>
-                        
-                        <li>Guía del usuario de Kollective eCDN<a href="/ecdn/kollective/kollective-user-guide.html"></a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      Peer5 +<a href="/ecdn/peer5/index.html"><strong></strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecdn/peer5/brightcove-with-peer5-integration.html">Brightcove con integración Peer5</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      Rampa +<a href="/ecdn/ramp/index.html"><strong></strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecdn/ramp/getting-started-ramp-omnicache-and-video-cloud.html">Introducción a Ramp Omnicache y Video Cloud</a></li>
-                        
-                        <li><a href="/ecdn/ramp/getting-started-ramp-multicast-and-video-cloud.html">Introducción a Ramp Multicast+ y Video Cloud</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Conferencias Web +<a href="/web-conferencing/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li>Conferencia Zoom en Brightcove Live<a href="/web-conferencing/host-zoom-conference-brightcove-live.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/web-conferencing/host-cisco-webex-conference-brightcove-live.html">Conferencia de Cisco Webex a Brightcove Live</a></li>
-                  
-                
-                  
-                    <li><a href="/web-conferencing/host-avaya-conference-brightcove-live.html">Conferencia de Avaya en Brightcove Live</a></li>
-                  
-                
-                  
-                    <li><a href="/web-conferencing/host-inxpo-live.html">Evento INXPO en Brightcove Live</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Soporte +<a href="/support/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    
-                  
-                
-                  
-                    <li>Visualización de la página Estado del Sistema de Brightcove<a href="/support/viewing-brightcove-system-status-page.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">Contacto con Ventas</a></li>
-                  
-                
-                  
-                    <li>Apertura de un caso de soporte<a href="/support/opening-case-with-brightcove-support.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-      </nav>
+        <select id="language_select" class="form-select select-focus" style="width: 10%;"
+          onchange="doGTranslate(this);" translate="no">
+          <!-- <option value="">Select Language</option> -->
+          <option value="en|en" translate="No">English</option>
+          <option value="en|zh-TW" translate="No">繁體中文</option>
+          <option value="en|fr" translate="No">Français</option>
+          <option value="en|de" translate="No">Deutsche</option>
+          <option value="en|ja" translate="No">日本語</option>
+          <option value="en|ko" translate="No">한국어</option>
+          <option value="en|es" translate="No">Español</option>
+        </select>
+
+        <script translate="no">
+          /* <![CDATA[ */
+          function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+          /* ]]> */
+        </script>
+      </div>
     </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
+  </div>
+</header><!--//header-->
 
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menú de navegación"/></p>
+<div class="docs-wrapper">
+  <div id="docs-sidebar" class="docs-sidebar" style="padding-right: 15px;">
+    <div id="nav-search-box" class="top-search-box d-lg-none p-3"></div>
+    <div class="row">
+      
+        <div id="side_nav" style="margin-left: 1em; display: inline-block; border-right: 1px solid #e5e5e6; padding-right: 1em;">
+          
+          <nav class="docs-nav sidenav" aria-label="Main">
+            <ul class="site-nav" style="list-style-type: none;">
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/index.html">Inicio</a></li>
+            
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/general/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Información general</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/cms-integration-training-videos.html">Vídeos de formación sobre integración de CMS</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/integrating-your-cms-video-cloud.html">Integración de su CMS con Video Cloud</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/embedding-brightcove-players-cms.html">Incorporación de reproductores de Brightcove en un CMS</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/embedding-brightcove-page-experiences-cms.html">Incorporación de experiencias in-page en un CMS</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/debugging-network-and-api-connection-issues-cms-and-dam-integrations.html">Depuración de problemas de conexión de red y API</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/wordpress/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;WordPress</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/wordpress/getting-started-brightcove-video-connect-wordpress-cms.html">Introducción a Brightcove Video Connect</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/drupal/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Drupal</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/getting-started-brightcove-video-connect-drupal-cms.html">Introducción a Connector para Drupal</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-9-brightcove-connector-overview.html">Drupal 9 - Conector de Brightcove: Descripción general</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-8-brightcove-connector-configuration.html">Drupal 8 - Configuración</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-8-brightcove-connector-content-management.html">Drupal 8 - Gestión de contenido</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-8-brightcove-connector-embedding-content.html">Drupal 8: incrustación de contenido</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-8-brightcove-connector-installation.html">Drupal 8 - Instalación del conector</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-7-brightcove-connector-configuration-and-usage.html">Drupal 7 - Configuración y uso</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/drupal/drupal-7-brightcove-connector-installation.html">Drupal 7 - Instalación</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/adobe/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Adobe</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/getting-started-brightcove-video-connect-adobe-experience-manager.html">Introducción a Connector para AEM</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/adobe-aem-brightcove-connector-configuration.html">Configuración</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/adobe-aem-brightcove-connector-installation.html">Instalación para AEM local</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/adobe-aem-brightcove-connection-installation-cloud.html">Instalación para la nube AEM</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/adobe-aem-brightcove-connector-overview.html">Descripción general</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/adobe/adobe-aem-brightcove-connector-using-connector.html" aria-current="page">Usando el conector</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/sitecore/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Núcleo del sitio</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/sitecore/getting-started-brightcove-video-connect-sitecore-experience-platform.html">Introducción al conector para Sitecore</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/sitecore/installation-guide.html">Guía de instalación: Brightcove Video Connect para Sitecore</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/sitecore/configuration.html">Guía de configuración: Brightcove Video Connect para Sitecore</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/sitecore/user-guide.html">Guía del usuario: Brightcove Video Connect para Sitecore</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/sharepoint/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;SharePoint</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/sharepoint/getting-started-brightcove-video-connect-sharepoint.html">Introducción a Connector para Sharepoint</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/hootsuite/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Hootsuite</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/hootsuite/publishing-brightcove-video-hootsuite.html">Publicación de vídeos de Brightcove desde Hootsuite</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/ecommerce/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;comercio electrónico</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
 
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">Contenido de la página</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="abrir en una nueva pestaña" style="margin-top:4em;width: 1.5em;"/></a>
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ecommerce/salesforce/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Nube de comercio de Salesforce</a>
+                
 
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-installation.html">Salesforce Commerce Cloud: Instalación</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-user-guide.html">Salesforce Commerce Cloud: Guía del usuario</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
 
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ecommerce/adobe-magento-commerce/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Comercio de Adobe Magento</a>
+                
 
-  
-    
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecommerce/adobe-magento-commerce/installation-guide.html">Guía de instalación</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecommerce/adobe-magento-commerce/user-guide.html">Guía del usuario</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/ecdn/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;eCDN</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
 
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ecdn/kollective/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;colectivo</a>
+                
 
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/kollective/kollective-deployment-guide.html">Guía de implementación de Kollective eCDN</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/kollective/add-kollective-player-plugin.html">Instalación del complemento del reproductor Kollective</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/kollective/kollective-user-guide.html">Guía del usuario de Kollective eCDN</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ecdn/peer5/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Par5</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/peer5/brightcove-with-peer5-integration.html">Brightcove con integración Peer5</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ecdn/ramp/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Rampa</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/ramp/getting-started-ramp-omnicache-and-video-cloud.html">Introducción a Ramp OmniCache y Video Cloud</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ecdn/ramp/getting-started-ramp-multicast-and-video-cloud.html">Introducción a Ramp Multicast + y Video Cloud</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/teams/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Brightcove Video Connect para equipos de Microsoft</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/teams/installation.html">Instalación del conector para equipos</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/teams/using.html">Uso del conector para equipos de Microsoft</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/web-conferencing/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Conferencia web</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/web-conferencing/host-zoom-conference-brightcove-live.html">Conferencia Zoom en Brightcove Live</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/web-conferencing/host-cisco-webex-conference-brightcove-live.html">Conferencia de Cisco Webex a Brightcove Live</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/web-conferencing/host-avaya-conference-brightcove-live.html">Conferencia de Avaya en Brightcove Live</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/web-conferencing/host-inxpo-live.html">Evento INXPO en Brightcove Live</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/non-brightcove-players/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Jugadores que no son de Brightcove</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/non-brightcove-players/inplayer.html">Entregue contenido de Brightcove mediante InPlayer</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/support/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Apoyo</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/viewing-brightcove-system-status-page.html">Visualización de la página de estado del sistema Brightcove</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/contact-sales.html">Contactar con ventas</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html">Abrir un caso de soporte</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/reset-support-portal-password.html">Restablecer la contraseña del portal de soporte</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+          </ul>
+          </nav>
+        </div>
+      </div>
+    </div><!--//docs-sidebar-->
+  </div>
+</div>
+
+<div style="margin-top: 20px;">
+  <div class="docs-content" style="padding-bottom: 0px;">
+    <div class="container">
+      <div class="docs-overview">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/">Inicio</a></li>
+            
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/adobe/">Adobe</a></li>
+            
+            
+            
+            <li class="breadcrumb-item active" aria-current="page">Conector Adobe-AEM-Brightcove: Usando el conector</li>
+            
+            
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="docs-content">
+  <div class="container">
+    <div class="docs-overview py-5">
+      
+      <div class="centered-inpage-nav" id="centered_inpage_nav">
+        <nav id="centered_toc">
+          <select id="centered_in_page_toc" class="form-select select-focus"></select>
+        </nav>
+      </div>
+      <br/>
+      
+      
 <article class="bcls-article">
-  <h1>Conector Adobe-AEM-BrightCove: Uso del conector</h1>
-  <summary>En este tema se explica el uso de Adobe-AEM-BrightCove Connector 5.5.x para administrar y publicar vídeos en AEM.</summary>
+  <h1>Conector Adobe-AEM-Brightcove: Usando el conector</h1>
+  <!-- TO DO -->
+  <summary>Este tema explica el uso de Adobe-AEM-Brightcove Connector 6.x para administrar y publicar videos en AEM.</summary>
   <section class="bcls-section">
     <h2 id="Introduction">Introducción</h2>
-    <p>El conector Adobe-AEM-BrightCove le permite administrar vídeos y reproductores de Brightcove Video Cloud dentro de AEM, así como incrustar vídeos fácilmente en páginas AEM.</p>
-    <aside class="bcls-aside bcls-aside--information">Tenga en cuenta que esta guía utiliza AEM 6.3. El conector también funciona con AEM 6.2andAEM 6.4, y los pasos son similares.&nbsp;&nbsp;</aside>
-    <p>El conector AEM de Brightcove consta de los siguientes componentes:</p>
+    <p>El conector de Adobe-AEM-Brightcove le permite administrar videos y reproductores de Brightcove Video Cloud dentro de AEM, e incrustar videos fácilmente en páginas de AEM.</p>
+    <aside class="bcls-aside bcls-aside--information">Tenga en cuenta que esta guía utiliza AEM 6.3. El conector también funciona con AEM 6.2&nbsp;y&nbsp;AEM 6.4, y los pasos son similares.</aside>
+    <p>El conector Brightcove AEM consta de los siguientes componentes:</p>
     <ul>
-      <li><a href="#video_player_publishing">Publicación del reproductor de vídeo</a></li>
-      <li><a href="#video_content_management">Gestión de contenido de vídeo</a></li>
+      <li><a href="#video_player_publishing">Reproductor de video y publicación de experiencia en la página</a></li>
+      <li><a href="#video_content_management">Gestión de contenido de video</a></li>
       <li><a href="#administrative_page">Administración de Brightcove</a></li>
     </ul>
   </section>
   <section class="bcls-section">
-    <h2 id="video_player_publishing">Publicación del reproductor de vídeo</h2>
-    <p>La publicación del reproductor de vídeo permite al usuario arrastrar un componente de Brightcove Player a una página Web y, a continuación, seleccionar la cuenta, el vídeo y el reproductor de Brightcove para ese componente. Este componente sólo estaba disponible en el conector v4.2 en modo IU clásico. En el conector v5.1, este componente está disponible tanto en el modo IU clásica como en el modo Touch UI. Otro cambio con respecto a la versión 4.2 es que los componentes heredados de Smartplayer ya no están disponibles; sólo los componentes HTML5 Brightcove Player están disponibles ahora. Es posible que las páginas web existentes con los componentes de SmartPlayer heredados sigan conteniendo esos componentes, pero los nuevos componentes de SmartPlayer heredados no se pueden agregar a una página web.</p>
+    <h2 id="video_player_publishing">Reproductor de video y publicación de experiencia en la página</h2>
+    <p>La publicación del reproductor de video permite al usuario arrastrar un componente Brightcove Player a una página web y luego seleccionar la cuenta, el video y el reproductor de Brightcove para ese componente. Una experiencia en la página es solo un Brightcove Player mejorado con estilo y funciones adicionales. Por lo tanto, el proceso de agregar un jugador normal o una experiencia en la página a una página es el mismo.</p>
     <ol class="bcls-tasklist">
-      <li>Desplácese hasta una página de sitio como <code translate="No">/editor.html/content/we-retail/us/en.html</code></li>
+      <li>Navegue a una página del sitio como <code translate="No">/editor.html/content/we-retail/us/en.html</code></li>
     </ol>
-    <p>Habilite los componentes del Brightcove Player para esta página del sitio.</p>
+    <p>Habilite los componentes de Brightcove Player para esta página del sitio.</p>
     <ol class="bcls-tasklist">
       <li>Abra el cuadro de diálogo Editar plantilla:
         <figure class="bcls-figure"><img class="bcls-image" alt="Abrir plantilla de edición" src="/assets/images/adobe/node18484-opentemplatesettings.png"/>
           <figcaption class="bcls-caption--image">Abrir plantilla de edición</figcaption>
         </figure>
       </li>
-      <li>En el menú Estructura de la esquina superior derecha, seleccione Estructura:
+      <li>En el menú Estructura en la esquina superior derecha, seleccione Estructura:
         <figure class="bcls-figure"><img class="bcls-image" alt="Seleccionar estructura" src="/assets/images/adobe/node18484-selectstructure.png"/>
           <figcaption class="bcls-caption--image">Seleccionar estructura</figcaption>
         </figure>
       </li>
-      <li>Haga clic en el área Contenedor de diseño con <strong>Arrastrar componentes aquí</strong> para mostrar el menú en la parte superior y, a continuación, haga clic en el icono de directiva:
-        <figure class="bcls-figure"><img class="bcls-image" alt="Abrir menú Contenedor de presentación" src="/assets/images/adobe/node18484-policyicon.png"/>
-          <figcaption class="bcls-caption--image">Abrir menú Contenedor de presentación</figcaption>
+      <li>Haga clic en el contenedor de diseño con <strong>Arrastre los componentes aquí</strong> área para revelar el menú en la parte superior y luego haga clic en el ícono de Política:
+        <figure class="bcls-figure"><img class="bcls-image" alt="Abrir menú de contenedor de diseño" src="/assets/images/adobe/node18484-policyicon.png"/>
+          <figcaption class="bcls-caption--image">Abrir menú de contenedor de diseño</figcaption>
         </figure>
       </li>
-      <li>En la lista Componentes permitidos, busque <strong>Brightcove</strong> y seleccione los componentes del Reproductor de vídeo y del reproductor de listas de reproducción de Brightcove:
-        <figure class="bcls-figure"><img class="bcls-image" alt="Permitir componentes del reproductor de Brightcove" src="/assets/images/adobe/node18484-addbrightcoveplayercomponents.png"/>
-          <figcaption class="bcls-caption--image">Permitir componentes del reproductor de Brightcove</figcaption>
+      <li>En la lista de componentes permitidos, busque <strong>Brightcove</strong> y seleccione los componentes In-Page Experience, Brightcove Video Player y Playlist Player:
+        <figure class="bcls-figure"><img class="bcls-image" alt="Permitir componentes de Brightcove Player" src="/assets/images/adobe/node18484-addbrightcoveplayercomponents.png"/>
+          <figcaption class="bcls-caption--image">Permitir componentes de Brightcove Player</figcaption>
         </figure>
       </li>
       <li>Haga clic en el <img alt="Icono de verificación" src="/assets/images/adobe/node18484-checkicon.png"/> icono para guardar los cambios.</li>
-      <li>Ahora puede arrastrar reproductores de Brightcove desde la <strong>lista Componentes</strong> de la izquierda a la plantilla:
+      <li>Ahora puede arrastrar reproductores de Brightcove o experiencias en la página desde la <strong>lista de componentes</strong> de la izquierda a la plantilla:
         <figure class="bcls-figure"><img class="bcls-image" alt="Agregar Brightcove Player a la plantilla" src="/assets/images/adobe/node18484-usecomponent.gif"/>
           <figcaption class="bcls-caption--image">Agregar Brightcove Player a la plantilla</figcaption>
         </figure>
       </li>
-      <li>Seleccione el componente Player incrustado y haga clic en el icono <strong>Configurar</strong> :
-        <figure class="bcls-figure"><img class="bcls-image" alt="Icono Configurar componente" src="/assets/images/adobe/node18484-configurecomponent.png"/>
-          <figcaption class="bcls-caption--image">Icono Configurar componente</figcaption>
+      <li>Seleccione el componente de reproductor incorporado y haga clic en el <strong>Configurar</strong> icono:
+        <figure class="bcls-figure"><img class="bcls-image" alt="Configurar icono de componente" src="/assets/images/adobe/node18484-configurecomponent.png"/>
+          <figcaption class="bcls-caption--image">Configurar icono de componente</figcaption>
         </figure>
       </li>
-      <li>En el cuadro de diálogo Configurar, seleccione la cuenta, el vídeo y el reproductor y, a continuación, haga clic en <img alt="Guardar" src="/assets/images/adobe/node18484-checkicon.png"/> :
-        <figure class="bcls-figure"><img class="bcls-image" alt="Diálogo Configurar Reproductor" src="/assets/images/adobe/node18484-configureplayercomponent.png"/>
-          <figcaption class="bcls-caption--image">Diálogo Configurar Reproductor</figcaption>
+      <li>En la pestaña Medios del cuadro de diálogo Configurar, seleccione la cuenta, el video y el reproductor, y luego haga clic en el botón <img alt="Ahorrar" src="/assets/images/adobe/node18484-checkicon.png"/> :
+        <figure class="bcls-figure"><img class="bcls-image" alt="Configurar el cuadro de diálogo del jugador" src="/assets/images/adobe/node18484-configureplayercomponent.png"/>
+          <figcaption class="bcls-caption--image">Configurar el cuadro de diálogo del jugador</figcaption>
         </figure>
       </li>
-      <li>En algunos casos, es posible que deba establecer opciones avanzadas para el reproductor de Brightcove.&nbsp; La situación más común es cuando se utiliza un reproductor de listas de reproducción de Brightcove, es necesario agregar CSS para configurar el aspecto y el aspecto de la lista de reproducción.
-        <figure class="bcls-figure"><img class="bcls-image" alt="Diálogo Configurar Reproductor" src="/assets/images/adobe/node18484-configureplayercomponentadvanced.png"/>
+      <li>En algunos casos, es posible que deba configurar opciones avanzadas para el reproductor Brightcove.&nbsp; La situación más común es cuando se usa un reproductor de listas de reproducción de Brightcove, se debe agregar CSS para configurar la apariencia de la lista de reproducción.
+        <figure class="bcls-figure"><img class="bcls-image" alt="Configurar el cuadro de diálogo del jugador" src="/assets/images/adobe/node18484-configureplayercomponentadvanced.png"/>
           <figcaption class="bcls-caption--image">
-            <p>Opciones avanzadas del cuadro de diálogo Configurar Reproductor</p>
+            <p>Configurar las opciones avanzadas del cuadro de diálogo del reproductor</p>
           </figcaption>
         </figure>
-        <p>A continuación se muestra CSS de ejemplo para formatear la lista de reproducción. Tenga en cuenta que deberá calcular la altura y el ancho de la miniatura deseada. Puede utilizar las siguientes fórmulas como punto de partida:</p>
+        <p>A continuación se muestra un CSS de muestra para formatear la lista de reproducción. Tenga en cuenta que deberá calcular la altura y el ancho de la miniatura que desee. Puede utilizar las fórmulas siguientes como punto de partida:</p>
         <code translate="No">THUMBNAILWIDTH = Round((PLAYERWIDTH - NUMTHUMBNAILS * 4)/ NUMTHUMBNAILS);<br />
         THUMBNAILHEIGHT = Round(THUMBNAILWIDTH * PLAYERHEIGHT / PLAYERWIDTH); </code>
         <p>Ejemplo de CSS:</p>
         <pre>
-<code translate="No"><xmp>
-        <style type="text/css">
+<code translate="No">
 .vjs-playlist {
     background-color: #000000;
     width: PLAYERWIDTH;
@@ -554,264 +820,343 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   }
   li.vjs-playlist-item:hover {
     border-color: #FFFFFF;
-  }
-</style>
-        </xmp> </code></pre>
+  }</code></pre>
       </li>
-      <li>Es posible que aparezca un error que indica que el vídeo no se puede reproducir; esto solo resulta del hecho de que el reproductor no puede funcionar correctamente en el modo de edición.&nbsp; Cambie al modo Vista previa para reproducir el vídeo.
+      <li>Es posible que inicialmente vea un error que indique que el video no se puede reproducir; esto solo se debe al hecho de que el reproductor no puede funcionar correctamente en el modo de edición.&nbsp; Cambie al modo Vista previa para reproducir el video.
         <figure class="bcls-figure"><img class="bcls-image" alt="Error de Video Cloud" src="/assets/images/adobe/node18484-videoclouderror.png"/>
           <figcaption class="bcls-caption--image">Error de Video Cloud</figcaption>
         </figure>
       </li>
     </ol>
   </section>
+  
   <section class="bcls-section">
-    <h2 id="video_content_management">Gestión de contenido de vídeo
-      <meta charset="utf-8" />
-    </h2>
-    <p>La administración de contenido de vídeo del conector v5.x utiliza AEM DAM para cargar&nbsp;vídeos en Brightcove y actualizar metadatos en Brightcove. En versiones anteriores del conector, la página administrativa de se <code translate="No">/brightcove/admin</code> usaba para cargar vídeos a Brightcove.</p>
+    <h2 id="video_content_management">Gestión de contenido de video</h2>
+    <p>La administración de contenido de video en v6.x Connector usa AEM DAM para cargar&nbsp; videos a Brightcove y actualice los metadatos en Brightcove. En las versiones del conector anteriores a v5.x, la página administrativa en <code translate="No">/brightcove/admin</code> se utilizó para subir videos a Brightcove.</p>
     <h4>Configuración de AEM DAM</h4>
-    <p>Antes de utilizar AEM DAM con Brightcove por primera vez, es <code translate="No">/system/console/configMgr</code> necesario crear la estructura de carpetas Ruta de integración DAM especificada en la página de configuración de Brightcove en. El valor predeterminado es <code translate="No">/content/dam/brightcove_assets</code> si no lo cambia en la página de configuración.&nbsp; En esta carpeta se debe crear una carpeta para cada cuenta de Brightcove; el nombre de la carpeta debe ser el ID de cuenta numérico de la configuración de Brightcove y el título de la carpeta debe ser el Alias de cuenta de la configuración de Brightcove.</p>
-    <p>En la interfaz de usuario clásica, las carpetas se pueden crear en <code translate="No">/damadmin#/content/dam</code>. En Touch UI las carpetas se crean en <code translate="No">/assets.html/content/dam</code>. Como alternativa, el botón <strong>SYNC DATABASE</strong> de la página administrativa en <code translate="No">/brightcove/admin</code> creará las carpetas necesarias en AEM DAM para cada cuenta de Brightcove configurada e importará todos los vídeos que ya existan en la cuenta de Brightcove. Si no desea sincronizar algunos o todos los vídeos de Brightcove, los vídeos con la&nbsp;etiqueta AEM_NO_DAM de Brightcove no se sincronizarán en AEM DAM.</p>
-    <p>Además, si está utilizando AEM DAM en la interfaz de usuario clásica, habilite el campo Título como se muestra a continuación al visualizar <code translate="No">/damadmin#/content/dam</code>:</p>
+    <p>Antes de utilizar AEM DAM con Brightcove por primera vez, la estructura de carpetas de la ruta de integración DAM como se especifica en la página de configuración de Brightcove en <code translate="No">/system/console/configMgr</code> necesita ser creado. El valor predeterminado es <code translate="No">/content/dam/brightcove_assets</code> si no lo cambia en la página de configuración.&nbsp; En esta carpeta se debe crear una carpeta para cada cuenta de Brightcove; el nombre de la carpeta debe ser el ID de cuenta numérico de la configuración de Brightcove y el título de la carpeta debe ser el Alias de la cuenta de la configuración de Brightcove.</p>
+    <p>En la IU clásica, las carpetas se pueden crear en <code translate="No">/damadmin#/content/dam</code>. En la interfaz de usuario táctil, las carpetas se crean en <code translate="No">/assets.html/content/dam</code>. Alternativamente, el <strong>SINCRONIZAR BASE DE DATOS</strong> en la página administrativa en <code translate="No">/brightcove/admin</code> creará las carpetas necesarias en AEM DAM para cada cuenta de Brightcove configurada e importará todos los videos que ya existen en la cuenta de Brightcove. Si no desea sincronizar algunos o todos los videos en Brightcove, esos videos con Brightcove&nbsp;La etiqueta AEM_NO_DAM no se sincronizará con AEM DAM.</p>
+    <p>Además, si está utilizando AEM DAM en la IU clásica, habilite el campo Título como se muestra a continuación cuando visualice <code translate="No">/damadmin#/content/dam</code>:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="Habilitar título" src="/assets/images/adobe/node18484-enabletitle.png"/>
       <figcaption class="bcls-caption--image">Habilitar título</figcaption>
     </figure>
-    <p>Cuando se carga un vídeo en la DAM de AEM y luego se publica en Brightcove, el archivo de vídeo&nbsp;original se mantiene en AEM DAM. Para algunas implementaciones, se prefiere mantener el video «maestro» en la base de datos AEM, mientras que para otras implementaciones no es preferible porque el tamaño de la base de datos AEM crecerá demasiado rápido. Si no desea que el vídeo original se almacene en la DAM de AEM pero no desea utilizar la interfaz de Brightcove Studio para cargar vídeos, simplemente puede eliminar el vídeo en la AEM DAM después de que se haya publicado&nbsp;en Brightcove una vez y se importará de nuevo desde Brightcove con una imagen en miniatura durante la siguiente sincronización, desencadenado por la operación <strong>SYNC DATABASE</strong> .</p>
-    <p>Tenga en cuenta también que si carga un vídeo a través de AEM DAM y publica en Brightcove y, posteriormente,&nbsp;reemplaza el archivo fuente de ese vídeo en Brightcove Studio, creará un nuevo activo en AEM DAM durante la próxima <strong>base de datos de sincronización</strong>&nbsp;porque se crea un nuevo VideoID en Brightcove cuando se reemplaza el archivo de origen. &nbsp;Sin embargo, puede actualizar los metadatos en Brightcove Studio para un vídeo publicado desde la DAM de AEM&nbsp;y actualizará los metadatos del activo existente en la DAM de AEM tal como se esperaba.</p>
-    <h4>Cargar nuevos vídeos en la interfaz de usuario clásica</h4>
+    <p>Cuando se carga un video en AEM DAM y luego se publica en Brightcove, el&nbsp;El archivo de video original se mantiene en AEM DAM. Para algunas implementaciones, se prefiere mantener el video "maestro" en la base de datos AEM, mientras que para otras implementaciones no es preferible porque el tamaño de la base de datos AEM crecerá demasiado rápido. Si no desea que el video original se almacene en AEM DAM pero no desea utilizar la interfaz de Brightcove Studio para cargar videos, simplemente puede eliminar el video en AEM DAM después de que se haya publicado.&nbsp;a Brightcove una vez y se volverá a importar desde Brightcove con un marcador de posición de imagen en miniatura durante la próxima sincronización, activada por el <strong>SINCRONIZAR BASE DE DATOS</strong> operación.</p>
+    <p>Tenga en cuenta también que si carga un video a través de AEM DAM y lo publica en Brightcove y luego, en un momento posterior,&nbsp;Reemplace el archivo de origen para ese video en Brightcove Studio, creará un nuevo activo en AEM DAM durante el próximo <strong>SINCRONIZAR BASE DE DATOS</strong>&nbsp;operación porque se crea un nuevo ID de video en Brightcove cuando se reemplaza el archivo de origen. &nbsp;Sin embargo, puede actualizar los metadatos en Brightcove Studio para un video publicado desde AEM DAM&nbsp;y actualizará los metadatos del activo existente en AEM DAM como se esperaría.</p>
+    <h4>Carga de nuevos videos en la IU clásica</h4>
     <ol class="bcls-tasklist">
-      <li>Para cargar un vídeo nuevo en la interfaz de usuario clásica, navegue hasta <code translate="No">/damadmin#/content/dam/brightcove_assets</code>, abra la carpeta de la cuenta de Brightcove que desea utilizar y haga clic en <strong>&gt; Nuevo archivo nuevo</strong>:
-        <figure class="bcls-figure"><img class="bcls-image" alt="Añadir nuevo vídeo" src="/assets/images/adobe/node18484-addnewvideo.png"/>
-          <figcaption class="bcls-caption--image">Añadir nuevo vídeo</figcaption>
+      <li>Para cargar un nuevo vídeo en la IU clásica, vaya a <code translate="No">/damadmin#/content/dam/brightcove_assets</code>, abra la carpeta de la cuenta de Brightcove que desea utilizar y haga clic en <strong>Nuevo&gt;Nuevo archivo</strong>:
+        <figure class="bcls-figure"><img class="bcls-image" alt="Agregar nuevo video" src="/assets/images/adobe/node18484-addnewvideo.png"/>
+          <figcaption class="bcls-caption--image">Agregar nuevo video</figcaption>
         </figure>
       </li>
-      <li>Después de la carga, edite el campo Título o, si se deja en blanco, se establecerá en el nombre del archivo de vídeo cargado en la DAM al publicar el activo que lo&nbsp;cargará en Brightcove. El campo Título se puede editar en la vista de lista de activos DAM haciendo clic en el campo Título del nuevo activo:
-        <figure class="bcls-figure"><img class="bcls-image" alt="Editar título de vídeo" src="/assets/images/adobe/node18484-edittitle.png"/>
-          <figcaption class="bcls-caption--image">Editar título de vídeo</figcaption>
+      <li>Después de la carga, edite el campo Título o, si lo deja en blanco, se configurará con el nombre del archivo de video cargado en el DAM al publicar el activo que lo cargará.&nbsp;a Brightcove. El campo Título se puede editar en la vista de lista de activos de DAM haciendo clic en el campo Título del nuevo activo:
+        <figure class="bcls-figure"><img class="bcls-image" alt="Editar el título del video" src="/assets/images/adobe/node18484-edittitle.png"/>
+          <figcaption class="bcls-caption--image">Editar el título del video</figcaption>
         </figure>
       </li>
-      <li>También puede abrir el nuevo recurso, editar el campo <strong>Título</strong> y guardar los cambios:
+      <li>Alternativamente, puede abrir el nuevo activo y editar el <strong>Título</strong> campo y guardar cambios:
         <figure class="bcls-figure"><img class="bcls-image" alt="Editar título en propiedades de activos" src="/assets/images/adobe/node18484-edittitle2.png"/>
           <figcaption class="bcls-caption--image">Editar título en propiedades de activos</figcaption>
         </figure>
       </li>
-      <li>Otros campos de metadatos son opcionales, excepto posiblemente los campos personalizados de Brightcove. Sin embargo, debido a una limitación en la interfaz de usuario AEM Classic, los campos personalizados de Brightcove, para los que se agregó compatibilidad con la versión 5.x del conector, no se pueden editar en la interfaz de usuario clásica y debe utilizar la interfaz de usuario táctil en su lugar.</li>
-      <li>En este punto el video existe solamente en la DAM de AEM. Para sincronizar el vídeo con Brightcove, seleccione el nuevo recurso en la vista de lista de activos y haga clic en Activar para publicar el vídeo en Brightcove:
-        <figure class="bcls-figure"><img class="bcls-image" alt="Enviar vídeo a Brightcove" src="/assets/images/adobe/node18484-sendvideotobrightcove.png"/>
-          <figcaption class="bcls-caption--image">Enviar vídeo a Brightcove</figcaption>
+      <li>Otros campos de metadatos son opcionales, excepto posiblemente los campos personalizados de Brightcove. Sin embargo, debido a una limitación en la IU clásica de AEM, los campos personalizados de Brightcove, para los cuales se agregó compatibilidad en la versión 5.x del conector, no se pueden editar en la IU clásica y, en su lugar, debe usar la IU táctil.</li>
+      <li>En este punto, el video solo existe en AEM DAM. Para sincronizar el video con Brightcove, seleccione el nuevo activo en la vista de lista de activos y haga clic en Activar para publicar el video en Brightcove:
+        <figure class="bcls-figure"><img class="bcls-image" alt="Enviar video a Brightcove" src="/assets/images/adobe/node18484-sendvideotobrightcove.png"/>
+          <figcaption class="bcls-caption--image">Enviar video a Brightcove</figcaption>
         </figure>
       </li>
     </ol>
     <h4>Carga de archivos en la interfaz de usuario táctil</h4>
     <ol class="bcls-tasklist">
-      <li>Para cargar un nuevo vídeo en la interfaz de usuario táctil, navegue hasta <code translate="No">/assets.html/content/dam/brightcove_assets/</code>, abra la carpeta de la cuenta de Brightcove que desea utilizar y haga clic en <strong>Crear &gt; archivos</strong>
-        <figure class="bcls-figure"><img class="bcls-image" alt="Agregar interfaz de usuario táctil de vídeo" src="/assets/images/adobe/node18484-addnewvideo-touchui.png"/>
-          <figcaption class="bcls-caption--image">Agregar interfaz de usuario táctil de vídeo</figcaption>
+      <li>Para cargar un nuevo vídeo en la interfaz de usuario táctil, vaya a <code translate="No">/assets.html/content/dam/brightcove_assets/</code>, abra la carpeta de la cuenta de Brightcove que desea utilizar y haga clic en <strong>Crear&gt;Archivos</strong>
+        <figure class="bcls-figure"><img class="bcls-image" alt="Agregar interfaz de usuario táctil de video" src="/assets/images/adobe/node18484-addnewvideo-touchui.png"/>
+          <figcaption class="bcls-caption--image">Agregar interfaz de usuario táctil de video</figcaption>
         </figure>
       </li>
-      <li>Después de subir el vídeo, edite el campo <strong>Título</strong> si lo desea. El campo Título se edita abriendo el nuevo recurso, seleccionando <strong>Ver Propiedades</strong> y editando el Título en la página Propiedades Básicas:
+      <li>Después de subir el video, edite el <strong>Título</strong> campo si lo desea. El campo Título se edita abriendo el nuevo activo, seleccionando <strong>Ver propiedades</strong> y editar el título en la página de propiedades básicas:
         <figure class="bcls-figure"><img class="bcls-image" alt="Propiedades de activos" src="/assets/images/adobe/node18484-edittproperties-touchui.png"/>
           <figcaption class="bcls-caption--image">Propiedades de activos</figcaption>
         </figure>
-        <figure class="bcls-figure"><img class="bcls-image" alt="Editar título - Touch UI" src="/assets/images/adobe/node18484-edittitle-touchui.png"/>
-          <figcaption class="bcls-caption--image">Editar título - Touch UI</figcaption>
+        <figure class="bcls-figure"><img class="bcls-image" alt="Editar título: interfaz de usuario táctil" src="/assets/images/adobe/node18484-edittitle-touchui.png"/>
+          <figcaption class="bcls-caption--image">Editar título: interfaz de usuario táctil</figcaption>
         </figure>
       </li>
       <li>Otros campos de metadatos son opcionales, excepto posiblemente los campos personalizados de Brightcove.</li>
-      <li>Para sincronizar el vídeo con Brightcove, seleccione Publicar dentro de la vista de activos:
-        <figure class="bcls-figure"><img class="bcls-image" alt="Enviar vídeo a Brightcove - Asset View" src="/assets/images/adobe/node18484-sendvideotobrightcove-assetview-touchui.png"/>
-          <figcaption class="bcls-caption--image">Enviar vídeo a Brightcove - Asset View</figcaption>
+      <li>Para sincronizar el video con Brightcove, seleccione Publicar dentro de la vista de activos:
+        <figure class="bcls-figure"><img class="bcls-image" alt="Enviar video a Brightcove - Vista de activos" src="/assets/images/adobe/node18484-sendvideotobrightcove-assetview-touchui.png"/>
+          <figcaption class="bcls-caption--image">Enviar video a Brightcove - Vista de activos</figcaption>
         </figure>
       </li>
-      <li>También puede seleccionar el nuevo recurso en la vista Lista, Tarjeta o Columna y hacer clic en Publicar para publicar el vídeo en Brightcove:
-        <figure class="bcls-figure"><img class="bcls-image" alt="Enviar vídeo a Brightcove - Lista de activos" src="/assets/images/adobe/node18484-sendvideotobrightcove-touchui.png"/>
-          <figcaption class="bcls-caption--image">Enviar vídeo a Brightcove - Lista de activos</figcaption>
+      <li>Alternativamente, puede seleccionar el nuevo activo en la vista Lista, Tarjeta o Columna y hacer clic en Publicar para publicar el video en Brightcove:
+        <figure class="bcls-figure"><img class="bcls-image" alt="Enviar video a Brightcove - Lista de activos" src="/assets/images/adobe/node18484-sendvideotobrightcove-touchui.png"/>
+          <figcaption class="bcls-caption--image">Enviar video a Brightcove - Lista de activos</figcaption>
         </figure>
       </li>
     </ol>
   </section>
   <section class="bcls-section">
-    <h4>Cambio de imágenes en miniatura y póster en la DAM de AEM</h4>
-    <p>Las imágenes en miniatura y póster se pueden actualizar en Brightcove sobrescribiendo las copias denominadas brc_thumbnail.png y brc_poster.png en un activo de vídeo de DAM. En la interfaz de usuario clásica, busque /damadmin #/content/dam/brightcove_assets y abra un recurso de vídeo y haga clic en Cargar en la pestaña Copias:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Reemplazar pulgar/póster" src="/assets/images/adobe/node18484-replacethumbnailposter.png"/>
-      <figcaption class="bcls-caption--image">Reemplazar miniatura o póster</figcaption>
+    <h4>Cambio de imágenes en miniatura y póster en AEM DAM</h4>
+    <p>Las imágenes en miniatura y póster se pueden actualizar en Brightcove sobrescribiendo las representaciones denominadas brc_thumbnail.png y brc_poster.png en un recurso de video en el DAM. En la IU clásica, vaya a / damadmin # / content / dam / brightcove_assets, abra un recurso de video y haga clic en Cargar en la pestaña Reproducciones:</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Reemplazar Thumbail / Póster" src="/assets/images/adobe/node18484-replacethumbnailposter.png"/>
+      <figcaption class="bcls-caption--image">Reemplazar miniatura / póster</figcaption>
     </figure>
-    <p>Después de cargar brc_thumbnail.png o brc_poster.png, <strong>Guardar</strong> y <strong>activar</strong> el recurso para cargar las nuevas imágenes en miniatura y póster en Brightcove. En la interfaz de usuario táctil, busque <code translate="No">/assets.html/content/dam/brightcove_assets/</code> y abra un recurso de vídeo. Haga clic en <strong>Renditions</strong> como se muestra a continuación:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Activación de nuevas imágenes" src="/assets/images/adobe/node18484-clickrenditions.png"/>
-      <figcaption class="bcls-caption--image">Activación de nuevas imágenes</figcaption>
+    <p>Después de cargar brc_thumbnail.png o brc_poster.png, <strong>Ahorrar</strong> y <strong>Activar</strong> el activo para cargar las nuevas imágenes en miniatura y póster en Brightcove. En la interfaz de usuario táctil, busque <code translate="No">/assets.html/content/dam/brightcove_assets/</code> y abra un recurso de video. Hacer clic <strong>Entregas</strong> Como se muestra abajo:</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Activando Nuevas Imágenes" src="/assets/images/adobe/node18484-clickrenditions.png"/>
+      <figcaption class="bcls-caption--image">Activando Nuevas Imágenes</figcaption>
     </figure>
-    <p>A continuación, haga clic en Agregar copia y cargue un archivo denominado brc_thumbnail.png o brc_poster.png y, a continuación, Publique el recurso para cargar las nuevas miniaturas y las imágenes de póster en Brightcove:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Cargar imágenes a Brightcove" src="/assets/images/adobe/node18484-uploadimagestobrightcove.png"/>
-      <figcaption class="bcls-caption--image">Cargar imágenes a Brightcove</figcaption>
+    <p>A continuación, haga clic en Add Rendition y cargue un archivo llamado brc_thumbnail.png o brc_poster.png y luego publique el activo para cargar las nuevas imágenes en miniatura y póster en Brightcove:</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Cargar imágenes en Brightcove" src="/assets/images/adobe/node18484-uploadimagestobrightcove.png"/>
+      <figcaption class="bcls-caption--image">Cargar imágenes en Brightcove</figcaption>
     </figure>
-    <h4>Importación&nbsp;de vídeos de AEM a Brightcove</h4>
-    <p>Si se están cargando vídeos nuevos directamente en Brightcove Studio o si los metadatos se están editando directamente en Brightcove Studio,&nbsp;el botón <strong>SYNC DATABASE</strong> de la página de administración de Brightcove en <code translate="No">/brightcove/admin</code> se utiliza para sincronizar nuevos vídeos o metadatos actualizados de Brightcove en la DAM de AEM.&nbsp; &nbsp;Tenga en cuenta que los activos de vídeo importados de Brightcove a la DAM no copiarán el archivo de vídeo original en la DAM de AEM, sino que utilizarán la miniatura de Brightcove como marcador de posición para el recurso. Por lo tanto, el tamaño de la base de datos de AEM no aumentará sustancialmente al importar vídeos desde Brightcove.</p>
-    <p>La sincronización de la base de datos también se puede configurar para ejecutarse según una programación. Abra la consola de configuración en <code translate="No">/system/console/configMgr</code> y, a continuación, busque y abra «Brightcove Asset Integration Cronjob Scheduler Configuration».</p>
+    <h4>Importación de videos&nbsp;de AEM a Brightcove</h4>
+    <p>Si se cargan nuevos videos directamente en Brightcove Studio y / o si los metadatos se editan directamente en Brightcove Studio,&nbsp;la <strong>SINCRONIZAR BASE DE DATOS</strong> en la página de administración de Brightcove en <code translate="No">/brightcove/admin</code> se utiliza para sincronizar nuevos videos o metadatos actualizados de Brightcove en AEM DAM.&nbsp; &nbsp;Tenga en cuenta que los recursos de video importados de Brightcove al DAM no copiarán el archivo de video original en el AEM DAM, sino que utilizarán la miniatura de Brightcove como marcador de posición para el recurso. Por lo tanto, el tamaño de la base de datos de AEM no aumentará sustancialmente al importar videos desde Brightcove.</p>
+    <p>La sincronización de la base de datos también se puede configurar para que se ejecute según una programación. Abra la consola de configuración en <code translate="No">/system/console/configMgr</code> y luego busque y abra "Brightcove Asset Integration Cronjob Scheduler Configuration".</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="Habilitar título" src="/assets/images/adobe/node18484-openbrightcoveschedulerconfig.png"/>
       <figcaption class="bcls-caption--image">Abrir configuración del programador</figcaption>
     </figure>
-    <p>Haga clic en Activar CRON e introduzca una expresión CRON válida en el campo Programador CRON.</p>
+    <p>Haga clic en CRON Enable e ingrese una expresión CRON válida en el campo CRON Scheduler.</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="Habilitar título" src="/assets/images/adobe/node18484-setbrightcoveschedulerconfig.png"/>
       <figcaption class="bcls-caption--image">Configurar el programador</figcaption>
     </figure>
     <p>El siguiente comando también se puede utilizar manualmente desde el sistema operativo para activar el proceso de sincronización.</p>
     <pre>
-<meta charset="utf-8" /><b id="docs-internal-guid-03de6d0a-467d-81d3-deba-50596fc15c62">/usr/bin/curl —anyauth —user &lt; USERNAME &gt;: &lt; PASSWORD &gt; —silent —compressed &lt; INSTANCE &gt; /bin/brightcove/dataload.html</b></pre>
-    <p>Tenga en cuenta que <b id="docs-internal-guid-03de6d0a-467d-81d3-deba-50596fc15c62">&lt; USERNAME &gt;: &lt; PASSWORD &gt;</b> debe ser de un usuario AEM válido con acceso a las cuentas de Brightcove y derechos para crear etiquetas y contenido.</p>
+<meta charset="utf-8" /><b id="docs-internal-guid-03de6d0a-467d-81d3-deba-50596fc15c62">/ usr / bin / curl --anyauth --user &lt;USERNAME&gt;: &lt;PASSWORD&gt; --silent --compressed &lt;INSTANCE&gt; /bin/brightcove/dataload.html</b></pre>
+    <p>Tenga en cuenta que <b id="docs-internal-guid-03de6d0a-467d-81d3-deba-50596fc15c62">&lt;NOMBRE DE USUARIO&gt;: &lt;CONTRASEÑA&gt;</b> debe ser un usuario de AEM válido con acceso a las cuentas de Brightcove y derechos para crear etiquetas y contenido.</p>
     <h2 id="administrative_page">Administración de Brightcove</h2>
-    <p>En versiones anteriores del Conector, la página Administración de Brightcove en se <code translate="No">/brightcove/admin</code> usaba para cargar vídeos en Brightcove y editar metadatos de esos vídeos. Con el nuevo soporte para AEM DAM, la página de administración de Brightcove se utiliza normalmente para ver únicamente los datos de la cuenta de Brightcove. Por ejemplo, la página de administración de Brightcove muestra los vídeos de la cuenta de Brightcove en tiempo real mediante llamadas API directas a Brightcove y se puede utilizar para confirmar que se ha cargado un nuevo vídeo en Brightcove o que los metadatos se sincronizaron con Brightcove mediante el proceso de publicación en la DAM de AEM.</p>
-    <p>Para verificar la reproducción desde Brightcove, los vídeos pueden previsualizarse en esta página de administración de Brightcove utilizando los reproductores predeterminados de lista de reproducción y vídeo especificados en la página de configuración de Brightcove en /system/console/configMgr:</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Vídeo de previsualización" src="/assets/images/adobe/node18484-videopreview.png"/>
-      <figcaption class="bcls-caption--image">Vídeo de previsualización</figcaption>
+    <p>En versiones anteriores del conector, la página de administración de Brightcove en <code translate="No">/brightcove/admin</code> se utilizó para cargar videos en Brightcove y editar metadatos para esos videos. Con el nuevo soporte para AEM DAM, la página de administración de Brightcove ahora se usa generalmente para ver solo los datos en la cuenta de Brightcove. Por ejemplo, la página de administración de Brightcove muestra los videos en la cuenta de Brightcove en tiempo real usando llamadas API directas a Brightcove y podría usarse para confirmar que se cargó un nuevo video en Brightcove o que los metadatos se sincronizaron en Brightcove mediante el proceso de publicación en el AEM DAM.</p>
+    <p>Para verificar la reproducción desde Brightcove, se pueden obtener una vista previa de los videos en esta página de administración de Brightcove utilizando los reproductores de listas de reproducción y videos predeterminados especificados en la página de configuración de Brightcove en / system / console / configMgr:</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Vista previa del video" src="/assets/images/adobe/node18484-videopreview.png"/>
+      <figcaption class="bcls-caption--image">Vista previa del video</figcaption>
     </figure>
-    <p>La página Administrador de Brightcove también contiene un botón <strong>SYNC DATABASE</strong> que iniciará el proceso de sincronización de Brightcove a la DAM de AEM. Pulse el botón <strong>SYNC DATABASE</strong> para sincronizar todas las cuentas de Brightcove configuradas con la DAM de AEM.&nbsp;&nbsp;Si no desea sincronizar algunos o todos los vídeos de Brightcove, los vídeos con la&nbsp;etiqueta AEM_NO_DAM de Brightcove no se sincronizarán en AEM DAM.</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Sincronizar base" src="/assets/images/adobe/node18484-syncdatabase.png"/>
-      <figcaption class="bcls-caption--image">Sincronizar base</figcaption>
+    <p>La página de administración de Brightcove también contiene una <strong>SINCRONIZAR BASE DE DATOS</strong> que iniciará el proceso de sincronización de Brightcove al AEM DAM. presione el <strong>SINCRONIZAR BASE DE DATOS</strong> para sincronizar todas las cuentas de Brightcove configuradas con AEM DAM.&nbsp;&nbsp;Si no desea sincronizar algunos o todos los videos en Brightcove, esos videos con Brightcove&nbsp;La etiqueta AEM_NO_DAM no se sincronizará con AEM DAM.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Sincronizar base de datos" src="/assets/images/adobe/node18484-syncdatabase.png"/>
+      <figcaption class="bcls-caption--image">Sincronizar base de datos</figcaption>
     </figure>
-    <p>Este proceso de sincronización se puede automatizar a través de un trabajo cron para que la operación manual no sea necesaria.</p>
-    <h3>Adición de pistas de texto a un vídeo</h3>
-    <p>Actualmente, las pistas de texto solo se pueden agregar a un vídeo a través de la página de administración de Brightcove en <code translate="No">/brightcove/admin</code>. Las pistas de texto se agregan mediante el botón <strong>Subir nueva pista de texto</strong> :</p>
-    <figure class="bcls-figure"><img class="bcls-image" alt="Añadir pistas de texto" src="/assets/images/adobe/node18484-addtexttracks.png"/>
-      <figcaption class="bcls-caption--image">Añadir pistas de texto</figcaption>
+    <p>Este proceso de sincronización se puede automatizar mediante un trabajo cron para que la operación manual no sea necesaria.</p>
+    <h3>Agregar pistas de texto a un video</h3>
+    <p>Actualmente, las pistas de texto solo se pueden agregar a un video a través de la página de administración de Brightcove en <code translate="No">/brightcove/admin</code>. Las pistas de texto se agregan a través del <strong>Subir nueva pista de texto</strong> botón:</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="Agregar pistas de texto" src="/assets/images/adobe/node18484-addtexttracks.png"/>
+      <figcaption class="bcls-caption--image">Agregar pistas de texto</figcaption>
     </figure>
-    <p>El soporte de pistas de texto cargadas como copias en la DAM está en la hoja de ruta que se implementará más adelante.</p>
-    <h3>Actualización de imágenes de póster</h3>
+    <p>El soporte de pistas de texto cargadas como representaciones en el DAM está en la hoja de ruta para implementarse en un momento posterior.</p>
+    <h3>Actualización de imágenes de carteles</h3>
     <figure class="bcls-figure">
       <figcaption class="bcls-caption--image">&nbsp;</figcaption>
     </figure>
-    <p>Además de actualizar las imágenes de carteles y miniaturas en la DAM de AEM, también se&nbsp;pueden cargar en Brightcove desde una URL HTTP remota a través de la página Admin de Brightcove en <code translate="No">/brightcove/admin</code>:</p>
+    <p>Además de actualizar pósters e imágenes en miniatura en AEM DAM,&nbsp;también se puede cargar en Brightcove desde una URL HTTP remota a través de la página de administración de Brightcove en <code translate="No">/brightcove/admin</code>:</p>
     <figure class="bcls-figure"><img class="bcls-image" alt="Cargar imágenes desde la página de administración de Brightcove" src="/assets/images/adobe/node18484-uploadimagesfrombrightcoveadmin.png"/>
       <figcaption class="bcls-caption--image">Cargar imágenes desde la página de administración de Brightcove</figcaption>
     </figure>
   </section>
+  <section class="bcls-section">
+    <h2 id="Labels">Etiquetas</h2>
+    <p>Las etiquetas ahora se pueden aplicar a videos dentro de Adobe Experience Manager (AEM) y se sincronizan con Brightcove Studio al momento de la activación. La consola de administración de Brightcove también ofrece la posibilidad de crear nuevas etiquetas y filtrar activos por etiqueta.</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/adobe/apply-labels.png" alt="Aplicar etiquetas"/>
+      <figcaption class="bcls-caption--image">Aplicar etiquetas</figcaption>
+    </figure>
+    <p>Para crear una nueva etiqueta, use el menú desplegable en el encabezado del filtro y seleccione <strong>+ Crear nueva etiqueta</strong> . Las etiquetas también son visibles en la vista previa de los metadatos cuando selecciona un recurso en la consola de administración. Si hace clic en el enlace de la etiqueta, se activará una búsqueda de todos los activos con esa etiqueta (comportamiento similar a las etiquetas).</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/adobe/create-or-sort-labels.png" alt="Crear u ordenar etiquetas"/>
+      <figcaption class="bcls-caption--image">Crear u ordenar etiquetas</figcaption>
+    </figure>
+    <h3>Notas</h3>
+    <ol>
+      <li>Las nuevas etiquetas deben cumplir con las convenciones admitidas por Brightcove. Por ejemplo, deben comenzar con una &amp;quot;/&amp;quot; (barra inclinada).</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Subfolders">subcarpetas</h2>
+    <p>Las subcarpetas creadas en Brightcove Studio ahora se crean dentro de AEM al sincronizarse. Los permisos de usuario de AEM se pueden aplicar a estas carpetas utilizando las prácticas estándar para el control de acceso de AEM para limitar quién puede ver qué videos dentro de AEM.</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/adobe/folder-sync.png" alt="Sincronización de carpetas"/>
+      <figcaption class="bcls-caption--image">Sincronización de carpetas</figcaption>
+    </figure>
+    <h3>Notas</h3>
+    <ol>
+      <li>Le recomendamos que elimine y vuelva a sincronizar su biblioteca de videos para usar esta función.</li>
+      <li>Las carpetas creadas en AEM no se crean en Brightcove Studio.</li>
+      <li>La aplicación de permisos a los videos o sus carpetas no excluye esos videos de la consola de administración O del reproductor de video, ya que ambos elementos de la interfaz de usuario realizan llamadas a pedido a la API de Brightcove.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Clips">Clips</h2>
+    <p>Los clips (un tipo de video creado al extraer una parte de otro video) se pueden filtrar en cada página de resultados de búsqueda dentro de la consola de administración. También se indican con el marcador &amp;quot;CLIP&amp;quot; en todos los resultados de búsqueda.</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/adobe/filter-clips.png" alt="Clips de filtro"/>
+      <figcaption class="bcls-caption--image">Clips de filtro</figcaption>
+    </figure>
+    <p>Los clips también están disponibles a través del reproductor de video y los componentes de la lista de reproducción para su reproducción en cualquier página de AEM.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Scheduled_Activation">Activación programada</h2>
+    <p>Los videos pueden utilizar la funcionalidad AEM lista para usar para programar la activación para una fecha y hora futuras. Esto activará la replicación solo en el momento especificado en el cuadro de diálogo.</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/adobe/scheduled-activation.png" alt="Activación programada"/>
+      <figcaption class="bcls-caption--image">Activación programada</figcaption>
+    </figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Playlist_Creation">Creación de listas de reproducción</h2>
+    <p>Ahora se pueden crear listas de reproducción dentro del entorno de AEM seleccionando uno o más videos y haciendo clic en <strong>Crear lista de reproducción</strong> .</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/adobe/create-playlists.png" alt="Crear lista de reproducción"/>
+      <figcaption class="bcls-caption--image">Crear lista de reproducción</figcaption>
+    </figure>
+    <p>Las listas de reproducción siempre han sido editables (capacidad para agregar, ordenar y eliminar videos) y esa funcionalidad no ha cambiado.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Multilingual_Metadata">Metadatos multilingües</h2>
+    <p>Los metadatos multilingües, o variantes de metadatos, ahora están visibles en la consola de administración cuando selecciona un video de los resultados de búsqueda. Cada enlace de variante desencadena un cuadro de diálogo modal que muestra todos los valores de metadatos, así como los campos personalizados que se han traducido.</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/adobe/variant-sync.png" alt="Sincronización de variantes multilingües"/>
+      <figcaption class="bcls-caption--image">Sincronización de variantes multilingües</figcaption>
+    </figure>
+    <h3>Notas</h3>
+    <ol>
+      <li>Actualmente no es posible editar estos metadatos dentro de AEM, pero está en nuestra hoja de ruta.</li>
+    </ol>
+  </section>
 </article>
 
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
+<!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
+  
+  <nav class="right-side-nav" id="right_side_nav">
+    <h6 class="toc">Contenido de la página</h6>
+    <ul id="in_page_nav" class="list-none"></ul>
+  </nav>
+  
+<!-- </div> -->
+</div>
+</div>
+</div>
+<div class="page-content" style="background-color: rgb(1, 5, 14);">
+  <div class="container" style="width: 50%;">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Soporte de Brightcove</h5>
+          <ul class="list-unstyled text-small" style="color: white ;">
+            <li><a class="a-text" href="https://status.brightcove.com">Estado del sistema</a></li>
+            <li><a class="a-text" href="https://supportportal.brightcove.com">Contactar con el soporte</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/search.html">Buscar toda la documentación</a></li>
+          </ul>
+        </div>
       
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">Contenido de la página</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Capacitación</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/online-training-courses.html">Cursos online</a></li>
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/register-training.html">Regístrese para un curso</a></li>
+            <li><a class="a-text" href="https://academy.brightcove.com/">Academia Brightcove</a></li>
+          </ul>
+        </div>
       
-    </div>
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Brightcove</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://www.brightcove.com">Brightcove.com</a></li>
+            <li><a class="a-text" href="https://community.brightcove.com/s/">Foro de la comunidad de Bright Spot</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/product-updates.html">Notas de lanzamiento del producto</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/doc-updates.html">Actualizaciones de documentación</a></li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>© Brightcove Inc. Todos los derechos reservados.</p>
+      <a class="a-text" href="https://www.brightcove.com/en/legal/privacy">Privacidad</a> <a class="a-text" href="https://www.brightcove.com/en/terms-and-conditions">Términos y condiciones</a>
+
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" target="_blank" class="gf-social-linkedin" style="margin-right: 1rem;"><i data-feather="linkedin" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://twitter.com/brightcove" title="Gorjeo" target="_blank" class="gf-social-twitter" style="margin-right: 1rem;"><i data-feather="twitter" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://www.facebook.com/Brightcove" title="Facebook" target="_blank" class="gf-social-facebook"><i data-feather="facebook" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+      </ul>
+      </div>
+    </footer>
   </div>
 </div>
 
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
 
-        <h2>Asistencia técnica de Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            Estado del sistema<a href="https://status.brightcove.com"></a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Contactar soporte</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">Documentación</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>Formación</h2>
-
-        <ul class="menu">
-          <li>
-            Cursos en línea<a href="https://studio.support.brightcove.com/training/online-training-courses.html"></a>
-          </li>
-          <li>
-            Inscríbete a un curso<a href="https://studio.support.brightcove.com/training/register-training.html"></a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">Universidad de Brightcove</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">BrightCove.com</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Contáctanos</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
-            </td>
-            <td>Privacidad | Términos y Condiciones<a href="https://www.brightcove.com/en/legal/privacy"></a><a href="https://www.brightcove.com/en/terms-and-conditions"></a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-      
+<script translate="no">
   var searchBox = sajari.init({
     mode: "search-box",
     project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
+    collection: "brightcove-documentation", // Set this to your collection.
     instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
+    inputPlaceholder: "Search", // Input element placeholder,
+    styling: {
+      components: {
+        
+        input: {
+          container: {
+          backgroundColor: 'white',
+          }
+        
+        }
+      }
+    },
     maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+      attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
   });
-  
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
+
   
 
-</script>
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+    window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+  </script>
+  
+  <!-- Javascript -->          
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/popper.min.js"></script>
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+
+
+  <!-- Page Specific JS -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/smoothscroll.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script> -->
+  <!-- <script src="/assets/s-site-assets-template-stylesheets/js/highlight-custom.js"></script>  -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+  <script src="/assets/s-site-assets-template-stylesheets/js/docs.js"></script> 
+
+  <!-- original footer components -->
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+
+  <script src="/assets/s-site-assets-scripts/https-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/setDate.js"></script>
+  <script src="/assets/s-site-assets-scripts/selector.js"></script>
   
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  <script src="/assets/s-site-assets-scripts/prism.js"></script>
+  <script src="/assets/s-site-assets-scripts/prism-normalize.js"></script>
   
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/s-site-assets-scripts/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/learning-paths/learning-paths.js"></script>
+  <!-- <script src="/assets/s-site-assets-scripts/site.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/tabs.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/toc-new-template.js"></script>
+  
   <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/bcls-utils.js"></script>
+  <script src="/assets/s-site-assets-scripts/local-link-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/sajari-reindex.js"></script>
   <script src="/assets/js/feedback.js"></script>
   
-  <script src="/assets/js/sajari-search-foot.js"></script>
+  <script src="/assets/s-site-assets-scripts/sajari-search-foot.js"></script>
   
+  <script translate="no">
+    feather.replace()
+  </script>
   <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <style>
+  <script src="/assets/s-site-assets-scripts/in-app.js"></script>
+  <style translate="no">
     a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
       background-color: lightblue;
     }
@@ -838,6 +1183,5 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     }
     </style>
 
-</body>
-
-</html>
+  </body>
+</html> 
